@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ask Nanci · Product Vision 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ink: #0a1628;
+  --ink-soft: #101e36;
+  --paper: #f4efe6;
+  --paper-warm: #ede5d3;
+  --paper-mid: #e2d9c8;
+  --teal: #3fb5b5;
+  --gold: #c89b3c;
+  --rust: #b85c38;
+  --muted: #6b7a8f;
+  --line-dark: rgba(244,239,230,0.08);
+  --line-dark-strong: rgba(244,239,230,0.15);
+  --line-light: rgba(10,22,40,0.1);
+  --line-light-strong: rgba(10,22,40,0.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--ink);
+  color: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.025) 1px, transparent 0);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* NAV */
+.v3-cover-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 3;
+  padding: 40px 80px 0;
+}
+.v3-cover-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.v3-nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.7;
+  text-decoration: none;
+}
+.v3-nav-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* SIDE NAV */
+.v3-side-nav {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 14px;
+  background: rgba(10, 18, 26, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+}
+.v3-side-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+  transition: gap 0.25s;
+  padding: 4px 0;
+}
+.v3-side-nav:hover a { gap: 12px; }
+.v3-side-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(244,239,230,0.2);
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.v3-side-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0);
+  white-space: nowrap;
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width 0.3s, color 0.2s;
+}
+.v3-side-nav:hover .v3-side-label { max-width: 220px; color: rgba(244,239,230,0.45); }
+.v3-side-nav a:hover .v3-side-dot, .v3-side-nav a.v3-active .v3-side-dot { background: var(--teal); transform: scale(1.4); }
+.v3-side-nav a:hover .v3-side-label, .v3-side-nav a.v3-active .v3-side-label { color: var(--teal) !important; }
+
+@media (max-width: 1400px) {
+  .v3-side-nav { display: none; }
+}
+
+/* TYPOGRAPHY SHARED */
+.v3-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+}
+.v3-dark .v3-eyebrow { color: var(--gold); }
+.v3-light .v3-eyebrow { color: #7a5a18; }
+
+h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(38px, 4.5vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+.v3-dark h2 { color: var(--paper); }
+.v3-light h2 { color: var(--ink); }
+
+h2 em, .v3-dark h2 em { font-style: italic; color: var(--teal); }
+.v3-light h2 em { font-style: italic; color: #1a7a7a; }
+
+.v3-lead {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.v3-dark .v3-lead { color: rgba(244,239,230,0.95); }
+.v3-light .v3-lead { color: rgba(10,22,40,0.85); }
+
+.v3-body-copy {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-top: 14px;
+}
+.v3-dark .v3-body-copy { color: rgba(244,239,230,0.7); }
+.v3-light .v3-body-copy { color: rgba(10,22,40,0.65); }
+
+/* DARK SECTIONS */
+.v3-dark {
+  color: var(--paper);
+  position: relative;
+  z-index: 1;
+}
+.v3-light {
+  background: var(--paper);
+  color: var(--ink);
+  position: relative;
+  z-index: 1;
+}
+.v3-light-warm {
+  background: var(--paper-warm);
+  color: var(--ink);
+  position: relative;
+  z-index: 1;
+}
+
+/* SECTION WRAPPER */
+.v3-section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 88px 80px;
+}
+
+/* DARK-MODE COMPONENT OVERRIDES
+   For components originally styled for light sections that now live on dark */
+
+/* Tab illustration on dark */
+.v3-dark .v3-tab-item {
+  background: rgba(244,239,230,0.04);
+  border-color: var(--line-dark-strong);
+  box-shadow: none;
+}
+.v3-dark .v3-tab-title { color: var(--paper); }
+.v3-dark .v3-tab-detail { color: rgba(244,239,230,0.5); }
+.v3-dark .v3-tab-num {
+  color: var(--rust);
+  background: rgba(184,92,56,0.12);
+  border-color: rgba(184,92,56,0.3);
+}
+.v3-dark .v3-tab-verdict {
+  color: var(--rust);
+  background: rgba(184,92,56,0.08);
+  border-color: rgba(184,92,56,0.35);
+}
+
+/* Compare block on dark */
+.v3-dark .v3-compare-h { color: var(--paper); }
+.v3-dark .v3-compare-p { color: rgba(244,239,230,0.7); }
+.v3-dark .v3-compare-stat { color: rgba(244,239,230,0.5); border-top-color: var(--line-dark-strong); }
+.v3-dark .v3-compare-side.v3-after .v3-compare-label { color: var(--teal); }
+
+/* Queue problem grid on dark */
+.v3-dark .v3-queue-problems { background: var(--line-dark-strong); }
+.v3-dark .v3-queue-problem { background: var(--ink); }
+.v3-dark .v3-queue-problem h5 { color: var(--paper); }
+.v3-dark .v3-queue-problem p { color: rgba(244,239,230,0.6); }
+
+/* Panel diagram on dark — embed it as a dark "browser window" rather than white */
+.v3-dark .v3-panel-diagram {
+  background: rgba(244,239,230,0.03);
+  border-color: var(--line-dark-strong);
+  box-shadow: none;
+}
+.v3-dark .v3-panel-left {
+  border-right-color: var(--line-dark-strong);
+}
+.v3-dark .v3-panel-right {
+  background: rgba(63,181,181,0.06);
+}
+.v3-dark .v3-chat-msg { color: var(--paper); }
+.v3-dark .v3-chat-row.v3-user .v3-chat-role { color: var(--gold); }
+.v3-dark .v3-chat-row.v3-ai .v3-chat-role { color: var(--teal); }
+.v3-dark .v3-chat-tag { color: var(--teal); }
+.v3-dark .v3-panel-content {
+  background: rgba(63,181,181,0.05);
+  border-color: rgba(63,181,181,0.25);
+}
+.v3-dark .v3-panel-content-label { color: var(--teal); }
+.v3-dark .v3-panel-content-row {
+  color: rgba(244,239,230,0.85);
+  border-bottom-color: rgba(63,181,181,0.12);
+}
+
+/* Trailing copy under queues */
+.v3-dark #queues p[style*="rgba(10,22,40"] {
+  color: rgba(244,239,230,0.72) !important;
+}
+
+/* Inline tab-stack overline label */
+.v3-dark .v3-tab-stack + * { color: rgba(244,239,230,0.5); }
+
+/* Grammar grid on dark */
+.v3-dark .v3-grammar-grid { background: var(--line-dark-strong); }
+.v3-dark .v3-grammar-cell { background: var(--ink); }
+.v3-dark .v3-grammar-num { color: var(--teal); }
+.v3-dark .v3-grammar-cell h4 { color: var(--paper); }
+.v3-dark .v3-grammar-cell h4 em { color: var(--teal); }
+.v3-dark .v3-grammar-cell p { color: rgba(244,239,230,0.6); }
+
+/* ---- COVER ---- */
+#cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid var(--line-dark);
+  overflow: hidden;
+  position: relative;
+}
+#cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 65% 30%, rgba(63,181,181,0.13), transparent 55%),
+    radial-gradient(ellipse at 20% 75%, rgba(200,155,60,0.07), transparent 50%);
+  pointer-events: none;
+}
+.v3-cover-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 80px;
+}
+.v3-cover-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 24px;
+}
+.v3-cover-h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(60px, 9.5vw, 140px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin-bottom: 40px;
+  color: var(--paper);
+}
+.v3-cover-h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--teal);
+}
+.v3-cover-sub {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.5;
+  color: rgba(244,239,230,0.95);
+  margin-bottom: 60px;
+}
+.v3-cover-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line-dark-strong);
+  margin-bottom: 56px;
+}
+.v3-cover-stat {
+  background: var(--ink);
+  padding: 28px 32px;
+}
+.v3-stat-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.v3-stat-label {
+  font-size: 13px;
+  color: rgba(244,239,230,0.5);
+  line-height: 1.45;
+}
+.v3-cover-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 28px;
+  border-top: 1px solid var(--line-dark);
+}
+
+/* ---- SECTION 1: PROBLEM (LIGHT) ---- */
+.v3-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  margin-top: 40px;
+}
+
+/* Tab illustration */
+.v3-tab-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.v3-tab-item {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 18px;
+  border: 1px solid var(--line-light-strong);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 1px 4px rgba(10,22,40,0.06);
+}
+.v3-tab-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--rust);
+  background: rgba(184,92,56,0.08);
+  border: 1px solid rgba(184,92,56,0.2);
+  border-radius: 4px;
+  padding: 4px 6px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.v3-tab-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.v3-tab-detail {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+.v3-tab-verdict {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rust);
+  text-align: center;
+  padding: 10px;
+  border: 1px dashed rgba(184,92,56,0.3);
+  border-radius: 6px;
+  margin-top: 4px;
+  background: rgba(184,92,56,0.04);
+}
+
+/* Compare block */
+.v3-compare-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+.v3-compare-side {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.v3-compare-side.v3-before {
+  background: rgba(184,92,56,0.06);
+  border: 1px solid rgba(184,92,56,0.18);
+  border-radius: 8px;
+}
+.v3-compare-side.v3-after {
+  background: rgba(63,181,181,0.06);
+  border: 1px solid rgba(63,181,181,0.2);
+  border-radius: 8px;
+}
+.v3-compare-label {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(22px, 2.5vw, 34px);
+  letter-spacing: -0.02em;
+  display: block;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.v3-compare-side.v3-before .v3-compare-label { color: var(--rust); }
+.v3-compare-side.v3-after .v3-compare-label { color: #1a7a7a; }
+.v3-compare-h {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.v3-compare-p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(10,22,40,0.65);
+}
+.v3-compare-stat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  padding-top: 14px;
+  border-top: 1px solid var(--line-light);
+  margin-top: auto;
+}
+.v3-section-border-top {
+  border-top: 1px solid var(--line-light);
+}
+.v3-dark .v3-section-border-top { border-top: 1px solid var(--line-dark); }
+
+/* ---- SECTION 2: THESIS (DARK) ---- */
+.v3-thesis {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(30px, 4vw, 56px);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  max-width: 900px;
+  padding: 32px 0;
+}
+.v3-thesis em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--teal);
+}
+.v3-thesis .v3-strike {
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--rust);
+  opacity: 0.45;
+}
+
+/* ---- SECTION 3: INTENT + PANELS (LIGHT) ---- */
+.v3-panel-diagram {
+  margin-top: 40px;
+  border: 1px solid var(--line-light-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 2px 12px rgba(10,22,40,0.08);
+}
+.v3-panel-diagram-header {
+  padding: 10px 18px;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.v3-panel-dot { width: 8px; height: 8px; border-radius: 50%; }
+.v3-pd-red { background: #ff5f56; }
+.v3-pd-yellow { background: #ffbd2e; }
+.v3-pd-green { background: #27c93f; }
+.v3-panel-diagram-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 260px;
+}
+.v3-panel-left {
+  padding: 20px;
+  border-right: 1px solid var(--line-light);
+}
+.v3-panel-right {
+  padding: 20px;
+  background: rgba(63,181,181,0.04);
+}
+.v3-panel-pane-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.v3-chat-row { margin-bottom: 14px; }
+.v3-chat-row:last-child { margin-bottom: 0; }
+.v3-chat-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.v3-chat-row.v3-user .v3-chat-role { color: #a07020; }
+.v3-chat-row.v3-ai .v3-chat-role { color: #1a7a7a; }
+.v3-chat-msg { font-size: 13px; line-height: 1.6; color: var(--ink); }
+.v3-chat-tag { color: #1a7a7a; font-style: italic; font-size: 11px; }
+.v3-panel-content {
+  background: rgba(63,181,181,0.07);
+  border: 1px solid rgba(63,181,181,0.2);
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+.v3-panel-content-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1a7a7a;
+  margin-bottom: 8px;
+}
+.v3-panel-content-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--ink);
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(63,181,181,0.1);
+}
+.v3-panel-content-row:last-child { border-bottom: none; }
+.v3-panel-content-val { font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+.v3-panel-content-val.v3-high { color: var(--rust); }
+
+/* Grammar grid */
+.v3-grammar-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--line-light-strong);
+  margin-top: 40px;
+}
+.v3-grammar-cell {
+  background: var(--paper);
+  padding: 28px 22px;
+}
+.v3-grammar-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 28px;
+  color: var(--teal);
+  line-height: 1;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+.v3-grammar-cell h4 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.v3-grammar-cell h4 em { font-style: italic; color: #1a7a7a; }
+.v3-grammar-cell p { font-size: 13px; line-height: 1.6; color: rgba(10,22,40,0.58); }
+
+/* ---- SECTION 4: COMPLEXITY LEVELS (DARK) ---- */
+.v3-levels-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 40px 0;
+}
+.v3-level-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 0;
+  min-height: 80px;
+}
+.v3-level-num {
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(244,239,230,0.04);
+  border: 1px solid var(--line-dark-strong);
+}
+.v3-level-content {
+  padding: 24px 28px;
+  border: 1px solid var(--line-dark-strong);
+  border-left: none;
+}
+.v3-level-row.v3-compound .v3-level-content { background: rgba(63,181,181,0.05); }
+.v3-level-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+  color: var(--paper);
+}
+.v3-level-title em { font-style: italic; color: var(--teal); }
+.v3-level-desc { font-size: 14px; line-height: 1.6; color: rgba(244,239,230,0.6); }
+.v3-level-example-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.v3-three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line-dark-strong);
+  margin-top: 40px;
+}
+.v3-persona-card {
+  background: var(--ink);
+  padding: 32px 28px;
+  border-top: 2px solid transparent;
+}
+.v3-persona-card.v3-simple { border-top-color: rgba(244,239,230,0.2); }
+.v3-persona-card.v3-structured { border-top-color: var(--gold); }
+.v3-persona-card.v3-compound { border-top-color: var(--teal); }
+.v3-persona-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.v3-persona-card h4 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: var(--paper);
+}
+.v3-persona-card h4 em { font-style: italic; color: var(--teal); }
+.v3-persona-card p { font-size: 14px; line-height: 1.65; color: rgba(244,239,230,0.6); margin-bottom: 10px; }
+.v3-persona-card .v3-example-q {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(244,239,230,0.45);
+  border-top: 1px solid var(--line-dark);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+/* Chat demos - dark */
+.v3-chat-demo-dark {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line-dark-strong);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-top: 28px;
+}
+.v3-chat-demo-dark .v3-chat-role { margin-bottom: 5px; }
+.v3-chat-demo-dark .v3-chat-row { margin-bottom: 16px; }
+.v3-chat-demo-dark .v3-chat-row:last-child { margin-bottom: 0; }
+.v3-chat-demo-dark .v3-chat-row.v3-user .v3-chat-role { color: var(--gold); }
+.v3-chat-demo-dark .v3-chat-row.v3-ai .v3-chat-role { color: var(--teal); }
+.v3-chat-demo-dark .v3-chat-msg { font-size: 14px; line-height: 1.65; color: rgba(244,239,230,0.88); }
+.v3-chat-demo-dark .v3-chat-tag { color: var(--teal); font-style: italic; font-size: 12px; }
+
+/* ---- SECTION 5: QUEUES (LIGHT) ---- */
+.v3-queue-problems {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--line-dark-strong);
+  margin-top: 40px;
+  margin-bottom: 48px;
+}
+.v3-queue-problem {
+  background: var(--ink);
+  padding: 28px 22px;
+}
+.v3-queue-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 28px;
+  color: var(--teal);
+  line-height: 1;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+.v3-queue-problem h5 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.v3-queue-problem p { font-size: 13px; line-height: 1.6; color: rgba(10,22,40,0.58); }
+
+/* Queue flow */
+.v3-queue-flow {
+  background: white;
+  border: 1px solid var(--line-light-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(10,22,40,0.07);
+}
+.v3-queue-flow-header {
+  padding: 14px 24px;
+  background: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.v3-queue-flow-header-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.v3-queue-flow-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.v3-queue-left { padding: 24px; border-right: 1px solid var(--line-light); }
+.v3-queue-right { padding: 24px; }
+.v3-queue-section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.v3-queue-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-light);
+  align-items: flex-start;
+}
+.v3-queue-item:last-child { border-bottom: none; }
+.v3-queue-item-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.v3-qi-red { background: var(--rust); }
+.v3-qi-gold { background: var(--gold); }
+.v3-qi-muted { background: var(--muted); opacity: 0.5; }
+.v3-queue-item-name { font-size: 13px; font-weight: 500; color: var(--ink); }
+.v3-queue-item-detail { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.v3-nanci-response-box {
+  background: rgba(63,181,181,0.06);
+  border: 1px solid rgba(63,181,181,0.2);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+.v3-nanci-response-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1a7a7a;
+  margin-bottom: 8px;
+}
+.v3-nanci-response-text { font-size: 13px; line-height: 1.6; color: var(--ink); }
+.v3-nanci-response-text em { font-style: italic; color: #1a7a7a; }
+
+/* ---- SECTION 6: PROACTIVE INTEL (DARK) ---- */
+.v3-risk-chart-wrap {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--line-dark-strong);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-top: 16px;
+}
+.v3-risk-chart-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.v3-risk-score-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(184,92,56,0.2);
+  color: #e8805a;
+  letter-spacing: 0.08em;
+}
+.v3-risk-bar-track {
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+.v3-risk-bar {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  min-height: 8px;
+  position: relative;
+  transition: height 0.3s;
+}
+.v3-risk-chart-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+}
+.v3-inflection-marker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--rust);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.v3-inflection-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); flex-shrink: 0; }
+
+/* ---- SECTION 7: TITAN (LIGHT WARM) ---- */
+.v3-titan-diagram {
+  background: #0d1f3c;
+  border: 1px solid rgba(63,181,181,0.2);
+  border-radius: 14px;
+  padding: 36px;
+  margin-top: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.v3-titan-diagram::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(63,181,181,0.09), transparent 55%);
+  pointer-events: none;
+}
+.v3-titan-bg-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.4);
+  margin-bottom: 18px;
+  display: block;
+}
+.v3-titan-modules {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 0;
+}
+.v3-titan-module {
+  background: #152843;
+  border: 1px solid rgba(244,239,230,0.14);
+  border-radius: 10px;
+  padding: 24px 16px;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+.v3-titan-module:hover {
+  background: #1a3050;
+  border-color: rgba(63,181,181,0.4);
+}
+.v3-titan-module-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.75);
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.v3-titan-module-icon {
+  font-size: 22px;
+  margin-bottom: 0px;
+  display: block;
+  opacity: 0.9;
+  filter: saturate(1.3);
+}
+.v3-titan-module-desc { font-size: 11px; color: rgba(244,239,230,0.42); line-height: 1.4; margin-top: 4px; }
+
+.v3-titan-connector-lines {
+  margin: 18px 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 50px;
+  position: relative;
+}
+.v3-titan-connector-lines::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  right: 80px;
+  height: 1px;
+  background: rgba(63,181,181,0.25);
+}
+.v3-connector-line {
+  width: 1px;
+  height: 22px;
+  background: rgba(63,181,181,0.55);
+}
+
+.v3-titan-nanci-layer {
+  background: rgba(63,181,181,0.12);
+  border: 1.5px solid rgba(63,181,181,0.55);
+  border-radius: 10px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+.v3-titan-nanci-layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: radial-gradient(ellipse at 20% 50%, rgba(63,181,181,0.1), transparent 65%);
+  pointer-events: none;
+}
+.v3-titan-nanci-pulse {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+  animation: tn-pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 0 4px rgba(63,181,181,0.25);
+}
+@keyframes tn-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.85)} }
+.v3-titan-nanci-text h4 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: #f4efe6;
+  margin-bottom: 5px;
+}
+.v3-titan-nanci-text h4 em { font-style: italic; color: var(--teal); }
+.v3-titan-nanci-text p { font-size: 14px; color: rgba(244,239,230,0.7); line-height: 1.6; }
+
+/* ---- SECTION 8: OUTCOMES (DARK + CONTAINED GRADIENT) ---- */
+section#outcomes.v3-dark {
+  background: var(--ink);
+  position: relative;
+  overflow: visible;
+}
+section#outcomes.v3-dark .v3-section-inner {
+  position: relative;
+  background: linear-gradient(135deg, var(--ink-soft) 0%, var(--ink) 100%);
+  border-radius: 12px;
+  padding: 88px 80px;
+  overflow: hidden;
+  margin-top: 88px;
+  margin-bottom: 88px;
+}
+section#outcomes.v3-dark .v3-section-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(63, 181, 181, 0.14), transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(200, 155, 60, 0.09), transparent 45%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 12px;
+}
+section#outcomes.v3-dark .v3-section-inner > * {
+  position: relative;
+  z-index: 2;
+}
+.v3-outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line-dark-strong);
+  margin-top: 56px;
+  margin-bottom: 80px;
+}
+.v3-outcome-cell {
+  background: var(--ink);
+  padding: 44px 32px;
+  display: flex;
+  flex-direction: column;
+}
+.v3-outcome-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--teal);
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+.v3-outcome-cell h5 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+  color: var(--paper);
+}
+.v3-outcome-cell h5 em { font-style: italic; color: var(--teal); }
+.v3-outcome-cell p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(244,239,230,0.62);
+  flex: 1;
+}
+.v3-outcome-metric {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-dark-strong);
+}
+
+/* Closing narrative — the document's final beat */
+.v3-closing-block {
+  padding-top: 72px;
+  border-top: 1px solid var(--line-dark-strong);
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.v3-closing-narrative {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(20px, 1.8vw, 26px);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: rgba(244,239,230,0.82);
+  margin: 0;
+}
+.v3-closing-finale {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(32px, 3.4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--paper);
+  margin: 32px 0 0;
+}
+.v3-closing-finale em {
+  font-style: italic;
+  color: var(--teal);
+  font-weight: 400;
+}
+
+/* FOOTER */
+.v3-footer {
+  background: var(--ink);
+  border-top: 1px solid var(--line-dark);
+  position: relative;
+  z-index: 1;
+}
+.v3-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 36px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.v3-footer-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .v3-side-nav { display: none; }
+  .v3-nav { padding: 16px 32px; }
+  .v3-cover-inner, .v3-section-inner { padding-left: 32px; padding-right: 32px; }
+  .v3-footer-inner { padding-left: 32px; padding-right: 32px; }
+  .v3-two-col, .v3-queue-flow-body { grid-template-columns: 1fr; }
+  .v3-grammar-grid { grid-template-columns: repeat(3, 1fr); }
+  .v3-three-col, .v3-outcomes-grid { grid-template-columns: 1fr; }
+  .v3-queue-problems { grid-template-columns: repeat(3, 1fr); }
+  .v3-compare-wrap { grid-template-columns: 1fr; }
+  .v3-compare-side.v3-before { border-radius: 8px; }
+  .v3-compare-side.v3-after { border-radius: 8px; }
+  .v3-titan-modules { grid-template-columns: repeat(2, 1fr); }
+  .v3-cover-stats { grid-template-columns: 1fr; }
+  .v3-panel-diagram-body { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- SIDE NAV -->
+<nav class="v3-side-nav">
+  <a href="#cover"><span class="v3-side-dot"></span><span class="v3-side-label">Product Vision 2026</span></a>
+  <a href="#problem"><span class="v3-side-dot"></span><span class="v3-side-label">01 · The Problem</span></a>
+  <a href="#shift"><span class="v3-side-dot"></span><span class="v3-side-label">02 · The Shift</span></a>
+  <a href="#panels"><span class="v3-side-dot"></span><span class="v3-side-label">03 · Intent + Work</span></a>
+  <a href="#levels"><span class="v3-side-dot"></span><span class="v3-side-label">04 · Complexity Levels</span></a>
+  <a href="#queues"><span class="v3-side-dot"></span><span class="v3-side-label">05 · Work Queues</span></a>
+  <a href="#demo"><span class="v3-side-dot"></span><span class="v3-side-label">06 · Live Demo</span></a>
+  <a href="#intel"><span class="v3-side-dot"></span><span class="v3-side-label">07 · Proactive Intel</span></a>
+  <a href="#titan"><span class="v3-side-dot"></span><span class="v3-side-label">08 · Titan Platform</span></a>
+  <a href="#outcomes"><span class="v3-side-dot"></span><span class="v3-side-label">09 · What Becomes Possible</span></a>
+</nav>
+
+<!-- ============================================================ -->
+<!-- COVER — DARK -->
+<!-- ============================================================ -->
+<section id="cover" class="v3-dark">
+  <div class="v3-cover-header">
+    <div class="v3-cover-header-inner">
+      <a href="#cover" class="v3-nav-logo">Ask Nanci · Titan Platform</a>
+      <span class="v3-nav-tag">Aperia Product Vision 2026</span>
+    </div>
+  </div>
+  <div class="v3-cover-inner">
+    <span class="v3-cover-eyebrow">Rethinking how payments software works</span>
+    <h1 class="v3-cover-h1">The way payments<br/>software works<br/><em>is changing.</em></h1>
+    <p class="v3-cover-sub">Not eventually. Ask Nanci is live. Here is what we built and why it matters for every operation running on our platform.</p>
+    <div class="v3-cover-stats">
+      <div class="v3-cover-stat">
+        <div class="v3-stat-num">8s</div>
+        <div class="v3-stat-label">To complete a task that used to take 90 seconds</div>
+      </div>
+      <div class="v3-cover-stat">
+        <div class="v3-stat-num">0</div>
+        <div class="v3-stat-label">Screens navigated. Just one sentence.</div>
+      </div>
+      <div class="v3-cover-stat">
+        <div class="v3-stat-num">Every</div>
+        <div class="v3-stat-label">Surface in the platform gets smarter. All at once.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 1: THE PROBLEM — LIGHT -->
+<!-- ============================================================ -->
+<section id="problem" class="v3-dark" style="border-top:1px solid var(--line-dark);">
+  <div class="v3-section-inner">
+    <span class="v3-eyebrow v3-dark">The honest truth</span>
+    <div class="v3-two-col">
+      <div>
+        <h2>Managing a merchant portfolio has never been <em>more complex.</em></h2>
+        <p class="v3-lead">Stitching together information from five different sources to make one decision is not a sustainable workflow. It is a ceiling on how fast your operation can move and how confidently it can grow.</p>
+        <p class="v3-body-copy">A flagged merchant means five tabs before you even know what you are looking at. Risk in one place, case notes in another, transaction history somewhere else. Your analysts are good at their jobs. They are just spending too much time on the wrong part of it.</p>
+        <p class="v3-body-copy">Most operations have accepted this as the cost of running a complex portfolio. It is not. It is a solvable problem, and the solution is not more screens.</p>
+      </div>
+      <div>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">Investigating one flagged merchant today</p>
+        <div class="v3-tab-stack">
+          <div class="v3-tab-item">
+            <span class="v3-tab-num">Tab 1</span>
+            <span class="v3-tab-title">Risk platform</span>
+            <span class="v3-tab-detail">Score: 84 · High</span>
+          </div>
+          <div class="v3-tab-item">
+            <span class="v3-tab-num">Tab 2</span>
+            <span class="v3-tab-title">Case management</span>
+            <span class="v3-tab-detail">No open cases</span>
+          </div>
+          <div class="v3-tab-item">
+            <span class="v3-tab-num">Tab 3</span>
+            <span class="v3-tab-title">Merchant profile</span>
+            <span class="v3-tab-detail">Last reviewed: 47 days ago</span>
+          </div>
+          <div class="v3-tab-item">
+            <span class="v3-tab-num">Tab 4</span>
+            <span class="v3-tab-title">Transaction data</span>
+            <span class="v3-tab-detail">Export to spreadsheet</span>
+          </div>
+          <div class="v3-tab-item">
+            <span class="v3-tab-num">Tab 5</span>
+            <span class="v3-tab-title">Compliance docs</span>
+            <span class="v3-tab-detail">PDF filing cabinet. Somewhere.</span>
+          </div>
+          <div class="v3-tab-verdict">5 tabs · assembled by hand · every single time</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compare: Old Way vs Ask Nanci — Kevin asked this to be prominent -->
+    <div style="margin-top:56px;">
+      <h2 style="font-size:clamp(28px,3vw,44px);">The same task.<em> Two very different worlds.</em></h2>
+      <p class="v3-body-copy" style="margin-bottom:32px;">One sentence. That is the only difference between 90 seconds of clicking and 8 seconds of done. This is not an incremental improvement. It is a different way of working entirely.</p>
+      <div class="v3-compare-wrap">
+        <div class="v3-compare-side v3-before">
+          <span class="v3-compare-label">The old way</span>
+          <div class="v3-compare-h" style="font-size:clamp(28px,3.5vw,52px);line-height:1.05;margin-bottom:20px;">Five clicks.<br/>Three screens.</div>
+          <p class="v3-compare-p" style="font-size:16px;line-height:1.7;">Navigate, find, edit, save, confirm. On some platforms, the user cannot even do this themselves and has to call support.</p>
+          <div class="v3-compare-stat" style="font-size:12px;margin-top:24px;padding-top:18px;">~90 seconds · or 1 phone call</div>
+        </div>
+        <div class="v3-compare-side v3-after">
+          <span class="v3-compare-label">Ask Nanci</span>
+          <div class="v3-compare-h" style="font-size:clamp(28px,3.5vw,52px);line-height:1.05;margin-bottom:20px;">One sentence.<br/>Done.</div>
+          <p class="v3-compare-p" style="font-size:16px;line-height:1.7;">Update Oak Street Coffee's phone to 214-555-0142. Confirmed, executed, logged. No navigation. No support ticket.</p>
+          <div class="v3-compare-stat" style="font-size:12px;margin-top:24px;padding-top:18px;">~8 seconds · zero navigation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: THE SHIFT — DARK -->
+<!-- ============================================================ -->
+<section id="shift" class="v3-dark" style="border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);">
+  <div class="v3-section-inner">
+    <span class="v3-eyebrow v3-dark">The shift</span>
+    <div class="v3-thesis">
+      It is not <span class="v3-strike">a smarter UI.</span><br/>
+      It is <em>intent replacing navigation.</em><br/><br/>
+      You say what you need.<br/>
+      The right surface appears.<br/><br/>
+      <em>Ask Nanci is the connective tissue. Not the replacement.</em>
+    </div>
+    <div style="padding-top:32px;border-top:1px solid var(--line-dark);margin-top:8px;">
+      <p class="v3-lead">Every workflow your team runs today still exists. The queues, the panels, the case management, the risk tools. Ask Nanci does not replace any of it. It removes the navigation tax on top of all of it. Your team keeps doing the work they're good at. They just stop spending half their day getting to it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: INTENT + PANELS — LIGHT WARM -->
+<!-- ============================================================ -->
+<section id="panels" class="v3-dark" style="border-top:1px solid var(--line-dark);">
+  <div class="v3-section-inner">
+    <span class="v3-eyebrow v3-dark">Intent + work</span>
+    <h2>Ask Nanci carries <em>intent.</em><br/>Panels are where the <em>work happens.</em></h2>
+    <p class="v3-lead">Ask Nanci is not a chatbot. It is the layer that connects everything your team already uses and routes every request to the right surface automatically.</p>
+
+    <!-- Panel opening diagram -->
+    <div class="v3-panel-diagram">
+      <div class="v3-panel-diagram-header">
+        <span class="v3-panel-dot v3-pd-red"></span>
+        <span class="v3-panel-dot v3-pd-yellow"></span>
+        <span class="v3-panel-dot v3-pd-green"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:rgba(244,239,230,0.5);margin-left:10px;">titan.aperia.com / merchant-ops</span>
+      </div>
+      <div class="v3-panel-diagram-body">
+        <div class="v3-panel-left">
+          <div class="v3-panel-pane-label">Ask Nanci · conversation thread</div>
+          <div class="v3-chat-row v3-user">
+            <div class="v3-chat-role">User</div>
+            <div class="v3-chat-msg">Pull up the risk profile for Bayside Imports</div>
+          </div>
+          <div class="v3-chat-row v3-ai">
+            <div class="v3-chat-role">Ask Nanci</div>
+            <div class="v3-chat-msg"><span class="v3-chat-tag">[merchant risk panel opens →]</span> Bayside Imports. Risk score: 84. Classification: High. Multiplier: 3.2x. No open cases. Last reviewed 47 days ago.</div>
+          </div>
+          <div class="v3-chat-row v3-user">
+            <div class="v3-chat-role">User</div>
+            <div class="v3-chat-msg">Open a risk case</div>
+          </div>
+          <div class="v3-chat-row v3-ai">
+            <div class="v3-chat-role">Ask Nanci</div>
+            <div class="v3-chat-msg"><span class="v3-chat-tag">[CMS case panel opens →]</span> Case #RC-2241 created. Pre-filled with merchant ID, classification, and current score. What is the reason for opening?</div>
+          </div>
+        </div>
+        <div class="v3-panel-right">
+          <div class="v3-panel-pane-label">Panel · where the work happens</div>
+          <div class="v3-panel-content">
+            <div class="v3-panel-content-label">Merchant risk panel</div>
+            <div class="v3-panel-content-row"><span>Bayside Imports</span><span class="v3-panel-content-val v3-high">Risk: High</span></div>
+            <div class="v3-panel-content-row"><span>Risk score</span><span class="v3-panel-content-val">84 / 100</span></div>
+            <div class="v3-panel-content-row"><span>Multiplier</span><span class="v3-panel-content-val">3.2x</span></div>
+            <div class="v3-panel-content-row"><span>Last reviewed</span><span class="v3-panel-content-val">47 days ago</span></div>
+            <div class="v3-panel-content-row"><span>Open cases</span><span class="v3-panel-content-val">0</span></div>
+          </div>
+          <div class="v3-panel-content">
+            <div class="v3-panel-content-label">CMS · case #RC-2241 · pre-filled</div>
+            <div class="v3-panel-content-row"><span>Merchant ID</span><span class="v3-panel-content-val">BIM-4821</span></div>
+            <div class="v3-panel-content-row"><span>Classification</span><span class="v3-panel-content-val v3-high">High</span></div>
+            <div class="v3-panel-content-row"><span>Status</span><span class="v3-panel-content-val">Awaiting reason</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grammar grid -->
+    <p class="v3-lead" style="margin-top:48px;margin-bottom:8px;">Five ways Ask Nanci responds.</p>
+    <p class="v3-body-copy" style="margin-top:0;margin-bottom:0;">The interaction pattern that surfaces depends on what you asked for.</p>
+    <div class="v3-grammar-grid">
+      <div class="v3-grammar-cell">
+        <div class="v3-grammar-num">01</div>
+        <h4>Responds <em>inline</em></h4>
+        <p>Short answers, confirmations, errors, clarifying questions.</p>
+      </div>
+      <div class="v3-grammar-cell">
+        <div class="v3-grammar-num">02</div>
+        <h4>Opens <em>a panel</em></h4>
+        <p>Explains in the thread and brings up the right surface alongside.</p>
+      </div>
+      <div class="v3-grammar-cell">
+        <div class="v3-grammar-num">03</div>
+        <h4>User drives, <em>Nanci updates</em></h4>
+        <p>User works the panel directly. Ask Nanci modifies without narration.</p>
+      </div>
+      <div class="v3-grammar-cell">
+        <div class="v3-grammar-num">04</div>
+        <h4>Pre-fills <em>a form</em></h4>
+        <p>Assembles what it already knows. The user reviews and submits.</p>
+      </div>
+      <div class="v3-grammar-cell">
+        <div class="v3-grammar-num">05</div>
+        <h4>Surfaces <em>a view</em></h4>
+        <p>A purpose-built panel loads, scoped to the user's intent. Shareable, exportable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 4: COMPLEXITY LEVELS — DARK -->
+<!-- ============================================================ -->
+<section id="levels" class="v3-dark" style="border-top:1px solid var(--line-dark);">
+  <div class="v3-section-inner">
+    <span class="v3-eyebrow v3-dark">What drives the surface</span>
+    <h2>The system figures out<br/>what to open. <em>You just work.</em></h2>
+    <p class="v3-lead">No more deciding which screen to go to. No more assembling context by hand. Ask Nanci reads your intent and opens exactly what you need: a quick answer in the thread, one panel, or a full investigation across multiple surfaces. The level of complexity is automatic. The experience is always the same: fast.</p>
+
+    <!-- Tier diagram -->
+    <div class="v3-levels-diagram">
+      <div class="v3-level-row">
+        <div class="v3-level-num">Level 01<br/>Simple</div>
+        <div class="v3-level-content">
+          <div class="v3-level-title">Stays in <em>Ask Nanci</em></div>
+          <div class="v3-level-desc">Single-value updates, factual lookups, status checks. The answer fits in a sentence. One action, zero navigation.</div>
+          <div class="v3-level-example-label">"Update my phone number." · "What's my MTD volume?"</div>
+        </div>
+      </div>
+      <div class="v3-level-row">
+        <div class="v3-level-num">Level 02<br/>Structured</div>
+        <div class="v3-level-content">
+          <div class="v3-level-title">Ask Nanci + <em>one panel</em></div>
+          <div class="v3-level-desc">Multi-field forms, data tables, single-case work, generated reports. Too much for the thread, too contained for multiple surfaces.</div>
+          <div class="v3-level-example-label">"Onboard a new location." · "Show me Q1 volume by merchant."</div>
+        </div>
+      </div>
+      <div class="v3-level-row v3-compound">
+        <div class="v3-level-num">Level 03<br/>Compound</div>
+        <div class="v3-level-content">
+          <div class="v3-level-title">Ask Nanci + <em>parallel panels</em></div>
+          <div class="v3-level-desc">Investigative work, bulk actions, side-by-side comparison, multi-step coordination. Ask Nanci holds context across all of it so you don't have to.</div>
+          <div class="v3-level-example-label">"Investigate this account for fraud." · "Draft outreach to all at-risk accounts."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="v3-three-col" style="margin-top:8px;">
+      <div class="v3-persona-card v3-simple">
+        <div class="v3-persona-label">Level 01 · Simple</div>
+        <h4>Stays in Ask Nanci</h4>
+        <p>One sentence. One confirmation. No navigation, no panel required.</p>
+        <div class="v3-chat-demo-dark">
+          <div class="v3-chat-row v3-user">
+            <div class="v3-chat-role">User</div>
+            <div class="v3-chat-msg">Update business phone to 214-555-0142</div>
+          </div>
+          <div class="v3-chat-row v3-ai">
+            <div class="v3-chat-role">Ask Nanci</div>
+            <div class="v3-chat-msg">Updating <em style="color:var(--gold)">Oak Street Coffee</em> from (214) 555-0099 to (214) 555-0142. Confirm?</div>
+          </div>
+          <div class="v3-chat-row v3-user">
+            <div class="v3-chat-role">User</div>
+            <div class="v3-chat-msg">Yes</div>
+          </div>
+          <div class="v3-chat-row v3-ai">
+            <div class="v3-chat-role">Ask Nanci</div>
+            <div class="v3-chat-msg">Done. Updated 2:14pm. <span class="v3-chat-tag">[view change log]</span></div>
+          </div>
+        </div>
+        <p class="v3-example-q">~8 seconds · zero navigation</p>
+      </div>
+      <div class="v3-persona-card v3-structured">
+        <div class="v3-persona-label">Level 02 · Structured</div>
+        <h4>Ask Nanci + <em>one panel</em></h4>
+        <p>Multi-field forms, data tables, single-case work, generated reports. Too much for the thread, too contained for multiple surfaces. Ask Nanci opens one panel and works inside it.</p>
+        <p class="v3-example-q" style="margin-top:20px;">"Onboard a new location." · "Show me Q1 volume by merchant."</p>
+      </div>
+      <div class="v3-persona-card v3-compound">
+        <div class="v3-persona-label">Level 03 · Compound</div>
+        <h4>Ask Nanci + <em>parallel panels</em></h4>
+        <p>Full investigation. Ask Nanci holds context across all surfaces.</p>
+        <div class="v3-chat-demo-dark">
+          <div class="v3-chat-row v3-ai">
+            <div class="v3-chat-role">Ask Nanci · On Login</div>
+            <div class="v3-chat-msg">3 new alerts. Coastal Merchant Solutions triggered 4 rules in 24 hours. <span class="v3-chat-tag">[open queue]</span></div>
+          </div>
+          <div class="v3-chat-row v3-user">
+            <div class="v3-chat-role">User</div>
+            <div class="v3-chat-msg">Show me their risk report for the last 60 days</div>
+          </div>
+          <div class="v3-chat-row v3-ai">
+            <div class="v3-chat-role">Ask Nanci</div>
+            <div class="v3-chat-msg"><span class="v3-chat-tag">[risk report panel opens]</span> Score climbed from 54 to 91 over 60 days. Inflection point: 23 days ago, same week as an address change.</div>
+          </div>
+        </div>
+        <p class="v3-example-q">Parallel panels · full investigation context</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 5: WORK QUEUES — LIGHT -->
+<!-- ============================================================ -->
+<section id="queues" class="v3-dark" style="border-top:1px solid var(--line-dark);">
+  <div class="v3-section-inner">
+    <span class="v3-eyebrow v3-dark">The operational backbone</span>
+    <h2>Work queues are where the old model<br/>is most entrenched. <em>And where this proves itself.</em></h2>
+    <p class="v3-lead">Risk queues. Case queues. Exception lists. Alert inboxes. This is where operational work lives. Ask Nanci doesn't replace the queues. It changes what it feels like to work one.</p>
+
+    <div class="v3-queue-problems">
+      <div class="v3-queue-problem">
+        <div class="v3-queue-num">01</div>
+        <h5>Prioritization is manual</h5>
+        <p>The user scans and decides what to work next every single time. That judgment should come from the system.</p>
+      </div>
+      <div class="v3-queue-problem">
+        <div class="v3-queue-num">02</div>
+        <h5>Context is fragmented</h5>
+        <p>Working one case means opening five tabs and assembling context by hand. Ask Nanci brings it all to you.</p>
+      </div>
+      <div class="v3-queue-problem">
+        <div class="v3-queue-num">03</div>
+        <h5>Patterns are invisible</h5>
+        <p>Twelve cases caused by the same issue look like twelve unrelated tickets. Ask Nanci sees the connection.</p>
+      </div>
+      <div class="v3-queue-problem">
+        <div class="v3-queue-num">04</div>
+        <h5>Handoffs are clunky</h5>
+        <p>Escalating means leaving the queue, writing a note somewhere else, and hoping someone sees it in time.</p>
+      </div>
+      <div class="v3-queue-problem">
+        <div class="v3-queue-num">05</div>
+        <h5>The queue is passive</h5>
+        <p>It shows what's there. It doesn't tell you what's important, what's related, or what to do next. Ask Nanci does.</p>
+      </div>
+    </div>
+
+    <p style="font-family:'Fraunces',serif;font-size:clamp(18px,1.8vw,22px);line-height:1.5;color:rgba(244,239,230,0.72);max-width:680px;margin-top:40px;">The Detection Queue is the clearest example of what this model changes. See it running live in the next section.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 6: PROACTIVE INTEL — DARK -->
+<!-- ============================================================ -->
+<!-- ============================================================ -->
+<!-- SECTION: LIVE DEMO — DARK -->
+<!-- ============================================================ -->
+<section id="demo" class="v3-dark" style="border-top:1px solid var(--line-dark);">
+  <div class="v3-section-inner">
+    <span class="v3-eyebrow v3-dark">See it live</span>
+    <h2>Ask Nanci in action.<br/><em>Right now.</em></h2>
+    <p class="v3-lead">This is the actual product. Not a mockup. Not a prototype. The live Detection Queue, wrapped by Ask Nanci, exactly as your team would use it.</p>
+    <div style="margin-top:40px;border:1px solid var(--line-dark-strong);border-radius:12px;overflow:hidden;">
+      <div style="padding:12px 20px;background:rgba(255,255,255,0.04);border-bottom:1px solid var(--line-dark-strong);display:flex;align-items:center;gap:10px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);animation:tn-pulse 2s ease-in-out infinite;"></div>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);">Live demo</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(244,239,230,0.3);margin-left:auto;">clover.asknanci.dev</span>
+      </div>
+      <iframe
+        src="https://aperia-ask-nanci-embed.vercel.app/?mode=detect"
+        style="width:100%;height:680px;border:none;display:block;background:var(--ink);"
+        title="Ask Nanci live demo · Detection Queue"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="intel" class="v3-dark" style="border-top:1px solid var(--line-dark);">
+  <div class="v3-section-inner">
+    <span class="v3-eyebrow v3-dark">The part nobody talks about</span>
+    <div class="v3-two-col">
+      <div>
+        <h2>Data reaches your team<br/>before they think<br/><em>to ask for it.</em></h2>
+        <p class="v3-lead">Your platform holds enormous operational intelligence. Risk signals, transaction patterns, portfolio anomalies.</p>
+        <p class="v3-body-copy">Most of it is locked behind reports nobody runs until something goes wrong. Ask Nanci surfaces it in context, in the thread, the moment it matters. Not a separate dashboard. Not a report. Just the answer, right there.</p>
+
+        <!-- Risk chart visualization -->
+        <div class="v3-risk-chart-wrap" style="margin-top:32px;">
+          <div class="v3-risk-chart-label">
+            <span>Coastal Merchant Solutions · 60-day risk score</span>
+            <span class="v3-risk-score-badge">Score: 91 · High</span>
+          </div>
+          <div class="v3-risk-bar-track" id="riskBars"></div>
+          <div class="v3-risk-chart-axis">
+            <span>60 days ago</span>
+            <span>30 days ago</span>
+            <span>Today</span>
+          </div>
+          <div class="v3-inflection-marker">
+            <div class="v3-inflection-dot"></div>
+            Inflection point: 23 days ago, same week as an address change
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="v3-chat-demo-dark">
+          <div class="v3-chat-row v3-ai">
+            <div class="v3-chat-role">Ask Nanci · On Login</div>
+            <div class="v3-chat-msg">3 new alerts in your Detection Queue. One stands out: Coastal Merchant Solutions triggered 4 rules in the last 24 hours. <span class="v3-chat-tag">[open queue]</span></div>
+          </div>
+          <div class="v3-chat-row v3-user">
+            <div class="v3-chat-role">User</div>
+            <div class="v3-chat-msg">Show me their risk report for the last 60 days</div>
+          </div>
+          <div class="v3-chat-row v3-ai">
+            <div class="v3-chat-role">Ask Nanci</div>
+            <div class="v3-chat-msg"><span class="v3-chat-tag">[risk report panel opens]</span> Score climbed from 54 to 91 over 60 days. Inflection point: 23 days ago, same week as an address change.</div>
+          </div>
+          <div class="v3-chat-row v3-user">
+            <div class="v3-chat-role">User</div>
+            <div class="v3-chat-msg">Open a risk case, restricted to risk team only</div>
+          </div>
+          <div class="v3-chat-row v3-ai">
+            <div class="v3-chat-role">Ask Nanci</div>
+            <div class="v3-chat-msg">Case #RC-2289 opened. <span class="v3-chat-tag">[case panel]</span> Note added as restricted, visible to risk-permissioned users only. Case is in your queue.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 7: TITAN PLATFORM — LIGHT WARM -->
+<!-- ============================================================ -->
+<section id="titan" class="v3-dark" style="border-top:1px solid var(--line-dark);">
+  <div class="v3-section-inner">
+    <span class="v3-eyebrow v3-dark">The platform picture</span>
+    <h2>Titan is the platform.<br/>Ask Nanci is <em>what connects it.</em></h2>
+    <p class="v3-lead">Every module your team uses today runs on Titan: risk management, case management, merchant onboarding, reporting. Ask Nanci is the intelligence layer that sits across all of it, routing intent to the right surface automatically.</p>
+    <p class="v3-body-copy">This is not a new app. It is not a replacement for the tools your team already knows. It is the layer that makes all of them faster, smarter, and easier to act on. One thread, every surface, all at once.</p>
+
+    <div class="v3-titan-diagram">
+      <div class="v3-titan-bg-label">Titan Platform</div>
+      <div class="v3-titan-modules">
+        <div class="v3-titan-module">
+          <div class="v3-titan-module-icon">⚠</div>
+          <div class="v3-titan-module-name">Risk Mgmt</div>
+          <div class="v3-titan-module-desc">VisionWeb · Brighterion</div>
+        </div>
+        <div class="v3-titan-module">
+          <div class="v3-titan-module-icon">📋</div>
+          <div class="v3-titan-module-name">Case Mgmt</div>
+          <div class="v3-titan-module-desc">CMS · Queues</div>
+        </div>
+        <div class="v3-titan-module">
+          <div class="v3-titan-module-icon">🏪</div>
+          <div class="v3-titan-module-name">Merchant Ops</div>
+          <div class="v3-titan-module-desc">Onboarding · Profiles</div>
+        </div>
+        <div class="v3-titan-module">
+          <div class="v3-titan-module-icon">📊</div>
+          <div class="v3-titan-module-name">Reporting</div>
+          <div class="v3-titan-module-desc">Analytics · Insights</div>
+        </div>
+      </div>
+      <div class="v3-titan-connector-lines">
+        <div class="v3-connector-line"></div>
+        <div class="v3-connector-line"></div>
+        <div class="v3-connector-line"></div>
+        <div class="v3-connector-line"></div>
+      </div>
+      <div class="v3-titan-nanci-layer">
+        <div class="v3-titan-nanci-pulse"></div>
+        <div class="v3-titan-nanci-text">
+          <h4>Ask Nanci <em>· the connective layer</em></h4>
+          <p>Routes intent to the right surface. Pre-fills context. Surfaces patterns. Works across every module at once. Your team uses one thread to reach all of it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 8: OUTCOMES — DARK -->
+<!-- ============================================================ -->
+<section id="outcomes" class="v3-dark" style="border-top:1px solid var(--line-dark);">
+  <div class="v3-section-inner">
+    <span class="v3-eyebrow v3-dark">What becomes possible</span>
+    <h2>This is what your operation<br/>looks like <em>on the other side.</em></h2>
+    <p class="v3-lead">Not a feature list. A different way of working. Three things change when Ask Nanci is the operating layer.</p>
+
+    <div class="v3-outcomes-grid">
+      <div class="v3-outcome-cell">
+        <div class="v3-outcome-num">01</div>
+        <h5>True <em>self-service</em></h5>
+        <p>Tasks that used to require a support call become a single sentence. Your team moves faster. Your clients get answers immediately.</p>
+        <div class="v3-outcome-metric">Support calls drop · Resolution time drops</div>
+      </div>
+      <div class="v3-outcome-cell">
+        <div class="v3-outcome-num">02</div>
+        <h5>Queues that <em>think</em></h5>
+        <p>First-pass analysis done before anyone opens anything. Patterns grouped automatically. Cases pre-filled from context.</p>
+        <div class="v3-outcome-metric">Ready to decide, not ready to dig</div>
+      </div>
+      <div class="v3-outcome-cell">
+        <div class="v3-outcome-num">03</div>
+        <h5>Intelligence <em>on demand</em></h5>
+        <p>Cross-portfolio signals surface automatically. Data that lived in reports now reaches your team in the moment it matters.</p>
+        <div class="v3-outcome-metric">Patterns that used to be invisible</div>
+      </div>
+    </div>
+
+    <div class="v3-closing-block">
+      <p class="v3-closing-narrative">Imagine your team arriving at work already knowing what matters. No digging. No tab-switching. No assembling context by hand.</p>
+      <p class="v3-closing-narrative">The queue is sorted. The cases are pre-filled. The patterns that used to hide in reports are already in the thread.</p>
+      <p class="v3-closing-narrative">Your people spend their time deciding and acting. Not navigating.</p>
+      <p class="v3-closing-finale">That is what Ask Nanci makes possible.<br/><em>And it is already running.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="v3-footer">
+  <div class="v3-footer-inner">
+    <span class="v3-footer-meta">Ask Nanci · Titan Platform</span>
+    <span class="v3-footer-meta">Aperia Product Vision 2026</span>
+  </div>
+</footer>
+
+<script>
+// Risk bar chart
+(function() {
+  const scores = [54,55,57,56,58,60,59,62,63,65,64,67,68,70,72,71,74,76,79,81,84,83,86,88,89,91];
+  const inflection = 18;
+  const container = document.getElementById('riskBars');
+  if (!container) return;
+  const maxScore = 100;
+  scores.forEach((score, i) => {
+    const bar = document.createElement('div');
+    bar.className = 'v3-risk-bar';
+    const pct = (score / maxScore) * 100;
+    bar.style.height = pct + '%';
+    const progress = i / scores.length;
+    if (i >= inflection) {
+      const t = (i - inflection) / (scores.length - inflection);
+      const r = Math.round(63 + t * (184 - 63));
+      const g = Math.round(181 - t * (181 - 92));
+      const b = Math.round(181 - t * (181 - 56));
+      bar.style.background = `rgb(${r},${g},${b})`;
+    } else {
+      bar.style.background = 'rgba(63,181,181,0.45)';
+    }
+    container.appendChild(bar);
+  });
+})();
+
+// Side nav active state
+(function() {
+  const links = Array.from(document.querySelectorAll('.v3-side-nav a'));
+  const ids = links.map(a => a.getAttribute('href').replace('#', ''));
+  const sections = ids.map(id => document.getElementById(id));
+  function setActive(id) {
+    links.forEach(a => a.classList.remove('v3-active'));
+    const match = links.find(a => a.getAttribute('href') === '#' + id);
+    if (match) match.classList.add('v3-active');
+  }
+  function onScroll() {
+    const vh = window.innerHeight;
+    let current = ids[0];
+    sections.forEach((el, i) => {
+      if (!el) return;
+      if (el.getBoundingClientRect().top <= vh * 0.45) current = ids[i];
+    });
+    setActive(current);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  links.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const id = a.getAttribute('href').replace('#', '');
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

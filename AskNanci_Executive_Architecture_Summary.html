@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ask Nanci — Conceptual Architecture Summary</title>
+<style>
+  :root{
+    --midnight:#21295C; --deep:#065A82; --teal:#1C7293;
+    --ice:#CADCFC; --orange:#F39237; --paper:#FBFCFE; --slate:#3D4A5C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--slate);font-family:Calibri,'Segoe UI',Arial,sans-serif;font-size:16px;line-height:1.6;}
+  h1,h2,h3{font-family:Cambria,Georgia,serif;color:var(--midnight);line-height:1.2;}
+  .exe_band{background:linear-gradient(120deg,var(--midnight) 0%,var(--deep) 55%,var(--teal) 100%);color:#fff;padding:56px 8% 48px;}
+  .exe_band .exe_eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ice);margin-bottom:14px;}
+  .exe_band h1{color:#fff;font-size:40px;font-weight:700;max-width:820px;}
+  .exe_band p.exe_sub{color:var(--ice);max-width:760px;margin-top:16px;font-size:17px;}
+  main{padding:48px 8% 64px;max-width:1180px;margin:0 auto;}
+  section{margin-bottom:56px;}
+  h2{font-size:26px;margin-bottom:6px;}
+  .exe_rule{width:56px;height:3px;background:var(--orange);margin:10px 0 22px;border-radius:2px;}
+  p{max-width:860px;margin-bottom:14px;}
+  .exe_diagram-wrap{background:#fff;border:1px solid #E1E9F4;border-radius:10px;padding:28px 24px;box-shadow:0 2px 10px rgba(33,41,92,.06);}
+  .exe_caption{font-size:13px;color:#6B7A8D;margin-top:14px;max-width:860px;}
+  .exe_pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:8px;}
+  .exe_pillar{background:#fff;border:1px solid #E1E9F4;border-left:4px solid var(--teal);border-radius:8px;padding:20px 22px;}
+  .exe_pillar h3{font-size:17px;margin-bottom:8px;}
+  .exe_pillar p{font-size:14.5px;margin:0;color:var(--slate);}
+  .exe_pillar.exe_accent{border-left-color:var(--orange);}
+  .exe_pin{background:linear-gradient(180deg,#FFF 0%,#F3F7FD 100%);border:1px solid #DCE7F5;border-radius:10px;padding:26px 28px;}
+  .exe_pin p{max-width:900px;}
+  .exe_kicker{display:inline-block;background:var(--ice);color:var(--midnight);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:14px;}
+  footer{padding:22px 8%;background:var(--midnight);color:var(--ice);font-size:12.5px;}
+  svg text{font-family:Calibri,'Segoe UI',Arial,sans-serif;}
+  @media (max-width:640px){.exe_band h1{font-size:30px;} main{padding:36px 6% 48px;}}
+</style>
+</head>
+<body>
+
+<div class="exe_band">
+  <div class="exe_eyebrow">Aperia Solutions &nbsp;·&nbsp; Conceptual Architecture Brief</div>
+  <h1>Ask Nanci: answers you can trust, from data you control</h1>
+  <p class="exe_sub">Ask Nanci lets merchants and partners ask questions of their payments data in plain English — and get answers that are governed, repeatable, and scoped to exactly what they are entitled to see. This brief describes how the platform achieves that, at a conceptual level.</p>
+</div>
+
+<main>
+
+<section>
+  <h2>The idea in one paragraph</h2>
+  <div class="exe_rule"></div>
+  <p>Most conversational AI products put a language model directly in front of a database and hope for the best. Ask Nanci is built the opposite way. The AI never touches data directly — it works through a controlled chain of services. It interprets the question and composes a query through a governed tool layer, and every single request passes through an authorization gate that applies the client's organizational hierarchy before any data is read. When a user finds an answer they trust, they pin it, and that question becomes deterministic forever after. The AI is the interpreter; the platform is the enforcer.</p>
+</section>
+
+<section>
+  <h2>Conceptual architecture</h2>
+  <div class="exe_rule"></div>
+  <div class="exe_diagram-wrap">
+  <svg viewBox="0 0 1080 620" width="100%" role="img" aria-label="Ask Nanci conceptual architecture: user question flows through the conversational AI, tool gateway, authorization gate, and data access layer to a governed analytics platform. Cardholder data and production processing sit outside the AI boundary.">
+    <defs>
+      <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M1 1L9 5L1 9" fill="none" stroke="#1C7293" stroke-width="1.6" stroke-linecap="round"/>
+      </marker>
+      <marker id="arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M1 1L9 5L1 9" fill="none" stroke="#F39237" stroke-width="1.6" stroke-linecap="round"/>
+      </marker>
+    </defs>
+
+    <!-- User -->
+    <rect x="390" y="18" width="300" height="62" rx="9" fill="#21295C"/>
+    <text x="540" y="44" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">Merchant &amp; Partner Users</text>
+    <text x="540" y="64" text-anchor="middle" fill="#CADCFC" font-size="12.5">“How did my chargebacks trend last quarter?”</text>
+
+    <line x1="540" y1="80" x2="540" y2="112" stroke="#1C7293" stroke-width="1.8" marker-end="url(#arr)"/>
+
+    <!-- LLM -->
+    <rect x="360" y="114" width="360" height="70" rx="9" fill="#FFFFFF" stroke="#065A82" stroke-width="1.6"/>
+    <text x="540" y="142" text-anchor="middle" fill="#21295C" font-size="17" font-weight="700">Conversational AI (LLM)</text>
+    <text x="540" y="164" text-anchor="middle" fill="#3D4A5C" font-size="12.5">Understands the question and the intent — never the raw data store</text>
+
+    <line x1="540" y1="184" x2="540" y2="216" stroke="#1C7293" stroke-width="1.8" marker-end="url(#arr)"/>
+
+    <!-- MCP -->
+    <rect x="360" y="218" width="360" height="70" rx="9" fill="#FFFFFF" stroke="#065A82" stroke-width="1.6"/>
+    <text x="540" y="246" text-anchor="middle" fill="#21295C" font-size="17" font-weight="700">AI Tool Gateway (MCP)</text>
+    <text x="540" y="268" text-anchor="middle" fill="#3D4A5C" font-size="12.5">The only path to data — every query, exploratory or pinned, goes through here</text>
+
+    <!-- Pinned query library (side) -->
+    <rect x="790" y="205" width="240" height="96" rx="9" fill="#F3F7FD" stroke="#F39237" stroke-width="1.6" stroke-dasharray="none"/>
+    <text x="910" y="232" text-anchor="middle" fill="#21295C" font-size="15" font-weight="700">Pinned Query Library</text>
+    <text x="910" y="252" text-anchor="middle" fill="#3D4A5C" font-size="12">Answers the user approves are</text>
+    <text x="910" y="268" text-anchor="middle" fill="#3D4A5C" font-size="12">pinned — frozen queries that</text>
+    <text x="910" y="284" text-anchor="middle" fill="#3D4A5C" font-size="12">replay identically every time</text>
+    <line x1="722" y1="242" x2="788" y2="242" stroke="#F39237" stroke-width="1.8" marker-end="url(#arrO)"/>
+    <text x="755" y="232" text-anchor="middle" fill="#F39237" font-size="10.5" font-weight="700">pin</text>
+    <line x1="788" y1="266" x2="722" y2="266" stroke="#F39237" stroke-width="1.8" marker-end="url(#arrO)"/>
+    <text x="755" y="282" text-anchor="middle" fill="#F39237" font-size="10.5" font-weight="700">replay</text>
+
+    <line x1="540" y1="288" x2="540" y2="320" stroke="#1C7293" stroke-width="1.8" marker-end="url(#arr)"/>
+
+    <!-- Authorization gate -->
+    <rect x="300" y="322" width="480" height="76" rx="9" fill="#1C7293"/>
+    <text x="540" y="352" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">Fine-Grained Authorization</text>
+    <text x="540" y="374" text-anchor="middle" fill="#CADCFC" font-size="12.5">Every request checked against the client’s organizational hierarchy — row by row</text>
+
+    <!-- Hierarchy side note -->
+    <rect x="50" y="312" width="220" height="96" rx="9" fill="#F3F7FD" stroke="#1C7293" stroke-width="1.4"/>
+    <text x="160" y="340" text-anchor="middle" fill="#21295C" font-size="14.5" font-weight="700">Client Hierarchy</text>
+    <text x="160" y="360" text-anchor="middle" fill="#3D4A5C" font-size="12">Portfolios · channels · regions</text>
+    <text x="160" y="376" text-anchor="middle" fill="#3D4A5C" font-size="12">define exactly which rows</text>
+    <text x="160" y="392" text-anchor="middle" fill="#3D4A5C" font-size="12">each user may see</text>
+    <line x1="272" y1="360" x2="298" y2="360" stroke="#1C7293" stroke-width="1.8" marker-end="url(#arr)"/>
+
+    <line x1="540" y1="398" x2="540" y2="430" stroke="#1C7293" stroke-width="1.8" marker-end="url(#arr)"/>
+
+    <!-- DAB -->
+    <rect x="360" y="432" width="360" height="70" rx="9" fill="#FFFFFF" stroke="#065A82" stroke-width="1.6"/>
+    <text x="540" y="460" text-anchor="middle" fill="#21295C" font-size="17" font-weight="700">Governed Data Access Layer (DAB)</text>
+    <text x="540" y="482" text-anchor="middle" fill="#3D4A5C" font-size="12.5">Executes only the approved, scoped query — read-only by construction</text>
+
+    <line x1="540" y1="502" x2="540" y2="534" stroke="#1C7293" stroke-width="1.8" marker-end="url(#arr)"/>
+
+    <!-- Data platform -->
+    <rect x="330" y="536" width="420" height="66" rx="9" fill="#065A82"/>
+    <text x="540" y="562" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">Governed Analytics Data Platform</text>
+    <text x="540" y="584" text-anchor="middle" fill="#CADCFC" font-size="12.5">Isolated from live payment processing — analytics never touches production</text>
+
+    <!-- Exclusion zone -->
+    <rect x="790" y="440" width="240" height="160" rx="9" fill="none" stroke="#B24A3B" stroke-width="1.6" stroke-dasharray="6 5"/>
+    <text x="910" y="470" text-anchor="middle" fill="#B24A3B" font-size="14.5" font-weight="700">Outside the AI boundary</text>
+    <text x="910" y="496" text-anchor="middle" fill="#3D4A5C" font-size="12">Cardholder account numbers</text>
+    <text x="910" y="514" text-anchor="middle" fill="#3D4A5C" font-size="12">are tokenized before analytics —</text>
+    <text x="910" y="532" text-anchor="middle" fill="#3D4A5C" font-size="12">the AI can never see them.</text>
+    <text x="910" y="558" text-anchor="middle" fill="#3D4A5C" font-size="12">Live payment processing systems</text>
+    <text x="910" y="576" text-anchor="middle" fill="#3D4A5C" font-size="12">are never queried by the AI.</text>
+  </svg>
+  <p class="exe_caption">Every hop is a narrowing of what is possible. The AI translates the question into a query through the tool gateway; the authorization gate applies the client hierarchy to every request — exploratory or pinned; the data access layer executes a read-only, scoped query against an analytics platform that is physically separate from payment processing. Answers the user approves can be pinned, and pinned questions replay the exact same query every time.</p>
+  </div>
+</section>
+
+<section>
+  <div class="exe_pin">
+    <span class="exe_kicker">Design concept · Query Pinning</span>
+    <h2>Explore freely, then pin what matters</h2>
+    <div class="exe_rule"></div>
+    <p>Query pinning is the platform's answer to the central tension in conversational analytics: users want the freedom to ask anything, but the business needs numbers that are consistent, repeatable, and defensible. Ask Nanci delivers both by separating exploration from certification. When a user asks a new question, the AI composes the query itself through the platform's tool layer — full conversational flexibility, with every request still passing through the authorization gate and the governed data access layer.</p>
+    <p>When the user gets an answer they trust, they pin it. Pinning freezes the exact query behind that answer — the logic, the joins, the definitions — into the pinned query library. From that moment on, asking that question replays the identical query every time: same math, same result shape, same certified logic. The only thing that varies is the authorization scope of whoever is asking. Yesterday's exploratory answer becomes tomorrow's guaranteed metric.</p>
+    <p>This gives the platform a property conversational AI usually lacks: determinism where it counts. The questions that run a business — the ones asked every Monday, quoted in board decks, reconciled against reports — become pinned, auditable, and immune to the natural variability of AI-generated queries. Every pinned query has a known cost, a known result shape, and a complete execution record. Accuracy stops being a hope and becomes a property of the library — a library your users build themselves, one trusted answer at a time.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this architecture means for our clients</h2>
+  <div class="exe_rule"></div>
+  <div class="exe_pillars">
+    <div class="exe_pillar">
+      <h3>Hierarchy applied to every answer</h3>
+      <p>Your organizational structure — portfolios, sales channels, regions — is enforced on every single request. A portfolio manager sees their book; a regional lead sees their region. Two people can ask the identical question and each receives an answer built only from the rows they are entitled to see.</p>
+    </div>
+    <div class="exe_pillar">
+      <h3>Deterministic where it counts</h3>
+      <p>Any answer a user trusts can be pinned — freezing the exact query so it replays identically every time. Recurring business questions run certified, repeatable logic; the numbers are consistent, reconcilable against reports, and defensible in front of your own leadership.</p>
+    </div>
+    <div class="exe_pillar">
+      <h3>Security domains don't leak</h3>
+      <p>Authorization isn't a login-time check — it is enforced at the moment each query executes, inside the platform, below the AI. There is no conversation, prompt, or phrasing that can pull data across an entitlement boundary, because the boundary is applied to the data itself.</p>
+    </div>
+    <div class="exe_pillar">
+      <h3>Sensitive data never meets the AI</h3>
+      <p>Cardholder account numbers are tokenized before data ever reaches the analytics platform. The AI operates entirely on protected, de-identified data — supporting our PCI DSS obligations by design rather than by policy.</p>
+    </div>
+    <div class="exe_pillar">
+      <h3>Production stays untouched</h3>
+      <p>Ask Nanci reads from a dedicated, governed analytics platform. Live payment processing systems are never queried, so conversational analytics can scale without ever competing with the systems that move your money.</p>
+    </div>
+    <div class="exe_pillar exe_accent">
+      <h3>Governed AI, not experimental AI</h3>
+      <p>The language model is one component in a controlled pipeline. It can only reach data through the tool gateway, every request is authorized at execution time, and trusted answers graduate into a pinned, auditable library. That is the difference between an AI feature and an AI platform you can put in front of clients.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>Aperia Solutions · Ask Nanci conceptual architecture · Prepared for executive and partner audiences · Component names are conceptual; detailed technical architecture available under NDA.</footer>
+
+</body>
+</html>
