@@ -21,15 +21,17 @@ npx terser "$OUT" --compress --mangle -o "$MIN"
 rm .build.jsx
 node -e "new Function(require('fs').readFileSync('$OUT','utf8')); new Function(require('fs').readFileSync('$MIN','utf8')); console.log('OK: $OUT and $MIN rebuilt and syntax-checked')"
 
-# Ship: commit, push, purge jsDelivr so @main serves fresh instantly.
+# Ship: commit, push, cut the next tag (so @latest advances), purge jsDelivr.
 # ponytail: skip with SKIP_SHIP=1 ./build.sh when you just want a local build.
 if [ "${SKIP_SHIP:-}" != "1" ] && git rev-parse --git-dir >/dev/null 2>&1; then
   if ! git diff --quiet || ! git diff --cached --quiet; then
     git add -A
     git commit -q -m "Rebuild app bundle"
-    git push -q origin main
-    curl -fsS "https://purge.jsdelivr.net/gh/thuannguyen13/aperia-ask-nanci-marketing@main/$MIN" -o /dev/null \
-      && echo "Shipped: pushed + jsDelivr purged" || echo "Pushed; purge failed (jsDelivr will refresh within 7d)"
+    N=$(( $(git tag --list 'v*' | sed 's/^v//' | grep -E '^[0-9]+$' | sort -n | tail -1) + 1 ))
+    git tag "v$N"
+    git push -q origin main "v$N"
+    curl -fsS "https://purge.jsdelivr.net/gh/thuannguyen13/aperia-ask-nanci-marketing@latest/$MIN" -o /dev/null \
+      && echo "Shipped v$N: pushed + jsDelivr purged" || echo "Shipped v$N: pushed (purge failed; refreshes within ~12h)"
   else
     echo "Nothing to ship (no changes)"
   fi
