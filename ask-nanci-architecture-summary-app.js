@@ -2506,16 +2506,7 @@ function Diagram4() {
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
-  }, p.desc))))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 28,
-      paddingTop: 16,
-      borderTop: `1px dashed ${COLORS.border}`,
-      textAlign: "center",
-      fontSize: 11,
-      color: COLORS.textLight
-    }
-  }, "Aperia \xB7 Ask Nanci conceptual architecture \xB7 Prepared for executive and partner audiences \xB7 Component names are conceptual; detailed technical architecture available under NDA."));
+  }, p.desc))))));
 }
 function Diagram5() {
   const stages = [{
@@ -2566,7 +2557,7 @@ function Diagram5() {
       color: COLORS.router,
       marginBottom: 10
     }
-  }, "Executive Summary \xB7 AI Token Optimization Program"), /*#__PURE__*/React.createElement("h2", {
+  }, "AI Token Optimization Program"), /*#__PURE__*/React.createElement("h2", {
     style: {
       fontSize: 24,
       fontWeight: 600,
@@ -2745,16 +2736,7 @@ function Diagram5() {
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
-  }, d.desc))))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 28,
-      paddingTop: 16,
-      borderTop: `1px dashed ${COLORS.border}`,
-      textAlign: "center",
-      fontSize: 11,
-      color: COLORS.textLight
-    }
-  }, "Aperia \xB7 AI Customer Interface \u2014 Executive Briefing \xB7 Illustrative model / hosting figures \u2014 verify before commitment."));
+  }, d.desc))))));
 }
 function App() {
   const [tab, setTab] = useState(0);
