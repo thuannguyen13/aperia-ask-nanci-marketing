@@ -2022,7 +2022,7 @@ function Diagram4() {
       color: COLORS.router,
       marginBottom: 10
     }
-  }, "Aperia Solutions \xB7 Conceptual Architecture Brief"), /*#__PURE__*/React.createElement("h2", {
+  }, "Aperia \xB7 Conceptual Architecture Brief"), /*#__PURE__*/React.createElement("h2", {
     style: {
       fontSize: 24,
       fontWeight: 600,
@@ -2515,7 +2515,7 @@ function Diagram4() {
       fontSize: 11,
       color: COLORS.textLight
     }
-  }, "Aperia Solutions \xB7 Ask Nanci conceptual architecture \xB7 Prepared for executive and partner audiences \xB7 Component names are conceptual; detailed technical architecture available under NDA."));
+  }, "Aperia \xB7 Ask Nanci conceptual architecture \xB7 Prepared for executive and partner audiences \xB7 Component names are conceptual; detailed technical architecture available under NDA."));
 }
 function Diagram5() {
   const stages = [{
@@ -2754,7 +2754,7 @@ function Diagram5() {
       fontSize: 11,
       color: COLORS.textLight
     }
-  }, "Aperia Solutions \xB7 AI Customer Interface \u2014 Executive Briefing \xB7 Illustrative model / hosting figures \u2014 verify before commitment."));
+  }, "Aperia \xB7 AI Customer Interface \u2014 Executive Briefing \xB7 Illustrative model / hosting figures \u2014 verify before commitment."));
 }
 function App() {
   const [tab, setTab] = useState(0);

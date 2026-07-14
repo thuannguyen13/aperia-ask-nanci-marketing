@@ -27,11 +27,9 @@ if [ "${SKIP_SHIP:-}" != "1" ] && git rev-parse --git-dir >/dev/null 2>&1; then
   if ! git diff --quiet || ! git diff --cached --quiet; then
     git add -A
     git commit -q -m "Rebuild app bundle"
-    N=$(( $(git tag --list 'v*' | sed 's/^v//' | grep -E '^[0-9]+$' | sort -n | tail -1) + 1 ))
-    git tag "v$N"
-    git push -q origin main "v$N"
-    curl -fsS "https://purge.jsdelivr.net/gh/thuannguyen13/aperia-ask-nanci-marketing@latest/$MIN" -o /dev/null \
-      && echo "Shipped v$N: pushed + jsDelivr purged" || echo "Shipped v$N: pushed (purge failed; refreshes within ~12h)"
+    git push -q origin main
+    curl -fsS "https://purge.jsdelivr.net/gh/thuannguyen13/aperia-ask-nanci-marketing@main/$MIN" -o /dev/null \
+      && echo "Shipped: pushed + jsDelivr purged" || echo "Pushed; purge failed (jsDelivr refreshes within 7d)"
   else
     echo "Nothing to ship (no changes)"
   fi
