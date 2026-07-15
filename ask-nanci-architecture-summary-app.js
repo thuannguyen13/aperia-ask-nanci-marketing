@@ -619,7 +619,7 @@ function Diagram1() {
   const [hoverSpecialist, setHoverSpecialist] = useState(null);
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      maxWidth: 900,
+      maxWidth: 1200,
       margin: "0 auto"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -637,10 +637,10 @@ function Diagram1() {
     }
   }, "AI agent workflow"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 15,
       color: COLORS.textMuted,
       margin: "6px 0 0",
-      maxWidth: 520,
+      maxWidth: 1200,
       marginLeft: "auto",
       marginRight: "auto"
     }
@@ -1200,7 +1200,7 @@ function Diagram2() {
   const [activeSpecialist, setActiveSpecialist] = useState(null);
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      maxWidth: 900,
+      maxWidth: 1200,
       margin: "0 auto"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -1218,10 +1218,10 @@ function Diagram2() {
     }
   }, "Specialized AI agents"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 15,
       color: COLORS.textMuted,
       margin: "6px 0 0",
-      maxWidth: 480,
+      maxWidth: 1200,
       marginLeft: "auto",
       marginRight: "auto"
     }
@@ -1564,7 +1564,7 @@ function Diagram3() {
   }];
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      maxWidth: 680,
+      maxWidth: 1200,
       margin: "0 auto"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -1582,7 +1582,7 @@ function Diagram3() {
     }
   }, "Follow the question"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 15,
       color: COLORS.textMuted,
       margin: "6px 0 0"
     }
@@ -2005,7 +2005,7 @@ function Diagram4() {
   };
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      maxWidth: 780,
+      maxWidth: 1200,
       margin: "0 auto"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -2022,7 +2022,7 @@ function Diagram4() {
       color: COLORS.router,
       marginBottom: 10
     }
-  }, "Aperia \xB7 Conceptual Architecture Brief"), /*#__PURE__*/React.createElement("h2", {
+  }, "Conceptual Architecture Brief"), /*#__PURE__*/React.createElement("h2", {
     style: {
       fontSize: 24,
       fontWeight: 600,
@@ -2032,10 +2032,10 @@ function Diagram4() {
     }
   }, "Ask Nanci: answers you can trust, from data you control"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 15,
       color: COLORS.textMuted,
       margin: "10px 0 0",
-      maxWidth: 640,
+      maxWidth: 1200,
       marginLeft: "auto",
       marginRight: "auto"
     }
@@ -2045,10 +2045,10 @@ function Diagram4() {
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "The idea in one paragraph"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       color: COLORS.textMuted,
       lineHeight: 1.65,
-      maxWidth: 700
+      maxWidth: 1200
     }
   }, "Most conversational AI products put a language model directly in front of a database and hope for the best. Ask Nanci is built the opposite way. The AI never touches data directly \u2014 it works through a controlled chain of services. It interprets the question and composes a query through a governed tool layer, and every single request passes through an authorization gate that applies the client\u2019s organizational hierarchy before any data is read. When a user finds an answer they trust, they pin it, and that question becomes deterministic forever after. The AI is the interpreter; the platform is the enforcer.")), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2446,11 +2446,11 @@ function Diagram4() {
     fontSize: "12"
   }, "are never queried by the AI."))), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 12,
+      fontSize: 14,
       color: COLORS.textMuted,
       lineHeight: 1.6,
       marginTop: 16,
-      maxWidth: 700
+      maxWidth: 1200
     }
   }, "Every hop is a narrowing of what is possible. The AI translates the question into a query through the tool gateway; the authorization gate applies the client hierarchy to every request \u2014 exploratory or pinned; the data access layer executes a read-only, scoped query against an analytics platform that is physically separate from payment processing. Answers the user approves can be pinned, and pinned questions replay the exact same query every time.")), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2540,7 +2540,7 @@ function Diagram5() {
   }];
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      maxWidth: 780,
+      maxWidth: 1200,
       margin: "0 auto"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -2567,10 +2567,10 @@ function Diagram5() {
     }
   }, "An open model we own, reached by a fast, low-risk path"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 15,
       color: COLORS.textMuted,
       margin: "10px 0 0",
-      maxWidth: 660,
+      maxWidth: 1200,
       marginLeft: "auto",
       marginRight: "auto"
     }
@@ -2580,10 +2580,10 @@ function Diagram5() {
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "The approach"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       color: COLORS.textMuted,
       lineHeight: 1.65,
-      maxWidth: 700
+      maxWidth: 1200
     }
   }, "We launch quickly on a rented, managed model to prove the experience, then move the production workload onto an ", /*#__PURE__*/React.createElement("strong", {
     style: {
@@ -2595,10 +2595,10 @@ function Diagram5() {
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "Why Qwen3 8B is the recommended open model"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       color: COLORS.textMuted,
       lineHeight: 1.65,
-      maxWidth: 700
+      maxWidth: 1200
     }
   }, "Across a weighted evaluation of small (\u226415B) open models \u2014 scored on tool-calling, reasoning, efficiency and enterprise fit \u2014 ", /*#__PURE__*/React.createElement("strong", {
     style: {
@@ -2671,7 +2671,7 @@ function Diagram5() {
     }
   }, "\u2192")))), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 12,
+      fontSize: 14,
       color: COLORS.textMuted,
       marginTop: 10
     }
@@ -2689,7 +2689,7 @@ function Diagram5() {
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "What \u201Copen model\u201D means \u2014 and how it lets us own the IP"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 12.5,
+      fontSize: 13.5,
       color: COLORS.textMuted,
       lineHeight: 1.6,
       marginBottom: 8
@@ -2700,7 +2700,7 @@ function Diagram5() {
     }
   }, "closed model"), " (like a typical hosted AI API) is a black box we can only rent: the provider holds the actual model, we send data in and get answers back, and we pay per call for as long as we use it. We never possess the thing doing the work."), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 12.5,
+      fontSize: 13.5,
       color: COLORS.textMuted,
       lineHeight: 1.6,
       margin: 0
@@ -2774,7 +2774,7 @@ function App() {
       background: "#f5f5f3",
       borderRadius: 10,
       padding: 3,
-      maxWidth: 860,
+      maxWidth: 1200,
       margin: "0 auto 32px",
       overflowX: "auto"
     }
