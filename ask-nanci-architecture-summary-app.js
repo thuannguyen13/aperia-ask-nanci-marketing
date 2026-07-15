@@ -637,7 +637,7 @@ function Diagram1() {
     }
   }, "AI agent workflow"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 15,
+      fontSize: 14,
       color: COLORS.textMuted,
       margin: "6px 0 0",
       maxWidth: 1200,
@@ -1218,7 +1218,7 @@ function Diagram2() {
     }
   }, "Specialized AI agents"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 15,
+      fontSize: 14,
       color: COLORS.textMuted,
       margin: "6px 0 0",
       maxWidth: 1200,
@@ -1582,7 +1582,7 @@ function Diagram3() {
     }
   }, "Follow the question"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 15,
+      fontSize: 14,
       color: COLORS.textMuted,
       margin: "6px 0 0"
     }
@@ -2032,7 +2032,7 @@ function Diagram4() {
     }
   }, "Ask Nanci: answers you can trust, from data you control"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 15,
+      fontSize: 14,
       color: COLORS.textMuted,
       margin: "10px 0 0",
       maxWidth: 1200,
@@ -2567,7 +2567,7 @@ function Diagram5() {
     }
   }, "An open model we own, reached by a fast, low-risk path"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 15,
+      fontSize: 14,
       color: COLORS.textMuted,
       margin: "10px 0 0",
       maxWidth: 1200,
