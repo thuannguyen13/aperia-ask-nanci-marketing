@@ -8,7 +8,7 @@ const COLORS = {
   card: "#FFFFFF",
   border: "rgba(0,0,0,0.08)",
   borderHover: "rgba(0,0,0,0.15)",
-  text: "#1a1a1a",
+  text: "#333333",
   textMuted: "#6b6b6b",
   textLight: "#999",
   funding: "#0F6E56",
