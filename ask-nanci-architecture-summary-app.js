@@ -2827,7 +2827,9 @@ function App() {
     style: {
       fontFamily: "'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
       color: COLORS.text,
-      padding: "24px 20px 40px",
+      maxWidth: 1200,
+      margin: "0 auto",
+      padding: "24px 16px 40px",
       minHeight: "100vh",
       background: "#fff"
     }
