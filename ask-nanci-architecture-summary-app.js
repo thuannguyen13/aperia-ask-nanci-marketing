@@ -234,7 +234,7 @@ function SourcePill({
       borderRadius: 20,
       background: s.bg,
       color: s.color,
-      fontSize: 11,
+      fontSize: 14,
       fontWeight: 550,
       letterSpacing: "0.01em",
       border: `1px solid ${s.color}22`
@@ -295,7 +295,7 @@ function Arrow({
       gap: 2,
       padding: isDown ? "4px 0" : "0 4px",
       color,
-      fontSize: 11,
+      fontSize: 14,
       ...style
     }
   }, label && /*#__PURE__*/React.createElement("span", {
@@ -425,7 +425,7 @@ function LoopsSection() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       color: COLORS.textMuted,
       marginBottom: 4
     }
@@ -439,7 +439,7 @@ function LoopsSection() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 12,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.dataRetrieval
     }
@@ -459,7 +459,7 @@ function LoopsSection() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 12,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.organize
     }
@@ -501,7 +501,7 @@ function LoopsSection() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       color: COLORS.textMuted,
       marginBottom: 4
     }
@@ -517,7 +517,7 @@ function LoopsSection() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 12,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.quality
     }
@@ -673,13 +673,13 @@ function Diagram1() {
     }
   }, "\u{1F512}"), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       fontWeight: 600,
       color: "#185FA5"
     }
   }, "Identity & authorization")), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       color: COLORS.textMuted,
       marginBottom: 8
     }
@@ -718,7 +718,7 @@ function Diagram1() {
     }
   }), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       fontWeight: 600,
       letterSpacing: "0.1em",
       textTransform: "uppercase",
@@ -759,13 +759,13 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.safety
     }
   }, "Guardrails"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       color: COLORS.textMuted,
       marginTop: 2
     }
@@ -795,7 +795,7 @@ function Diagram1() {
       alignItems: "center",
       gap: 6,
       color: "#A32D2D",
-      fontSize: 11
+      fontSize: 14
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -807,7 +807,7 @@ function Diagram1() {
       border: "1px solid #F0959540",
       borderRadius: 8,
       padding: "4px 10px",
-      fontSize: 11,
+      fontSize: 14,
       fontWeight: 500,
       color: "#A32D2D"
     }
@@ -820,13 +820,13 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.memory
     }
   }, "Conversation memory"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       color: COLORS.textMuted,
       marginTop: 2
     }
@@ -846,13 +846,13 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.router
     }
   }, "Question understanding"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       color: COLORS.textMuted,
       marginTop: 2
     }
@@ -990,7 +990,7 @@ function Diagram1() {
     }
   }, s.icon), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 12,
+      fontSize: 14,
       fontWeight: 600,
       color: s.color
     }
@@ -1037,13 +1037,13 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.prepare
     }
   }, "Assemble your answer"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       color: COLORS.textMuted,
       marginTop: 2
     }
@@ -1100,13 +1100,13 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.deliver
     }
   }, "Deliver to business"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       color: COLORS.textMuted,
       marginTop: 2
     }
@@ -1144,7 +1144,7 @@ function Diagram1() {
     }
   }, ds.icon), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 12,
+      fontSize: 14,
       fontWeight: 600,
       color: ds.color
     }
@@ -1177,20 +1177,20 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       marginTop: 1,
       flexShrink: 0
     }
   }, "\u{1F50D}"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 12,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.text,
       marginBottom: 2
     }
   }, "End-to-end observability"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
@@ -1247,7 +1247,7 @@ function Diagram2() {
     }
   }, "\u2713"), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 12,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.quality
     }
@@ -1304,7 +1304,7 @@ function Diagram2() {
       }
     }, s.name), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 11,
+        fontSize: 14,
         color: COLORS.textMuted
       }
     }, s.desc))), /*#__PURE__*/React.createElement("div", {
@@ -1337,7 +1337,7 @@ function Diagram2() {
         padding: "6px 10px",
         borderRadius: 8,
         background: i === 0 ? s.bg : "#f8f8f6",
-        fontSize: 12,
+        fontSize: 14,
         color: i === 0 ? s.color : COLORS.textMuted,
         fontWeight: i === 0 ? 500 : 400,
         lineHeight: 1.35,
@@ -1425,7 +1425,7 @@ function Diagram2() {
       display: "flex",
       alignItems: "center",
       gap: 6,
-      fontSize: 12,
+      fontSize: 14,
       color: COLORS.textMuted
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -1640,7 +1640,7 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       fontWeight: 600,
       color: step.color
     }
@@ -1664,7 +1664,7 @@ function Diagram3() {
     }
   }, "APPROVED")), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 12,
+      fontSize: 14,
       color: COLORS.textMuted,
       lineHeight: 1.45,
       fontStyle: step.type === "user" ? "italic" : "normal",
@@ -1696,7 +1696,7 @@ function Diagram3() {
     }
   }, fs.icon), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       fontWeight: 600,
       color: sourceColorMap[fs.id].color
     }
@@ -1776,7 +1776,7 @@ function Diagram3() {
     }
   }), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       color: COLORS.textMuted,
       marginLeft: 8
     }
@@ -1797,7 +1797,7 @@ function Diagram3() {
       padding: "8px 12px",
       borderRadius: 8,
       background: "#f5f5f3",
-      fontSize: 12,
+      fontSize: 14,
       color: COLORS.textMuted,
       fontStyle: "italic"
     }
@@ -1817,7 +1817,7 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.textMuted,
       marginBottom: 6
@@ -1877,7 +1877,7 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.textMuted,
       marginBottom: 8
@@ -1964,7 +1964,7 @@ function Diagram3() {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1,
-      fontSize: 12,
+      fontSize: 14,
       lineHeight: 1.55,
       color: COLORS.text
     }
@@ -1998,7 +1998,7 @@ function Diagram4() {
     accent: true
   }];
   const pText = {
-    fontSize: 12.5,
+    fontSize: 14.5,
     color: COLORS.textMuted,
     lineHeight: 1.6,
     marginBottom: 10
@@ -2015,7 +2015,7 @@ function Diagram4() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       fontWeight: 600,
       letterSpacing: "0.16em",
       textTransform: "uppercase",
@@ -2495,14 +2495,14 @@ function Diagram4() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       fontWeight: 600,
       color: p.color,
       marginBottom: 4
     }
   }, p.title), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11.5,
+      fontSize: 14.5,
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
@@ -2550,7 +2550,7 @@ function Diagram5() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11,
+      fontSize: 14,
       fontWeight: 600,
       letterSpacing: "0.16em",
       textTransform: "uppercase",
@@ -2637,7 +2637,7 @@ function Diagram5() {
       background: COLORS.router,
       color: "#fff",
       fontWeight: 700,
-      fontSize: 12,
+      fontSize: 14,
       marginBottom: 8
     }
   }, s.n), /*#__PURE__*/React.createElement("div", {
@@ -2651,14 +2651,14 @@ function Diagram5() {
     }
   }, s.model), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.text,
       marginBottom: 4
     }
   }, s.title), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11.5,
+      fontSize: 14.5,
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
@@ -2689,7 +2689,7 @@ function Diagram5() {
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "What \u201Copen model\u201D means \u2014 and how it lets us own the IP"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 13.5,
+      fontSize: 14.5,
       color: COLORS.textMuted,
       lineHeight: 1.6,
       marginBottom: 8
@@ -2700,7 +2700,7 @@ function Diagram5() {
     }
   }, "closed model"), " (like a typical hosted AI API) is a black box we can only rent: the provider holds the actual model, we send data in and get answers back, and we pay per call for as long as we use it. We never possess the thing doing the work."), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 13.5,
+      fontSize: 14.5,
       color: COLORS.textMuted,
       lineHeight: 1.6,
       margin: 0
@@ -2725,14 +2725,14 @@ function Diagram5() {
     featured: true
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 13,
+      fontSize: 14,
       fontWeight: 600,
       color: COLORS.quality,
       marginBottom: 4
     }
   }, d.title), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 11.5,
+      fontSize: 14.5,
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
@@ -2790,7 +2790,7 @@ function App() {
       background: tab === i ? "#fff" : "transparent",
       color: tab === i ? COLORS.text : COLORS.textMuted,
       fontWeight: tab === i ? 600 : 400,
-      fontSize: 13,
+      fontSize: 14,
       cursor: "pointer",
       transition: "all 0.2s",
       boxShadow: tab === i ? "0 1px 3px rgba(0,0,0,0.08)" : "none",
