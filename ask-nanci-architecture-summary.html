@@ -201,7 +201,7 @@
                 <line x1="10" y1="95%" x2="10" y2="12" stroke={COLORS.dataRetrieval} strokeWidth="1.5" strokeDasharray="4 3" opacity="0.4" />
                 <path d="M6 16L10 6L14 16" fill="none" stroke={COLORS.dataRetrieval} strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
               </svg>
-              <div style={{ fontSize: 8, fontWeight: 600, color: COLORS.dataRetrieval, opacity: 0.6, writingMode: "vertical-lr", transform: "rotate(180deg)", letterSpacing: "0.08em", marginTop: 4 }}>DATA</div>
+              <div style={{ fontSize: 10, fontWeight: 600, color: COLORS.dataRetrieval, opacity: 0.6, writingMode: "vertical-lr", transform: "rotate(180deg)", letterSpacing: "0.08em", marginTop: 4 }}>DATA</div>
             </div>
 
             {/* Center: the two loop boxes */}
@@ -248,7 +248,7 @@
                 <line x1="10" y1="95%" x2="10" y2="12" stroke={COLORS.qualityBorder} strokeWidth="1.5" strokeDasharray="4 3" opacity="0.4" />
                 <path d="M6 16L10 6L14 16" fill="none" stroke={COLORS.qualityBorder} strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
               </svg>
-              <div style={{ fontSize: 8, fontWeight: 600, color: COLORS.quality, opacity: 0.6, writingMode: "vertical-lr", transform: "rotate(180deg)", letterSpacing: "0.08em", marginTop: 4 }}>REFINE</div>
+              <div style={{ fontSize: 10, fontWeight: 600, color: COLORS.quality, opacity: 0.6, writingMode: "vertical-lr", transform: "rotate(180deg)", letterSpacing: "0.08em", marginTop: 4 }}>REFINE</div>
             </div>
           </div>
         </div>
@@ -276,7 +276,7 @@
               <div style={{ fontSize: 14, color: COLORS.textMuted, marginBottom: 8 }}>Authenticated and authorized before anything reaches the AI</div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 5, justifyContent: "center" }}>
                 {["Entra ID", "OpenFGA", "OAuth 2.0 / JWT", "Tenant isolation", "Audit logging"].map(tag => (
-                  <span key={tag} style={{ fontSize: 9, fontWeight: 600, padding: "2px 8px", borderRadius: 4, background: "#fff", color: "#185FA5", border: "1px solid #185FA520" }}>{tag}</span>
+                  <span key={tag} style={{ fontSize: 10, fontWeight: 600, padding: "2px 8px", borderRadius: 4, background: "#fff", color: "#185FA5", border: "1px solid #185FA520" }}>{tag}</span>
                 ))}
               </div>
             </NodeBox>
@@ -348,7 +348,7 @@
                   <div style={{ fontSize: 10, color: COLORS.textMuted, lineHeight: 1.35, marginBottom: 6 }}>{s.desc}</div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
                     {s.sources.map(src => (
-                      <span key={src} style={{ fontSize: 9, fontWeight: 550, padding: "1px 5px", borderRadius: 4, background: sourceColorMap[src].bg, color: sourceColorMap[src].color, border: `0.5px solid ${sourceColorMap[src].color}20` }}>{sourceNameMap[src]}</span>
+                      <span key={src} style={{ fontSize: 10, fontWeight: 550, padding: "1px 5px", borderRadius: 4, background: sourceColorMap[src].bg, color: sourceColorMap[src].color, border: `0.5px solid ${sourceColorMap[src].color}20` }}>{sourceNameMap[src]}</span>
                     ))}
                   </div>
                 </NodeBox>
@@ -391,7 +391,7 @@
                     <span style={{ fontSize: 14, fontWeight: 600, color: ds.color }}>{ds.name}</span>
                   </div>
                   <div style={{ fontSize: 10, color: COLORS.textMuted, lineHeight: 1.35, marginBottom: 4 }}>{ds.desc}</div>
-                  {ds.via && <span style={{ fontSize: 9, fontWeight: 600, padding: "2px 6px", borderRadius: 4, background: ds.featured ? `${ds.color}15` : "#f5f5f3", color: ds.featured ? ds.color : COLORS.textMuted }}>{ds.via}</span>}
+                  {ds.via && <span style={{ fontSize: 10, fontWeight: 600, padding: "2px 6px", borderRadius: 4, background: ds.featured ? `${ds.color}15` : "#f5f5f3", color: ds.featured ? ds.color : COLORS.textMuted }}>{ds.via}</span>}
                 </NodeBox>
               ))}
             </div>

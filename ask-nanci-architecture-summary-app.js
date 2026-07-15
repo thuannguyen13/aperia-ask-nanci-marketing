@@ -378,7 +378,7 @@ function LoopsSection() {
     opacity: "0.5"
   })), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 8,
+      fontSize: 10,
       fontWeight: 600,
       color: COLORS.dataRetrieval,
       opacity: 0.6,
@@ -604,7 +604,7 @@ function LoopsSection() {
     opacity: "0.5"
   })), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 8,
+      fontSize: 10,
       fontWeight: 600,
       color: COLORS.quality,
       opacity: 0.6,
@@ -693,7 +693,7 @@ function Diagram1() {
   }, ["Entra ID", "OpenFGA", "OAuth 2.0 / JWT", "Tenant isolation", "Audit logging"].map(tag => /*#__PURE__*/React.createElement("span", {
     key: tag,
     style: {
-      fontSize: 9,
+      fontSize: 10,
       fontWeight: 600,
       padding: "2px 8px",
       borderRadius: 4,
@@ -1010,7 +1010,7 @@ function Diagram1() {
   }, s.sources.map(src => /*#__PURE__*/React.createElement("span", {
     key: src,
     style: {
-      fontSize: 9,
+      fontSize: 10,
       fontWeight: 550,
       padding: "1px 5px",
       borderRadius: 4,
@@ -1157,7 +1157,7 @@ function Diagram1() {
     }
   }, ds.desc), ds.via && /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 9,
+      fontSize: 10,
       fontWeight: 600,
       padding: "2px 6px",
       borderRadius: 4,
