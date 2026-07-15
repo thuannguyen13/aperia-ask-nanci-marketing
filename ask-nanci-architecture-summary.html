@@ -184,7 +184,7 @@
       return (
         <div style={{ display: "flex", flexDirection: isDown ? "column" : "row", alignItems: "center", justifyContent: "center", gap: 2, padding: isDown ? "4px 0" : "0 4px", color, fontSize: 14, ...style }}>
           {label && <span style={{ fontSize: 10, color: COLORS.textMuted, whiteSpace: "nowrap" }}>{label}</span>}
-          <span style={{ fontSize: 16, lineHeight: 1 }}>{isDown ? "\u2193" : isRight ? "\u2192" : "\u2193"}</span>
+          <span style={{ fontSize: 18, lineHeight: 1 }}>{isDown ? "\u2193" : isRight ? "\u2192" : "\u2193"}</span>
         </div>
       );
     }
@@ -260,7 +260,7 @@
       return (
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <h2 style={{ fontSize: 22, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>AI agent workflow</h2>
+            <h2 style={{ fontSize: 24, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>AI agent workflow</h2>
             <p style={{ fontSize: 14, color: COLORS.textMuted, margin: "6px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
               Every question flows through authentication, safety, intent classification, specialist analysis, quality review, and real-time delivery.
             </p>
@@ -416,7 +416,7 @@
       return (
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <h2 style={{ fontSize: 22, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>Specialized AI agents</h2>
+            <h2 style={{ fontSize: 24, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>Specialized AI agents</h2>
             <p style={{ fontSize: 14, color: COLORS.textMuted, margin: "6px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
               Ask anything about your business in plain English. AI specialists pull the answer from your connected systems — and check their own work before delivering it.
             </p>
@@ -434,7 +434,7 @@
                 <div key={s.id} onClick={() => setActiveSpecialist(isActive ? null : s.id)} style={{ background: "#fff", border: `1.5px solid ${isActive ? s.color : COLORS.border}`, borderRadius: 14, padding: "18px 20px", cursor: "pointer", transition: "all 0.2s", boxShadow: isActive ? `0 0 0 3px ${s.color}12, 0 4px 16px ${s.color}08` : "0 1px 3px rgba(0,0,0,0.03)" }}>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                      <div style={{ width: 32, height: 32, borderRadius: 8, background: s.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, border: `1px solid ${s.color}20` }}>{s.icon}</div>
+                      <div style={{ width: 32, height: 32, borderRadius: 8, background: s.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, border: `1px solid ${s.color}20` }}>{s.icon}</div>
                       <div>
                         <div style={{ fontSize: 14, fontWeight: 600, color: s.color }}>{s.name}</div>
                         <div style={{ fontSize: 14, color: COLORS.textMuted }}>{s.desc}</div>
@@ -511,7 +511,7 @@
       return (
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <h2 style={{ fontSize: 22, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>Follow the question</h2>
+            <h2 style={{ fontSize: 24, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>Follow the question</h2>
             <p style={{ fontSize: 14, color: COLORS.textMuted, margin: "6px 0 0" }}>What happens when a business types a question — traced step by step.</p>
           </div>
           <div style={{ position: "relative" }}>
@@ -533,7 +533,7 @@
                   <div style={{ marginLeft: 48, marginTop: 8, marginBottom: 12, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 8 }}>
                     {fanoutSources.map(fs => (
                       <div key={fs.id} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 12px", borderRadius: 10, background: sourceColorMap[fs.id].bg, border: `1px solid ${sourceColorMap[fs.id].color}20` }}>
-                        <span style={{ fontSize: 16 }}>{fs.icon}</span>
+                        <span style={{ fontSize: 18 }}>{fs.icon}</span>
                         <div>
                           <div style={{ fontSize: 14, fontWeight: 600, color: sourceColorMap[fs.id].color }}>{fs.name}</div>
                           <div style={{ fontSize: 10, color: COLORS.textMuted }}>{fs.detail}</div>
@@ -565,9 +565,9 @@
                         <div style={{ flex: 1, padding: "10px 14px", borderRadius: 10, border: `1px solid ${COLORS.border}` }}>
                           <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.textMuted, marginBottom: 6 }}>Reconciliation summary</div>
                           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
-                            <div><div style={{ fontSize: 10, color: COLORS.textLight }}>Clover sales</div><div style={{ fontSize: 16, fontWeight: 600, color: COLORS.clover }}>$4,827</div></div>
-                            <div><div style={{ fontSize: 10, color: COLORS.textLight }}>Bank deposits</div><div style={{ fontSize: 16, fontWeight: 600, color: COLORS.plaid }}>$3,512</div></div>
-                            <div><div style={{ fontSize: 10, color: COLORS.textLight }}>Difference</div><div style={{ fontSize: 16, fontWeight: 600, color: "#D85A30" }}>$1,315</div></div>
+                            <div><div style={{ fontSize: 10, color: COLORS.textLight }}>Clover sales</div><div style={{ fontSize: 18, fontWeight: 600, color: COLORS.clover }}>$4,827</div></div>
+                            <div><div style={{ fontSize: 10, color: COLORS.textLight }}>Bank deposits</div><div style={{ fontSize: 18, fontWeight: 600, color: COLORS.plaid }}>$3,512</div></div>
+                            <div><div style={{ fontSize: 10, color: COLORS.textLight }}>Difference</div><div style={{ fontSize: 18, fontWeight: 600, color: "#D85A30" }}>$1,315</div></div>
                           </div>
                         </div>
                       </div>
@@ -729,7 +729,7 @@
           {/* ── Query pinning callout ── */}
           <div style={{ padding: "20px 24px", borderRadius: 14, background: "#f8f8f6", border: `1px solid ${COLORS.border}`, marginBottom: 32 }}>
             <SectionLabel>Design concept · Query Pinning</SectionLabel>
-            <div style={{ fontSize: 16, fontWeight: 600, color: COLORS.text, marginBottom: 10 }}>Explore freely, then pin what matters</div>
+            <div style={{ fontSize: 18, fontWeight: 600, color: COLORS.text, marginBottom: 10 }}>Explore freely, then pin what matters</div>
             <p style={pText}>Query pinning is the platform’s answer to the central tension in conversational analytics: users want the freedom to ask anything, but the business needs numbers that are consistent, repeatable, and defensible. Ask Nanci delivers both by separating exploration from certification. When a user asks a new question, the AI composes the query itself through the platform’s tool layer — full conversational flexibility, with every request still passing through the authorization gate and the governed data access layer.</p>
             <p style={pText}>When the user gets an answer they trust, they pin it. Pinning freezes the exact query behind that answer — the logic, the joins, the definitions — into the pinned query library. From that moment on, asking that question replays the identical query every time: same math, same result shape, same certified logic. The only thing that varies is the authorization scope of whoever is asking. Yesterday’s exploratory answer becomes tomorrow’s guaranteed metric.</p>
             <p style={{ ...pText, marginBottom: 0 }}>This gives the platform a property conversational AI usually lacks: determinism where it counts. The questions that run a business — the ones asked every Monday, quoted in board decks, reconciled against reports — become pinned, auditable, and immune to the natural variability of AI-generated queries. Every pinned query has a known cost, a known result shape, and a complete execution record. Accuracy stops being a hope and becomes a property of the library — a library your users build themselves, one trusted answer at a time.</p>

@@ -306,7 +306,7 @@ function Arrow({
     }
   }, label), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 16,
+      fontSize: 18,
       lineHeight: 1
     }
   }, isDown ? "\u2193" : isRight ? "\u2192" : "\u2193"));
@@ -629,7 +629,7 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("h2", {
     style: {
-      fontSize: 22,
+      fontSize: 24,
       fontWeight: 600,
       color: COLORS.text,
       margin: 0,
@@ -1210,7 +1210,7 @@ function Diagram2() {
     }
   }, /*#__PURE__*/React.createElement("h2", {
     style: {
-      fontSize: 22,
+      fontSize: 24,
       fontWeight: 600,
       color: COLORS.text,
       margin: 0,
@@ -1293,7 +1293,7 @@ function Diagram2() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: 16,
+        fontSize: 18,
         border: `1px solid ${s.color}20`
       }
     }, s.icon), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
@@ -1574,7 +1574,7 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("h2", {
     style: {
-      fontSize: 22,
+      fontSize: 24,
       fontWeight: 600,
       color: COLORS.text,
       margin: 0,
@@ -1692,7 +1692,7 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 16
+      fontSize: 18
     }
   }, fs.icon), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1835,7 +1835,7 @@ function Diagram3() {
     }
   }, "Clover sales"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 16,
+      fontSize: 18,
       fontWeight: 600,
       color: COLORS.clover
     }
@@ -1846,7 +1846,7 @@ function Diagram3() {
     }
   }, "Bank deposits"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 16,
+      fontSize: 18,
       fontWeight: 600,
       color: COLORS.plaid
     }
@@ -1857,7 +1857,7 @@ function Diagram3() {
     }
   }, "Difference"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 16,
+      fontSize: 18,
       fontWeight: 600,
       color: "#D85A30"
     }
@@ -2462,7 +2462,7 @@ function Diagram4() {
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "Design concept \xB7 Query Pinning"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 16,
+      fontSize: 18,
       fontWeight: 600,
       color: COLORS.text,
       marginBottom: 10
