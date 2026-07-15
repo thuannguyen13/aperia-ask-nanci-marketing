@@ -40,7 +40,7 @@
       border: "rgba(0,0,0,0.08)",
       borderHover: "rgba(0,0,0,0.15)",
       text: "#333333",
-      textMuted: "#6b6b6b",
+      textMuted: "#333333",
       textLight: "#999",
 
       funding: "#0F6E56", fundingBg: "#E1F5EE", fundingLight: "#9FE1CB",
@@ -162,14 +162,14 @@
     function SourcePill({ sourceId }) {
       const s = sourceColorMap[sourceId];
       return (
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "2px 8px", borderRadius: 20, background: s.bg, color: s.color, fontSize: 14, fontWeight: 550, letterSpacing: "0.01em", border: `1px solid ${s.color}22` }}>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "2px 8px", borderRadius: 20, background: s.bg, color: s.color, fontSize: 16, lineHeight: 1.5, fontWeight: 550, letterSpacing: "0.01em", border: `1px solid ${s.color}22` }}>
           {sourceNameMap[sourceId]}
         </span>
       );
     }
 
     function SectionLabel({ children }) {
-      return <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: COLORS.textLight, marginBottom: 8 }}>{children}</div>;
+      return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: COLORS.textLight, marginBottom: 8 }}>{children}</div>;
     }
 
     function NodeBox({ color, bg, borderColor, children, style, glow, featured, ...rest }) {
@@ -182,9 +182,9 @@
       const isDown = direction === "down";
       const isRight = direction === "right";
       return (
-        <div style={{ display: "flex", flexDirection: isDown ? "column" : "row", alignItems: "center", justifyContent: "center", gap: 2, padding: isDown ? "4px 0" : "0 4px", color, fontSize: 14, ...style }}>
-          {label && <span style={{ fontSize: 10, color: COLORS.textMuted, whiteSpace: "nowrap" }}>{label}</span>}
-          <span style={{ fontSize: 18, lineHeight: 1 }}>{isDown ? "\u2193" : isRight ? "\u2192" : "\u2193"}</span>
+        <div style={{ display: "flex", flexDirection: isDown ? "column" : "row", alignItems: "center", justifyContent: "center", gap: 2, padding: isDown ? "4px 0" : "0 4px", color, fontSize: 16, lineHeight: 1.5, ...style }}>
+          {label && <span style={{ fontSize: 12, color: COLORS.textMuted, whiteSpace: "nowrap" }}>{label}</span>}
+          <span style={{ fontSize: 20, lineHeight: 1 }}>{isDown ? "\u2193" : isRight ? "\u2192" : "\u2193"}</span>
         </div>
       );
     }
@@ -192,7 +192,7 @@
     function LoopsSection() {
       return (
         <div style={{ border: `2px dashed ${COLORS.border}`, borderRadius: 18, padding: "16px 16px 12px", margin: "12px 0", position: "relative", background: "rgba(0,0,0,0.01)" }}>
-          <div style={{ position: "absolute", top: -11, left: "50%", transform: "translateX(-50%)", background: "#fff", padding: "2px 14px", borderRadius: 20, border: `1.5px solid ${COLORS.border}`, fontSize: 10, fontWeight: 600, color: COLORS.textMuted, letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap" }}>Reasoning cycle</div>
+          <div style={{ position: "absolute", top: -11, left: "50%", transform: "translateX(-50%)", background: "#fff", padding: "2px 14px", borderRadius: 20, border: `1.5px solid ${COLORS.border}`, fontSize: 12, fontWeight: 600, color: COLORS.textMuted, letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap" }}>Reasoning cycle</div>
 
           <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 0, marginTop: 8 }}>
             {/* Left return path */}
@@ -201,43 +201,43 @@
                 <line x1="10" y1="95%" x2="10" y2="12" stroke={COLORS.dataRetrieval} strokeWidth="1.5" strokeDasharray="4 3" opacity="0.4" />
                 <path d="M6 16L10 6L14 16" fill="none" stroke={COLORS.dataRetrieval} strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
               </svg>
-              <div style={{ fontSize: 10, fontWeight: 600, color: COLORS.dataRetrieval, opacity: 0.6, writingMode: "vertical-lr", transform: "rotate(180deg)", letterSpacing: "0.08em", marginTop: 4 }}>DATA</div>
+              <div style={{ fontSize: 12, fontWeight: 600, color: COLORS.dataRetrieval, opacity: 0.6, writingMode: "vertical-lr", transform: "rotate(180deg)", letterSpacing: "0.08em", marginTop: 4 }}>DATA</div>
             </div>
 
             {/* Center: the two loop boxes */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
               {/* Data Loop */}
               <div style={{ border: `1.5px solid ${COLORS.dataRetrieval}25`, borderRadius: 14, padding: 16, background: `${COLORS.dataRetrievalBg}40`, position: "relative" }}>
-                <div style={{ position: "absolute", top: -10, left: 16, background: COLORS.dataRetrievalBg, border: `1px solid ${COLORS.dataRetrieval}30`, borderRadius: 6, padding: "2px 10px", fontSize: 10, fontWeight: 600, color: COLORS.dataRetrieval, letterSpacing: "0.05em" }}>DATA LOOP</div>
+                <div style={{ position: "absolute", top: -10, left: 16, background: COLORS.dataRetrievalBg, border: `1px solid ${COLORS.dataRetrieval}30`, borderRadius: 6, padding: "2px 10px", fontSize: 12, fontWeight: 600, color: COLORS.dataRetrieval, letterSpacing: "0.05em" }}>DATA LOOP</div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0, marginTop: 8 }}>
-                  <div style={{ fontSize: 14, color: COLORS.textMuted, marginBottom: 4 }}>Specialist needs data {"\u2193"}</div>
+                  <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, marginBottom: 4 }}>Specialist needs data {"\u2193"}</div>
                   <NodeBox color={COLORS.dataRetrieval} bg={COLORS.dataRetrievalBg} style={{ width: "100%", textAlign: "center", padding: "8px 12px" }}>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.dataRetrieval }}>Data retrieval</div>
-                    <div style={{ fontSize: 10, color: COLORS.textMuted, marginTop: 2 }}>Parallel queries, entity resolution</div>
+                    <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.dataRetrieval }}>Data retrieval</div>
+                    <div style={{ fontSize: 12, color: COLORS.textMuted, marginTop: 2 }}>Parallel queries, entity resolution</div>
                   </NodeBox>
                   <Arrow />
                   <NodeBox color={COLORS.organize} bg={`${COLORS.organizeBg}80`} style={{ width: "100%", textAlign: "center", padding: "8px 12px" }}>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.organize }}>Organize results</div>
-                    <div style={{ fontSize: 10, color: COLORS.textMuted, marginTop: 2 }}>Cache, summarize, attach charts</div>
+                    <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.organize }}>Organize results</div>
+                    <div style={{ fontSize: 12, color: COLORS.textMuted, marginTop: 2 }}>Cache, summarize, attach charts</div>
                   </NodeBox>
                 </div>
               </div>
 
               {/* Quality Loop */}
               <div style={{ border: `1.5px solid ${COLORS.qualityBorder}50`, borderRadius: 14, padding: 16, background: `${COLORS.qualityBg}40`, position: "relative" }}>
-                <div style={{ position: "absolute", top: -10, left: 16, background: COLORS.qualityBg, border: `1px solid ${COLORS.qualityBorder}40`, borderRadius: 6, padding: "2px 10px", fontSize: 10, fontWeight: 600, color: COLORS.quality, letterSpacing: "0.05em" }}>QUALITY LOOP</div>
+                <div style={{ position: "absolute", top: -10, left: 16, background: COLORS.qualityBg, border: `1px solid ${COLORS.qualityBorder}40`, borderRadius: 6, padding: "2px 10px", fontSize: 12, fontWeight: 600, color: COLORS.quality, letterSpacing: "0.05em" }}>QUALITY LOOP</div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0, marginTop: 8 }}>
-                  <div style={{ fontSize: 14, color: COLORS.textMuted, marginBottom: 4 }}>Specialist has draft answer {"\u2193"}</div>
+                  <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, marginBottom: 4 }}>Specialist has draft answer {"\u2193"}</div>
                   <NodeBox color={COLORS.quality} bg={COLORS.qualityBg} borderColor={COLORS.qualityBorder} glow style={{ width: "100%", textAlign: "center", padding: "8px 12px" }}>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.quality }}>Quality review</div>
-                    <div style={{ fontSize: 10, color: COLORS.textMuted, marginTop: 2 }}>AI reviews its own work</div>
+                    <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.quality }}>Quality review</div>
+                    <div style={{ fontSize: 12, color: COLORS.textMuted, marginTop: 2 }}>AI reviews its own work</div>
                   </NodeBox>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 6, width: "100%", marginTop: 8 }}>
-                    <div style={{ textAlign: "center", padding: "6px 4px", borderRadius: 8, background: "#EAF3DE", fontSize: 10, fontWeight: 600, color: "#3B6D11" }}>Approved {"\u2192"}</div>
-                    <div style={{ textAlign: "center", padding: "6px 4px", borderRadius: 8, background: "#FAEEDA", fontSize: 10, fontWeight: 600, color: "#854F0B" }}>Refine {"\u21A9"}</div>
-                    <div style={{ textAlign: "center", padding: "6px 4px", borderRadius: 8, background: "#FAECE7", fontSize: 10, fontWeight: 600, color: "#993C1D" }}>Escalate {"\u2192"}</div>
+                    <div style={{ textAlign: "center", padding: "6px 4px", borderRadius: 8, background: "#EAF3DE", fontSize: 12, fontWeight: 600, color: "#3B6D11" }}>Approved {"\u2192"}</div>
+                    <div style={{ textAlign: "center", padding: "6px 4px", borderRadius: 8, background: "#FAEEDA", fontSize: 12, fontWeight: 600, color: "#854F0B" }}>Refine {"\u21A9"}</div>
+                    <div style={{ textAlign: "center", padding: "6px 4px", borderRadius: 8, background: "#FAECE7", fontSize: 12, fontWeight: 600, color: "#993C1D" }}>Escalate {"\u2192"}</div>
                   </div>
-                  <div style={{ fontSize: 10, color: COLORS.textMuted, marginTop: 6 }}>Max 2 refinement rounds</div>
+                  <div style={{ fontSize: 12, color: COLORS.textMuted, marginTop: 6 }}>Max 2 refinement rounds</div>
                 </div>
               </div>
             </div>
@@ -248,7 +248,7 @@
                 <line x1="10" y1="95%" x2="10" y2="12" stroke={COLORS.qualityBorder} strokeWidth="1.5" strokeDasharray="4 3" opacity="0.4" />
                 <path d="M6 16L10 6L14 16" fill="none" stroke={COLORS.qualityBorder} strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
               </svg>
-              <div style={{ fontSize: 10, fontWeight: 600, color: COLORS.quality, opacity: 0.6, writingMode: "vertical-lr", transform: "rotate(180deg)", letterSpacing: "0.08em", marginTop: 4 }}>REFINE</div>
+              <div style={{ fontSize: 12, fontWeight: 600, color: COLORS.quality, opacity: 0.6, writingMode: "vertical-lr", transform: "rotate(180deg)", letterSpacing: "0.08em", marginTop: 4 }}>REFINE</div>
             </div>
           </div>
         </div>
@@ -260,8 +260,8 @@
       return (
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <h2 style={{ fontSize: 24, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>AI agent workflow</h2>
-            <p style={{ fontSize: 14, color: COLORS.textMuted, margin: "6px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
+            <h2 style={{ fontSize: 28, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>AI agent workflow</h2>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, margin: "6px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
               Every question flows through authentication, safety, intent classification, specialist analysis, quality review, and real-time delivery.
             </p>
           </div>
@@ -270,13 +270,13 @@
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0 }}>
             <NodeBox color="#185FA5" bg="#E6F1FB" style={{ minWidth: 340, textAlign: "center", padding: "14px 20px" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginBottom: 6 }}>
-                <span style={{ fontSize: 14 }}>{"\u{1F512}"}</span>
-                <span style={{ fontSize: 14, fontWeight: 600, color: "#185FA5" }}>Identity & authorization</span>
+                <span style={{ fontSize: 16, lineHeight: 1.5 }}>{"\u{1F512}"}</span>
+                <span style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: "#185FA5" }}>Identity & authorization</span>
               </div>
-              <div style={{ fontSize: 14, color: COLORS.textMuted, marginBottom: 8 }}>Authenticated and authorized before anything reaches the AI</div>
+              <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, marginBottom: 8 }}>Authenticated and authorized before anything reaches the AI</div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 5, justifyContent: "center" }}>
                 {["Entra ID", "OpenFGA", "OAuth 2.0 / JWT", "Tenant isolation", "Audit logging"].map(tag => (
-                  <span key={tag} style={{ fontSize: 10, fontWeight: 600, padding: "2px 8px", borderRadius: 4, background: "#fff", color: "#185FA5", border: "1px solid #185FA520" }}>{tag}</span>
+                  <span key={tag} style={{ fontSize: 12, fontWeight: 600, padding: "2px 8px", borderRadius: 4, background: "#fff", color: "#185FA5", border: "1px solid #185FA520" }}>{tag}</span>
                 ))}
               </div>
             </NodeBox>
@@ -286,7 +286,7 @@
           {/* ── Divider: Agent workflow begins ── */}
           <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "8px 0 16px" }}>
             <div style={{ flex: 1, height: 2, background: COLORS.router, opacity: 0.25, borderRadius: 1 }} />
-            <span style={{ fontSize: 14, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: COLORS.router, whiteSpace: "nowrap", background: COLORS.routerBg, padding: "5px 16px", borderRadius: 20, border: `1.5px solid ${COLORS.router}30` }}>Agent workflow</span>
+            <span style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: COLORS.router, whiteSpace: "nowrap", background: COLORS.routerBg, padding: "5px 16px", borderRadius: 20, border: `1.5px solid ${COLORS.router}30` }}>Agent workflow</span>
             <div style={{ flex: 1, height: 2, background: COLORS.router, opacity: 0.25, borderRadius: 1 }} />
           </div>
 
@@ -294,27 +294,27 @@
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <NodeBox color={COLORS.safety} bg={COLORS.safetyBg} style={{ minWidth: 220, textAlign: "center" }}>
-                <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.safety }}>Guardrails</div>
-                <div style={{ fontSize: 14, color: COLORS.textMuted, marginTop: 2 }}>Prompt injection, topic boundaries, content filtering</div>
+                <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.safety }}>Guardrails</div>
+                <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, marginTop: 2 }}>Prompt injection, topic boundaries, content filtering</div>
               </NodeBox>
             </div>
             <div style={{ display: "flex", alignItems: "stretch", gap: 0, position: "relative", width: 340 }}>
               <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}><Arrow label="passed" /></div>
-              <div style={{ position: "absolute", right: -120, top: 0, display: "flex", alignItems: "center", gap: 6, color: "#A32D2D", fontSize: 14 }}>
+              <div style={{ position: "absolute", right: -120, top: 10, display: "flex", alignItems: "center", gap: 6, color: "#A32D2D", fontSize: 16, lineHeight: 1.5 }}>
                 <span style={{ marginTop: 8 }}>{"\u2192"}</span>
-                <span style={{ background: "#FCEBEB", border: "1px solid #F0959540", borderRadius: 8, padding: "4px 10px", fontSize: 14, fontWeight: 500, color: "#A32D2D" }}>Blocked — polite error</span>
+                <span style={{ background: "#FCEBEB", border: "1px solid #F0959540", borderRadius: 8, padding: "4px 10px", fontSize: 16, lineHeight: 1.5, fontWeight: 500, color: "#A32D2D" }}>Blocked — polite error</span>
               </div>
             </div>
             <NodeBox color={COLORS.memory} bg={COLORS.memoryBg} style={{ minWidth: 240, textAlign: "center" }}>
-              <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.memory }}>Conversation memory</div>
-              <div style={{ fontSize: 14, color: COLORS.textMuted, marginTop: 2 }}>Sliding window, context management</div>
-              <div style={{ fontSize: 10, color: COLORS.textLight, marginTop: 2, fontStyle: "italic" }}>Optimized for query efficiency and cost</div>
+              <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.memory }}>Conversation memory</div>
+              <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, marginTop: 2 }}>Sliding window, context management</div>
+              <div style={{ fontSize: 12, color: COLORS.textLight, marginTop: 2, fontStyle: "italic" }}>Optimized for query efficiency and cost</div>
             </NodeBox>
             <Arrow />
             <NodeBox color={COLORS.router} bg={COLORS.routerBg} style={{ minWidth: 280, textAlign: "center" }}>
-              <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.router }}>Question understanding</div>
-              <div style={{ fontSize: 14, color: COLORS.textMuted, marginTop: 2 }}>AI classifies intent and complexity</div>
-              <div style={{ fontSize: 10, color: COLORS.textLight, marginTop: 3, fontStyle: "italic" }}>May invoke multiple specialists for complex questions</div>
+              <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.router }}>Question understanding</div>
+              <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, marginTop: 2 }}>AI classifies intent and complexity</div>
+              <div style={{ fontSize: 12, color: COLORS.textLight, marginTop: 3, fontStyle: "italic" }}>May invoke multiple specialists for complex questions</div>
             </NodeBox>
 
             {/* ── Routing arrows to specialists ── */}
@@ -325,13 +325,13 @@
               <div style={{ position: "absolute", left: "15%", right: "15%", top: 12, height: 1, background: COLORS.router, opacity: 0.4 }} />
               {/* Left arrow down */}
               <div style={{ position: "absolute", left: "15%", top: 12, width: 1, height: 14, background: COLORS.router, opacity: 0.4 }} />
-              <div style={{ position: "absolute", left: "calc(15% - 3px)", top: 24, fontSize: 10, color: COLORS.router, opacity: 0.5, lineHeight: 1 }}>{"\u25BC"}</div>
+              <div style={{ position: "absolute", left: "calc(15% - 3px)", top: 24, fontSize: 12, color: COLORS.router, opacity: 0.5, lineHeight: 1 }}>{"\u25BC"}</div>
               {/* Center arrow down */}
               <div style={{ position: "absolute", left: "50%", top: 12, width: 1, height: 14, background: COLORS.router, opacity: 0.4 }} />
-              <div style={{ position: "absolute", left: "calc(50% - 3px)", top: 24, fontSize: 10, color: COLORS.router, opacity: 0.5, lineHeight: 1 }}>{"\u25BC"}</div>
+              <div style={{ position: "absolute", left: "calc(50% - 3px)", top: 24, fontSize: 12, color: COLORS.router, opacity: 0.5, lineHeight: 1 }}>{"\u25BC"}</div>
               {/* Right arrow down */}
               <div style={{ position: "absolute", right: "15%", top: 12, width: 1, height: 14, background: COLORS.router, opacity: 0.4 }} />
-              <div style={{ position: "absolute", right: "calc(15% - 3px)", top: 24, fontSize: 10, color: COLORS.router, opacity: 0.5, lineHeight: 1 }}>{"\u25BC"}</div>
+              <div style={{ position: "absolute", right: "calc(15% - 3px)", top: 24, fontSize: 12, color: COLORS.router, opacity: 0.5, lineHeight: 1 }}>{"\u25BC"}</div>
             </div>
           </div>
 
@@ -342,13 +342,13 @@
               {specialists.map((s) => (
                 <NodeBox key={s.id} color={s.color} bg={s.bg} featured={hoverSpecialist === s.id} onMouseEnter={() => setHoverSpecialist(s.id)} onMouseLeave={() => setHoverSpecialist(null)} style={{ cursor: "default", padding: "10px 12px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-                    <span style={{ fontSize: 14 }}>{s.icon}</span>
-                    <span style={{ fontSize: 14, fontWeight: 600, color: s.color }}>{s.name}</span>
+                    <span style={{ fontSize: 16, lineHeight: 1.5 }}>{s.icon}</span>
+                    <span style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: s.color }}>{s.name}</span>
                   </div>
-                  <div style={{ fontSize: 10, color: COLORS.textMuted, lineHeight: 1.35, marginBottom: 6 }}>{s.desc}</div>
+                  <div style={{ fontSize: 12, color: COLORS.textMuted, lineHeight: 1.5, marginBottom: 6 }}>{s.desc}</div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
                     {s.sources.map(src => (
-                      <span key={src} style={{ fontSize: 10, fontWeight: 550, padding: "1px 5px", borderRadius: 4, background: sourceColorMap[src].bg, color: sourceColorMap[src].color, border: `0.5px solid ${sourceColorMap[src].color}20` }}>{sourceNameMap[src]}</span>
+                      <span key={src} style={{ fontSize: 12, fontWeight: 550, padding: "1px 5px", borderRadius: 4, background: sourceColorMap[src].bg, color: sourceColorMap[src].color, border: `0.5px solid ${sourceColorMap[src].color}20` }}>{sourceNameMap[src]}</span>
                     ))}
                   </div>
                 </NodeBox>
@@ -363,20 +363,20 @@
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0 }}>
             <Arrow label="approved" />
             <NodeBox color={COLORS.prepare} bg={COLORS.prepareBg} style={{ minWidth: 300, textAlign: "center", padding: "14px 20px" }}>
-              <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.prepare }}>Assemble your answer</div>
-              <div style={{ fontSize: 14, color: COLORS.textMuted, marginTop: 2 }}>Packages the full picture for delivery</div>
+              <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.prepare }}>Assemble your answer</div>
+              <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, marginTop: 2 }}>Packages the full picture for delivery</div>
               <div style={{ display: "flex", gap: 6, justifyContent: "center", marginTop: 8 }}>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 10, fontWeight: 600, padding: "3px 10px", borderRadius: 6, background: "#EEEDFE", color: "#534AB7", border: "1px solid #534AB720" }}>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, fontWeight: 600, padding: "3px 10px", borderRadius: 6, background: "#EEEDFE", color: "#534AB7", border: "1px solid #534AB720" }}>
                   {"\u{1F4CA}"} Auto-generated charts
                 </span>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 10, fontWeight: 500, padding: "3px 10px", borderRadius: 6, background: "#f5f5f3", color: COLORS.textMuted }}>Context references</span>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 10, fontWeight: 500, padding: "3px 10px", borderRadius: 6, background: "#f5f5f3", color: COLORS.textMuted }}>Key metrics</span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, fontWeight: 500, padding: "3px 10px", borderRadius: 6, background: "#f5f5f3", color: COLORS.textMuted }}>Context references</span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, fontWeight: 500, padding: "3px 10px", borderRadius: 6, background: "#f5f5f3", color: COLORS.textMuted }}>Key metrics</span>
               </div>
             </NodeBox>
             <Arrow />
             <NodeBox color={COLORS.deliver} bg={COLORS.deliverBg} style={{ minWidth: 260, textAlign: "center" }}>
-              <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.deliver }}>Deliver to business</div>
-              <div style={{ fontSize: 14, color: COLORS.textMuted, marginTop: 2 }}>Results arrive in real time</div>
+              <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.deliver }}>Deliver to business</div>
+              <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, marginTop: 2 }}>Results arrive in real time</div>
             </NodeBox>
           </div>
 
@@ -387,11 +387,11 @@
               {dataSources.map(ds => (
                 <NodeBox key={ds.id} color={ds.color} bg={ds.bg} featured={ds.featured} style={{ padding: "10px 12px", borderWidth: ds.featured ? 2 : 1 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-                    <span style={{ fontSize: 14 }}>{ds.icon}</span>
-                    <span style={{ fontSize: 14, fontWeight: 600, color: ds.color }}>{ds.name}</span>
+                    <span style={{ fontSize: 16, lineHeight: 1.5 }}>{ds.icon}</span>
+                    <span style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: ds.color }}>{ds.name}</span>
                   </div>
-                  <div style={{ fontSize: 10, color: COLORS.textMuted, lineHeight: 1.35, marginBottom: 4 }}>{ds.desc}</div>
-                  {ds.via && <span style={{ fontSize: 10, fontWeight: 600, padding: "2px 6px", borderRadius: 4, background: ds.featured ? `${ds.color}15` : "#f5f5f3", color: ds.featured ? ds.color : COLORS.textMuted }}>{ds.via}</span>}
+                  <div style={{ fontSize: 12, color: COLORS.textMuted, lineHeight: 1.5, marginBottom: 4 }}>{ds.desc}</div>
+                  {ds.via && <span style={{ fontSize: 12, fontWeight: 600, padding: "2px 6px", borderRadius: 4, background: ds.featured ? `${ds.color}15` : "#f5f5f3", color: ds.featured ? ds.color : COLORS.textMuted }}>{ds.via}</span>}
                 </NodeBox>
               ))}
             </div>
@@ -399,10 +399,10 @@
 
           {/* ── Observability footnote ── */}
           <div style={{ marginTop: 20, padding: "14px 20px", borderRadius: 12, background: "#f8f8f6", border: `1px solid ${COLORS.border}`, display: "flex", alignItems: "flex-start", gap: 10 }}>
-            <span style={{ fontSize: 14, marginTop: 1, flexShrink: 0 }}>{"\u{1F50D}"}</span>
+            <span style={{ fontSize: 16, lineHeight: 1.5, marginTop: 1, flexShrink: 0 }}>{"\u{1F50D}"}</span>
             <div>
-              <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.text, marginBottom: 2 }}>End-to-end observability</div>
-              <div style={{ fontSize: 14, color: COLORS.textMuted, lineHeight: 1.5 }}>
+              <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.text, marginBottom: 2 }}>End-to-end observability</div>
+              <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5 }}>
                 Every step is traced — latency, token usage, tool calls, and quality scores. Full observability from day one means we continuously refine routing accuracy, response quality, and cost efficiency as the system runs.
               </div>
             </div>
@@ -416,15 +416,15 @@
       return (
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <h2 style={{ fontSize: 24, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>Specialized AI agents</h2>
-            <p style={{ fontSize: 14, color: COLORS.textMuted, margin: "6px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
+            <h2 style={{ fontSize: 28, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>Specialized AI agents</h2>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, margin: "6px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
               Ask anything about your business in plain English. AI specialists pull the answer from your connected systems — and check their own work before delivering it.
             </p>
           </div>
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: COLORS.qualityBg, border: `1px solid ${COLORS.qualityBorder}40`, borderRadius: 20, padding: "6px 16px" }}>
-              <span style={{ fontSize: 14 }}>{"\u2713"}</span>
-              <span style={{ fontSize: 14, fontWeight: 600, color: COLORS.quality }}>Every answer is reviewed before delivery</span>
+              <span style={{ fontSize: 16, lineHeight: 1.5 }}>{"\u2713"}</span>
+              <span style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.quality }}>Every answer is reviewed before delivery</span>
             </div>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 14 }}>
@@ -434,10 +434,10 @@
                 <div key={s.id} onClick={() => setActiveSpecialist(isActive ? null : s.id)} style={{ background: "#fff", border: `1.5px solid ${isActive ? s.color : COLORS.border}`, borderRadius: 14, padding: "18px 20px", cursor: "pointer", transition: "all 0.2s", boxShadow: isActive ? `0 0 0 3px ${s.color}12, 0 4px 16px ${s.color}08` : "0 1px 3px rgba(0,0,0,0.03)" }}>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                      <div style={{ width: 32, height: 32, borderRadius: 8, background: s.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, border: `1px solid ${s.color}20` }}>{s.icon}</div>
+                      <div style={{ width: 32, height: 32, borderRadius: 8, background: s.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, border: `1px solid ${s.color}20` }}>{s.icon}</div>
                       <div>
-                        <div style={{ fontSize: 14, fontWeight: 600, color: s.color }}>{s.name}</div>
-                        <div style={{ fontSize: 14, color: COLORS.textMuted }}>{s.desc}</div>
+                        <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: s.color }}>{s.name}</div>
+                        <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted }}>{s.desc}</div>
                       </div>
                     </div>
                     <div style={{ display: "flex", gap: 4 }}>
@@ -446,7 +446,7 @@
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
                     {s.questions.map((q, i) => (
-                      <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 6, padding: "6px 10px", borderRadius: 8, background: i === 0 ? s.bg : "#f8f8f6", fontSize: 14, color: i === 0 ? s.color : COLORS.textMuted, fontWeight: i === 0 ? 500 : 400, lineHeight: 1.35, border: `0.5px solid ${i === 0 ? s.color + '20' : 'transparent'}` }}>
+                      <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 6, padding: "6px 10px", borderRadius: 8, background: i === 0 ? s.bg : "#f8f8f6", fontSize: 16, lineHeight: 1.5, color: i === 0 ? s.color : COLORS.textMuted, fontWeight: i === 0 ? 500 : 400, lineHeight: 1.5, border: `0.5px solid ${i === 0 ? s.color + '20' : 'transparent'}` }}>
                         <span style={{ opacity: 0.5, flexShrink: 0 }}>{"\u201C"}</span><span>{q}</span><span style={{ opacity: 0.5, flexShrink: 0 }}>{"\u201D"}</span>
                       </div>
                     ))}
@@ -455,13 +455,13 @@
                     <div style={{ marginTop: 12, paddingTop: 12, borderTop: `1px solid ${COLORS.border}` }}>
                       <div style={{ display: "flex", gap: 20 }}>
                         <div style={{ flex: 1 }}>
-                          <div style={{ fontSize: 10, fontWeight: 600, color: COLORS.textLight, marginBottom: 4, letterSpacing: "0.08em", textTransform: "uppercase" }}>Tools</div>
+                          <div style={{ fontSize: 12, fontWeight: 600, color: COLORS.textLight, marginBottom: 4, letterSpacing: "0.08em", textTransform: "uppercase" }}>Tools</div>
                           <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-                            {s.tools.map(t => <span key={t} style={{ fontSize: 10, padding: "2px 7px", borderRadius: 4, background: "#f5f5f3", color: COLORS.textMuted }}>{t}</span>)}
+                            {s.tools.map(t => <span key={t} style={{ fontSize: 12, padding: "2px 7px", borderRadius: 4, background: "#f5f5f3", color: COLORS.textMuted }}>{t}</span>)}
                           </div>
                         </div>
                         <div>
-                          <div style={{ fontSize: 10, fontWeight: 600, color: COLORS.textLight, marginBottom: 4, letterSpacing: "0.08em", textTransform: "uppercase" }}>Sources</div>
+                          <div style={{ fontSize: 12, fontWeight: 600, color: COLORS.textLight, marginBottom: 4, letterSpacing: "0.08em", textTransform: "uppercase" }}>Sources</div>
                           <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
                             {s.sources.map(src => <SourcePill key={src} sourceId={src} />)}
                           </div>
@@ -475,7 +475,7 @@
           </div>
           <div style={{ marginTop: 24, display: "flex", justifyContent: "center", gap: 16, flexWrap: "wrap" }}>
             {dataSources.map(ds => (
-              <div key={ds.id} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14, color: COLORS.textMuted }}>
+              <div key={ds.id} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted }}>
                 <div style={{ width: 10, height: 10, borderRadius: "50%", background: ds.color, opacity: 0.6, border: ds.featured ? `2px solid ${ds.color}` : "none", boxSizing: "border-box" }} />
                 <span style={{ fontWeight: ds.featured ? 600 : 400, color: ds.featured ? ds.color : undefined }}>{ds.name}</span>
               </div>
@@ -511,8 +511,8 @@
       return (
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <h2 style={{ fontSize: 24, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>Follow the question</h2>
-            <p style={{ fontSize: 14, color: COLORS.textMuted, margin: "6px 0 0" }}>What happens when a business types a question — traced step by step.</p>
+            <h2 style={{ fontSize: 28, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>Follow the question</h2>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, margin: "6px 0 0" }}>What happens when a business types a question — traced step by step.</p>
           </div>
           <div style={{ position: "relative" }}>
             <div style={{ position: "absolute", left: 23, top: 20, bottom: 20, width: 1, background: COLORS.border, zIndex: 0 }} />
@@ -522,31 +522,31 @@
                   <div style={{ width: 12, height: 12, borderRadius: "50%", background: step.type === "quality" ? COLORS.qualityBorder : step.type === "user" ? COLORS.text : step.type === "specialist" ? step.color : step.bg, border: `2px solid ${step.type === "quality" ? COLORS.qualityBorder : step.color}`, marginTop: 6, flexShrink: 0, boxShadow: step.type === "quality" ? `0 0 0 3px ${COLORS.qualityBorder}20` : "none", marginLeft: 16 }} />
                   <div style={{ flex: 1 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 2 }}>
-                      <span style={{ fontSize: 14, fontWeight: 600, color: step.color }}>{step.label}</span>
-                      {step.verdict === "refine" && <span style={{ fontSize: 10, fontWeight: 600, padding: "1px 6px", borderRadius: 4, background: "#FAEEDA", color: "#854F0B" }}>REFINE</span>}
-                      {step.verdict === "approved" && <span style={{ fontSize: 10, fontWeight: 600, padding: "1px 6px", borderRadius: 4, background: "#EAF3DE", color: "#3B6D11" }}>APPROVED</span>}
+                      <span style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: step.color }}>{step.label}</span>
+                      {step.verdict === "refine" && <span style={{ fontSize: 12, fontWeight: 600, padding: "1px 6px", borderRadius: 4, background: "#FAEEDA", color: "#854F0B" }}>REFINE</span>}
+                      {step.verdict === "approved" && <span style={{ fontSize: 12, fontWeight: 600, padding: "1px 6px", borderRadius: 4, background: "#EAF3DE", color: "#3B6D11" }}>APPROVED</span>}
                     </div>
-                    <div style={{ fontSize: 14, color: COLORS.textMuted, lineHeight: 1.45, fontStyle: step.type === "user" ? "italic" : "normal", maxWidth: 500 }}>{step.detail}</div>
+                    <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, fontStyle: step.type === "user" ? "italic" : "normal", maxWidth: 500 }}>{step.detail}</div>
                   </div>
                 </div>
                 {step.type === "fanout" && (
                   <div style={{ marginLeft: 48, marginTop: 8, marginBottom: 12, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 8 }}>
                     {fanoutSources.map(fs => (
                       <div key={fs.id} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 12px", borderRadius: 10, background: sourceColorMap[fs.id].bg, border: `1px solid ${sourceColorMap[fs.id].color}20` }}>
-                        <span style={{ fontSize: 18 }}>{fs.icon}</span>
+                        <span style={{ fontSize: 20 }}>{fs.icon}</span>
                         <div>
-                          <div style={{ fontSize: 14, fontWeight: 600, color: sourceColorMap[fs.id].color }}>{fs.name}</div>
-                          <div style={{ fontSize: 10, color: COLORS.textMuted }}>{fs.detail}</div>
+                          <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: sourceColorMap[fs.id].color }}>{fs.name}</div>
+                          <div style={{ fontSize: 12, color: COLORS.textMuted }}>{fs.detail}</div>
                         </div>
                       </div>
                     ))}
-                    <div style={{ gridColumn: "1 / -1", textAlign: "center", fontSize: 10, color: COLORS.dataRetrieval, fontWeight: 500, padding: "2px 0" }}>All four sources queried in parallel</div>
+                    <div style={{ gridColumn: "1 / -1", textAlign: "center", fontSize: 12, color: COLORS.dataRetrieval, fontWeight: 500, padding: "2px 0" }}>All four sources queried in parallel</div>
                   </div>
                 )}
                 {step.verdict === "refine" && (
                   <div style={{ marginLeft: 36, marginTop: 2, marginBottom: 2, display: "flex", alignItems: "center", gap: 6 }}>
-                    <span style={{ fontSize: 14, color: COLORS.qualityBorder }}>{"\u21A9"}</span>
-                    <span style={{ fontSize: 10, color: COLORS.quality, fontWeight: 500 }}>Sent back to specialist with specific feedback</span>
+                    <span style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.qualityBorder }}>{"\u21A9"}</span>
+                    <span style={{ fontSize: 12, color: COLORS.quality, fontWeight: 500 }}>Sent back to specialist with specific feedback</span>
                   </div>
                 )}
                 {step.type === "delivery" && (
@@ -555,43 +555,43 @@
                       <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#F09595" }} />
                       <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#FAC775" }} />
                       <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#97C459" }} />
-                      <span style={{ fontSize: 14, color: COLORS.textMuted, marginLeft: 8 }}>What the business sees</span>
+                      <span style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, marginLeft: 8 }}>What the business sees</span>
                     </div>
                     <div style={{ padding: 16 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-                        <div style={{ flex: 1, padding: "8px 12px", borderRadius: 8, background: "#f5f5f3", fontSize: 14, color: COLORS.textMuted, fontStyle: "italic" }}>Checking your sales, deposits, and bank records...</div>
+                        <div style={{ flex: 1, padding: "8px 12px", borderRadius: 8, background: "#f5f5f3", fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, fontStyle: "italic" }}>Checking your sales, deposits, and bank records...</div>
                       </div>
                       <div style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 12 }}>
                         <div style={{ flex: 1, padding: "10px 14px", borderRadius: 10, border: `1px solid ${COLORS.border}` }}>
-                          <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.textMuted, marginBottom: 6 }}>Reconciliation summary</div>
+                          <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.textMuted, marginBottom: 6 }}>Reconciliation summary</div>
                           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
-                            <div><div style={{ fontSize: 10, color: COLORS.textLight }}>Clover sales</div><div style={{ fontSize: 18, fontWeight: 600, color: COLORS.clover }}>$4,827</div></div>
-                            <div><div style={{ fontSize: 10, color: COLORS.textLight }}>Bank deposits</div><div style={{ fontSize: 18, fontWeight: 600, color: COLORS.plaid }}>$3,512</div></div>
-                            <div><div style={{ fontSize: 10, color: COLORS.textLight }}>Difference</div><div style={{ fontSize: 18, fontWeight: 600, color: "#D85A30" }}>$1,315</div></div>
+                            <div><div style={{ fontSize: 12, color: COLORS.textLight }}>Clover sales</div><div style={{ fontSize: 20, fontWeight: 600, color: COLORS.clover }}>$4,827</div></div>
+                            <div><div style={{ fontSize: 12, color: COLORS.textLight }}>Bank deposits</div><div style={{ fontSize: 20, fontWeight: 600, color: COLORS.plaid }}>$3,512</div></div>
+                            <div><div style={{ fontSize: 12, color: COLORS.textLight }}>Difference</div><div style={{ fontSize: 20, fontWeight: 600, color: "#D85A30" }}>$1,315</div></div>
                           </div>
                         </div>
                       </div>
                       <div style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 12 }}>
                         <div style={{ flex: 1, padding: "10px 14px", borderRadius: 10, border: `1px solid ${COLORS.border}` }}>
-                          <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.textMuted, marginBottom: 8 }}>Gap breakdown</div>
+                          <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.textMuted, marginBottom: 8 }}>Gap breakdown</div>
                           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                              <span style={{ fontSize: 10, color: COLORS.textMuted, width: 100, textAlign: "right" }}>In-transit deposits</span>
+                              <span style={{ fontSize: 12, color: COLORS.textMuted, width: 100, textAlign: "right" }}>In-transit deposits</span>
                               <div style={{ flex: 1, background: "#f0f0ee", borderRadius: 3, height: 14 }}>
-                                <div style={{ width: "92%", background: COLORS.reconciliationLight, borderRadius: 3, height: 14, display: "flex", alignItems: "center", paddingLeft: 6, fontSize: 10, fontWeight: 600, color: COLORS.reconciliation }}>$1,303</div>
+                                <div style={{ width: "92%", background: COLORS.reconciliationLight, borderRadius: 3, height: 14, display: "flex", alignItems: "center", paddingLeft: 6, fontSize: 12, fontWeight: 600, color: COLORS.reconciliation }}>$1,303</div>
                               </div>
                             </div>
                             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                              <span style={{ fontSize: 10, color: COLORS.textMuted, width: 100, textAlign: "right" }}>Processing fees</span>
+                              <span style={{ fontSize: 12, color: COLORS.textMuted, width: 100, textAlign: "right" }}>Processing fees</span>
                               <div style={{ flex: 1, background: "#f0f0ee", borderRadius: 3, height: 14 }}>
-                                <div style={{ width: "8%", minWidth: 40, background: COLORS.chargebackLight, borderRadius: 3, height: 14, display: "flex", alignItems: "center", paddingLeft: 6, fontSize: 10, fontWeight: 600, color: COLORS.chargeback }}>$12</div>
+                                <div style={{ width: "8%", minWidth: 40, background: COLORS.chargebackLight, borderRadius: 3, height: 14, display: "flex", alignItems: "center", paddingLeft: 6, fontSize: 12, fontWeight: 600, color: COLORS.chargeback }}>$12</div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div style={{ display: "flex", alignItems: "flex-start", gap: 8 }}>
-                        <div style={{ flex: 1, fontSize: 14, lineHeight: 1.55, color: COLORS.text }}>
+                        <div style={{ flex: 1, fontSize: 16, lineHeight: 1.5, color: COLORS.text }}>
                           Two deposits from Friday ($847 and $456) are still in transit and will post Monday. Once they do, your bank balance will match within $12 of your Clover sales. That remaining $12 is your processing fee for the period.
                         </div>
                       </div>
@@ -614,13 +614,13 @@
         { title: "Production stays untouched", desc: "Ask Nanci reads from a dedicated, governed analytics platform. Live payment processing systems are never queried, so conversational analytics can scale without ever competing with the systems that move your money.", color: COLORS.router },
         { title: "Governed AI, not experimental AI", desc: "The language model is one component in a controlled pipeline. It can only reach data through the tool gateway, every request is authorized at execution time, and trusted answers graduate into a pinned, auditable library. That is the difference between an AI feature and an AI platform you can put in front of clients.", color: COLORS.quality, accent: true },
       ];
-      const pText = { fontSize: 14.5, color: COLORS.textMuted, lineHeight: 1.6, marginBottom: 10 };
+      const pText = { fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, marginBottom: 10 };
       return (
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.router, marginBottom: 10 }}>Conceptual Architecture Brief</div>
-            <h2 style={{ fontSize: 24, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>Ask Nanci: answers you can trust, from data you control</h2>
-            <p style={{ fontSize: 14, color: COLORS.textMuted, margin: "10px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
+            <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.router, marginBottom: 10 }}>Conceptual Architecture Brief</div>
+            <h2 style={{ fontSize: 28, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>Ask Nanci: answers you can trust, from data you control</h2>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, margin: "10px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
               Ask Nanci lets merchants and partners ask questions of their payments data in plain English — and get answers that are governed, repeatable, and scoped to exactly what they are entitled to see. This brief describes how the platform achieves that, at a conceptual level.
             </p>
           </div>
@@ -628,7 +628,7 @@
           {/* ── The idea in one paragraph ── */}
           <div style={{ marginBottom: 32 }}>
             <SectionLabel>The idea in one paragraph</SectionLabel>
-            <p style={{ fontSize: 14, color: COLORS.textMuted, lineHeight: 1.65, maxWidth: 1200 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, maxWidth: 1200 }}>
               Most conversational AI products put a language model directly in front of a database and hope for the best. Ask Nanci is built the opposite way. The AI never touches data directly — it works through a controlled chain of services. It interprets the question and composes a query through a governed tool layer, and every single request passes through an authorization gate that applies the client’s organizational hierarchy before any data is read. When a user finds an answer they trust, they pin it, and that question becomes deterministic forever after. The AI is the interpreter; the platform is the enforcer.
             </p>
           </div>
@@ -721,7 +721,7 @@
                 <text x="910" y="652" textAnchor="middle" fill="#3D4A5C" fontSize="12">are never queried by the AI.</text>
               </svg>
             </div>
-            <p style={{ fontSize: 14, color: COLORS.textMuted, lineHeight: 1.6, marginTop: 16, maxWidth: 1200 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, marginTop: 16, maxWidth: 1200 }}>
               Every hop is a narrowing of what is possible. The AI translates the question into a query through the tool gateway; the authorization gate applies the client hierarchy to every request — exploratory or pinned; the data access layer executes a read-only, scoped query against an analytics platform that is physically separate from payment processing. Answers the user approves can be pinned, and pinned questions replay the exact same query every time.
             </p>
           </div>
@@ -729,7 +729,7 @@
           {/* ── Query pinning callout ── */}
           <div style={{ padding: "20px 24px", borderRadius: 14, background: "#f8f8f6", border: `1px solid ${COLORS.border}`, marginBottom: 32 }}>
             <SectionLabel>Design concept · Query Pinning</SectionLabel>
-            <div style={{ fontSize: 18, fontWeight: 600, color: COLORS.text, marginBottom: 10 }}>Explore freely, then pin what matters</div>
+            <div style={{ fontSize: 20, fontWeight: 600, color: COLORS.text, marginBottom: 10 }}>Explore freely, then pin what matters</div>
             <p style={pText}>Query pinning is the platform’s answer to the central tension in conversational analytics: users want the freedom to ask anything, but the business needs numbers that are consistent, repeatable, and defensible. Ask Nanci delivers both by separating exploration from certification. When a user asks a new question, the AI composes the query itself through the platform’s tool layer — full conversational flexibility, with every request still passing through the authorization gate and the governed data access layer.</p>
             <p style={pText}>When the user gets an answer they trust, they pin it. Pinning freezes the exact query behind that answer — the logic, the joins, the definitions — into the pinned query library. From that moment on, asking that question replays the identical query every time: same math, same result shape, same certified logic. The only thing that varies is the authorization scope of whoever is asking. Yesterday’s exploratory answer becomes tomorrow’s guaranteed metric.</p>
             <p style={{ ...pText, marginBottom: 0 }}>This gives the platform a property conversational AI usually lacks: determinism where it counts. The questions that run a business — the ones asked every Monday, quoted in board decks, reconciled against reports — become pinned, auditable, and immune to the natural variability of AI-generated queries. Every pinned query has a known cost, a known result shape, and a complete execution record. Accuracy stops being a hope and becomes a property of the library — a library your users build themselves, one trusted answer at a time.</p>
@@ -741,8 +741,8 @@
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12 }}>
               {pillars.map((p) => (
                 <NodeBox key={p.title} color={p.color} bg={p.accent ? COLORS.qualityBg : "#fff"} style={{ padding: "14px 16px" }}>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: p.color, marginBottom: 4 }}>{p.title}</div>
-                  <div style={{ fontSize: 14.5, color: COLORS.textMuted, lineHeight: 1.5 }}>{p.desc}</div>
+                  <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: p.color, marginBottom: 4 }}>{p.title}</div>
+                  <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5 }}>{p.desc}</div>
                 </NodeBox>
               ))}
             </div>
@@ -767,9 +767,9 @@
       return (
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.router, marginBottom: 10 }}>AI Token Optimization Program</div>
-            <h2 style={{ fontSize: 24, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>An open model we own, reached by a fast, low-risk path</h2>
-            <p style={{ fontSize: 14, color: COLORS.textMuted, margin: "10px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
+            <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.router, marginBottom: 10 }}>AI Token Optimization Program</div>
+            <h2 style={{ fontSize: 28, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>An open model we own, reached by a fast, low-risk path</h2>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, margin: "10px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
               Model selection &amp; hosting strategy for the merchant / ISO conversational-analytics agents.
             </p>
           </div>
@@ -777,7 +777,7 @@
           {/* ── The idea in one paragraph ── */}
           <div style={{ marginBottom: 32 }}>
             <SectionLabel>The approach</SectionLabel>
-            <p style={{ fontSize: 14, color: COLORS.textMuted, lineHeight: 1.65, maxWidth: 1200 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, maxWidth: 1200 }}>
               We launch quickly on a rented, managed model to prove the experience, then move the production workload onto an <strong style={{ color: COLORS.text }}>open model we host and control ourselves</strong>. Start on a managed cloud model to validate the merchant and ISO experience in days, with no infrastructure to build. Once proven, migrate to an open model that runs entirely inside Aperia’s own environment. The customer-facing product stays the same throughout — only the engine behind it changes, and each change is a redeploy rather than a rebuild.
             </p>
           </div>
@@ -785,7 +785,7 @@
           {/* ── Recommended model ── */}
           <div style={{ marginBottom: 32 }}>
             <SectionLabel>Why Qwen3 8B is the recommended open model</SectionLabel>
-            <p style={{ fontSize: 14, color: COLORS.textMuted, lineHeight: 1.65, maxWidth: 1200 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, maxWidth: 1200 }}>
               Across a weighted evaluation of small (≤15B) open models — scored on tool-calling, reasoning, efficiency and enterprise fit — <strong style={{ color: COLORS.text }}>Qwen3 8B</strong> ranks first on capability. It has strong tool/function calling for our MCP + DAB orchestration, runs efficiently on a single GPU, and ships under a clean, commercial-friendly <strong style={{ color: COLORS.text }}>Apache 2.0</strong> license. Because we self-host it, the weights run inside our own boundary — no customer data leaves and there is no callback to the vendor. Adoption remains subject to a provenance governance sign-off.
             </p>
           </div>
@@ -797,16 +797,16 @@
               {stages.map((s, i) => (
                 <React.Fragment key={s.n}>
                   <NodeBox color={COLORS.router} style={{ flex: 1, background: "#fbfcfe" }}>
-                    <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 24, height: 24, borderRadius: "50%", background: COLORS.router, color: "#fff", fontWeight: 700, fontSize: 14, marginBottom: 8 }}>{s.n}</div>
-                    <div style={{ fontSize: 10, fontWeight: 700, color: COLORS.router, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 3 }}>{s.model}</div>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.text, marginBottom: 4 }}>{s.title}</div>
-                    <div style={{ fontSize: 14.5, color: COLORS.textMuted, lineHeight: 1.5 }}>{s.desc}</div>
+                    <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 24, height: 24, borderRadius: "50%", background: COLORS.router, color: "#fff", fontWeight: 700, fontSize: 16, lineHeight: 1.5, marginBottom: 8 }}>{s.n}</div>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: COLORS.router, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 3 }}>{s.model}</div>
+                    <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.text, marginBottom: 4 }}>{s.title}</div>
+                    <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5 }}>{s.desc}</div>
                   </NodeBox>
-                  {i < stages.length - 1 && <div style={{ alignSelf: "center", color: COLORS.router, fontSize: 18, fontWeight: 700 }}>→</div>}
+                  {i < stages.length - 1 && <div style={{ alignSelf: "center", color: COLORS.router, fontSize: 20, fontWeight: 700 }}>→</div>}
                 </React.Fragment>
               ))}
             </div>
-            <p style={{ fontSize: 14, color: COLORS.textMuted, marginTop: 10 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, marginTop: 10 }}>
               Think of it as <strong style={{ color: COLORS.text }}>rent → lease → own</strong>: rent to start fast and cheap, lease to harden it in production, own it to lock in predictable cost and control.
             </p>
           </div>
@@ -814,10 +814,10 @@
           {/* ── What "open model" means ── */}
           <div style={{ marginBottom: 32, background: COLORS.profitBg, border: `1px solid ${COLORS.profitLight}`, borderRadius: 10, padding: "18px 20px" }}>
             <SectionLabel>What “open model” means — and how it lets us own the IP</SectionLabel>
-            <p style={{ fontSize: 14.5, color: COLORS.textMuted, lineHeight: 1.6, marginBottom: 8 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, marginBottom: 8 }}>
               A <strong style={{ color: COLORS.text }}>closed model</strong> (like a typical hosted AI API) is a black box we can only rent: the provider holds the actual model, we send data in and get answers back, and we pay per call for as long as we use it. We never possess the thing doing the work.
             </p>
-            <p style={{ fontSize: 14.5, color: COLORS.textMuted, lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, margin: 0 }}>
               An <strong style={{ color: COLORS.text }}>open model</strong> ships its full weights under a license (Apache 2.0) that lets us download, run, modify and deploy it freely. Once we self-host those weights, the working model becomes an asset Aperia owns and controls — it runs on our infrastructure, inside our security boundary, on our schedule. We can version it, fine-tune it on our own data to build proprietary domain expertise, and keep running it with no per-token bill and no dependence on a vendor’s pricing, availability or terms. That is how an open model turns the LLM itself into intellectual property we own rather than a service we rent.
             </p>
           </div>
@@ -828,8 +828,8 @@
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
               {delivers.map((d, i) => (
                 <NodeBox key={i} color={COLORS.quality} featured>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.quality, marginBottom: 4 }}>{d.title}</div>
-                  <div style={{ fontSize: 14.5, color: COLORS.textMuted, lineHeight: 1.5 }}>{d.desc}</div>
+                  <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.quality, marginBottom: 4 }}>{d.title}</div>
+                  <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5 }}>{d.desc}</div>
                 </NodeBox>
               ))}
             </div>
@@ -853,7 +853,7 @@
         <div style={{ fontFamily: "'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif", color: COLORS.text, padding: "24px 20px 40px", minHeight: "100vh", background: "#fff" }}>
           <div style={{ display: "flex", gap: 4, justifyContent: "center", marginBottom: 32, background: "#f5f5f3", borderRadius: 10, padding: 3, maxWidth: 1200, margin: "0 auto 32px", overflowX: "auto" }}>
             {tabs.map((t, i) => (
-              <button key={i} onClick={() => setTab(i)} style={{ flex: 1, whiteSpace: "nowrap", padding: "8px 12px", borderRadius: 8, border: "none", background: tab === i ? "#fff" : "transparent", color: tab === i ? COLORS.text : COLORS.textMuted, fontWeight: tab === i ? 600 : 400, fontSize: 14, cursor: "pointer", transition: "all 0.2s", boxShadow: tab === i ? "0 1px 3px rgba(0,0,0,0.08)" : "none", fontFamily: "inherit" }}>
+              <button key={i} onClick={() => setTab(i)} style={{ flex: 1, whiteSpace: "nowrap", padding: "8px 12px", borderRadius: 8, border: "none", background: tab === i ? "#fff" : "transparent", color: tab === i ? COLORS.text : COLORS.textMuted, fontWeight: tab === i ? 600 : 400, fontSize: 16, lineHeight: 1.5, cursor: "pointer", transition: "all 0.2s", boxShadow: tab === i ? "0 1px 3px rgba(0,0,0,0.08)" : "none", fontFamily: "inherit" }}>
                 {t.label}
               </button>
             ))}

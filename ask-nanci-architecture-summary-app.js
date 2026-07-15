@@ -9,7 +9,7 @@ const COLORS = {
   border: "rgba(0,0,0,0.08)",
   borderHover: "rgba(0,0,0,0.15)",
   text: "#333333",
-  textMuted: "#6b6b6b",
+  textMuted: "#333333",
   textLight: "#999",
   funding: "#0F6E56",
   fundingBg: "#E1F5EE",
@@ -234,7 +234,8 @@ function SourcePill({
       borderRadius: 20,
       background: s.bg,
       color: s.color,
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 550,
       letterSpacing: "0.01em",
       border: `1px solid ${s.color}22`
@@ -246,7 +247,7 @@ function SectionLabel({
 }) {
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       letterSpacing: "0.12em",
       textTransform: "uppercase",
@@ -295,18 +296,19 @@ function Arrow({
       gap: 2,
       padding: isDown ? "4px 0" : "0 4px",
       color,
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       ...style
     }
   }, label && /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textMuted,
       whiteSpace: "nowrap"
     }
   }, label), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 18,
+      fontSize: 20,
       lineHeight: 1
     }
   }, isDown ? "\u2193" : isRight ? "\u2192" : "\u2193"));
@@ -331,7 +333,7 @@ function LoopsSection() {
       padding: "2px 14px",
       borderRadius: 20,
       border: `1.5px solid ${COLORS.border}`,
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       color: COLORS.textMuted,
       letterSpacing: "0.08em",
@@ -378,7 +380,7 @@ function LoopsSection() {
     opacity: "0.5"
   })), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       color: COLORS.dataRetrieval,
       opacity: 0.6,
@@ -410,7 +412,7 @@ function LoopsSection() {
       border: `1px solid ${COLORS.dataRetrieval}30`,
       borderRadius: 6,
       padding: "2px 10px",
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       color: COLORS.dataRetrieval,
       letterSpacing: "0.05em"
@@ -425,7 +427,8 @@ function LoopsSection() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       marginBottom: 4
     }
@@ -439,13 +442,14 @@ function LoopsSection() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.dataRetrieval
     }
   }, "Data retrieval"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textMuted,
       marginTop: 2
     }
@@ -459,13 +463,14 @@ function LoopsSection() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.organize
     }
   }, "Organize results"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textMuted,
       marginTop: 2
     }
@@ -486,7 +491,7 @@ function LoopsSection() {
       border: `1px solid ${COLORS.qualityBorder}40`,
       borderRadius: 6,
       padding: "2px 10px",
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       color: COLORS.quality,
       letterSpacing: "0.05em"
@@ -501,7 +506,8 @@ function LoopsSection() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       marginBottom: 4
     }
@@ -517,13 +523,14 @@ function LoopsSection() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.quality
     }
   }, "Quality review"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textMuted,
       marginTop: 2
     }
@@ -541,7 +548,7 @@ function LoopsSection() {
       padding: "6px 4px",
       borderRadius: 8,
       background: "#EAF3DE",
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       color: "#3B6D11"
     }
@@ -551,7 +558,7 @@ function LoopsSection() {
       padding: "6px 4px",
       borderRadius: 8,
       background: "#FAEEDA",
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       color: "#854F0B"
     }
@@ -561,13 +568,13 @@ function LoopsSection() {
       padding: "6px 4px",
       borderRadius: 8,
       background: "#FAECE7",
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       color: "#993C1D"
     }
   }, "Escalate ", "\u2192")), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textMuted,
       marginTop: 6
     }
@@ -604,7 +611,7 @@ function LoopsSection() {
     opacity: "0.5"
   })), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       color: COLORS.quality,
       opacity: 0.6,
@@ -629,7 +636,7 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("h2", {
     style: {
-      fontSize: 24,
+      fontSize: 28,
       fontWeight: 600,
       color: COLORS.text,
       margin: 0,
@@ -637,7 +644,8 @@ function Diagram1() {
     }
   }, "AI agent workflow"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       margin: "6px 0 0",
       maxWidth: 1200,
@@ -669,17 +677,20 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14
+      fontSize: 16,
+      lineHeight: 1.5
     }
   }, "\u{1F512}"), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: "#185FA5"
     }
   }, "Identity & authorization")), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       marginBottom: 8
     }
@@ -693,7 +704,7 @@ function Diagram1() {
   }, ["Entra ID", "OpenFGA", "OAuth 2.0 / JWT", "Tenant isolation", "Audit logging"].map(tag => /*#__PURE__*/React.createElement("span", {
     key: tag,
     style: {
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       padding: "2px 8px",
       borderRadius: 4,
@@ -718,7 +729,8 @@ function Diagram1() {
     }
   }), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       letterSpacing: "0.1em",
       textTransform: "uppercase",
@@ -759,13 +771,15 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.safety
     }
   }, "Guardrails"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       marginTop: 2
     }
@@ -790,12 +804,13 @@ function Diagram1() {
     style: {
       position: "absolute",
       right: -120,
-      top: 0,
+      top: 10,
       display: "flex",
       alignItems: "center",
       gap: 6,
       color: "#A32D2D",
-      fontSize: 14
+      fontSize: 16,
+      lineHeight: 1.5
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -807,7 +822,8 @@ function Diagram1() {
       border: "1px solid #F0959540",
       borderRadius: 8,
       padding: "4px 10px",
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 500,
       color: "#A32D2D"
     }
@@ -820,19 +836,21 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.memory
     }
   }, "Conversation memory"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       marginTop: 2
     }
   }, "Sliding window, context management"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textLight,
       marginTop: 2,
       fontStyle: "italic"
@@ -846,19 +864,21 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.router
     }
   }, "Question understanding"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       marginTop: 2
     }
   }, "AI classifies intent and complexity"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textLight,
       marginTop: 3,
       fontStyle: "italic"
@@ -906,7 +926,7 @@ function Diagram1() {
       position: "absolute",
       left: "calc(15% - 3px)",
       top: 24,
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.router,
       opacity: 0.5,
       lineHeight: 1
@@ -926,7 +946,7 @@ function Diagram1() {
       position: "absolute",
       left: "calc(50% - 3px)",
       top: 24,
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.router,
       opacity: 0.5,
       lineHeight: 1
@@ -946,7 +966,7 @@ function Diagram1() {
       position: "absolute",
       right: "calc(15% - 3px)",
       top: 24,
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.router,
       opacity: 0.5,
       lineHeight: 1
@@ -986,19 +1006,21 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14
+      fontSize: 16,
+      lineHeight: 1.5
     }
   }, s.icon), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: s.color
     }
   }, s.name)), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textMuted,
-      lineHeight: 1.35,
+      lineHeight: 1.5,
       marginBottom: 6
     }
   }, s.desc), /*#__PURE__*/React.createElement("div", {
@@ -1010,7 +1032,7 @@ function Diagram1() {
   }, s.sources.map(src => /*#__PURE__*/React.createElement("span", {
     key: src,
     style: {
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 550,
       padding: "1px 5px",
       borderRadius: 4,
@@ -1037,13 +1059,15 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.prepare
     }
   }, "Assemble your answer"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       marginTop: 2
     }
@@ -1059,7 +1083,7 @@ function Diagram1() {
       display: "inline-flex",
       alignItems: "center",
       gap: 4,
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       padding: "3px 10px",
       borderRadius: 6,
@@ -1072,7 +1096,7 @@ function Diagram1() {
       display: "inline-flex",
       alignItems: "center",
       gap: 4,
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 500,
       padding: "3px 10px",
       borderRadius: 6,
@@ -1084,7 +1108,7 @@ function Diagram1() {
       display: "inline-flex",
       alignItems: "center",
       gap: 4,
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 500,
       padding: "3px 10px",
       borderRadius: 6,
@@ -1100,13 +1124,15 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.deliver
     }
   }, "Deliver to business"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       marginTop: 2
     }
@@ -1140,24 +1166,26 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14
+      fontSize: 16,
+      lineHeight: 1.5
     }
   }, ds.icon), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: ds.color
     }
   }, ds.name)), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textMuted,
-      lineHeight: 1.35,
+      lineHeight: 1.5,
       marginBottom: 4
     }
   }, ds.desc), ds.via && /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       padding: "2px 6px",
       borderRadius: 4,
@@ -1177,20 +1205,23 @@ function Diagram1() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       marginTop: 1,
       flexShrink: 0
     }
   }, "\u{1F50D}"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.text,
       marginBottom: 2
     }
   }, "End-to-end observability"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
@@ -1210,7 +1241,7 @@ function Diagram2() {
     }
   }, /*#__PURE__*/React.createElement("h2", {
     style: {
-      fontSize: 24,
+      fontSize: 28,
       fontWeight: 600,
       color: COLORS.text,
       margin: 0,
@@ -1218,7 +1249,8 @@ function Diagram2() {
     }
   }, "Specialized AI agents"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       margin: "6px 0 0",
       maxWidth: 1200,
@@ -1243,11 +1275,13 @@ function Diagram2() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14
+      fontSize: 16,
+      lineHeight: 1.5
     }
   }, "\u2713"), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.quality
     }
@@ -1293,18 +1327,20 @@ function Diagram2() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: 18,
+        fontSize: 20,
         border: `1px solid ${s.color}20`
       }
     }, s.icon), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 14,
+        fontSize: 16,
+        lineHeight: 1.5,
         fontWeight: 600,
         color: s.color
       }
     }, s.name), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 14,
+        fontSize: 16,
+        lineHeight: 1.5,
         color: COLORS.textMuted
       }
     }, s.desc))), /*#__PURE__*/React.createElement("div", {
@@ -1337,10 +1373,11 @@ function Diagram2() {
         padding: "6px 10px",
         borderRadius: 8,
         background: i === 0 ? s.bg : "#f8f8f6",
-        fontSize: 14,
+        fontSize: 16,
+        lineHeight: 1.5,
         color: i === 0 ? s.color : COLORS.textMuted,
         fontWeight: i === 0 ? 500 : 400,
-        lineHeight: 1.35,
+        lineHeight: 1.5,
         border: `0.5px solid ${i === 0 ? s.color + '20' : 'transparent'}`
       }
     }, /*#__PURE__*/React.createElement("span", {
@@ -1370,7 +1407,7 @@ function Diagram2() {
       }
     }, /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 12,
         fontWeight: 600,
         color: COLORS.textLight,
         marginBottom: 4,
@@ -1386,7 +1423,7 @@ function Diagram2() {
     }, s.tools.map(t => /*#__PURE__*/React.createElement("span", {
       key: t,
       style: {
-        fontSize: 10,
+        fontSize: 12,
         padding: "2px 7px",
         borderRadius: 4,
         background: "#f5f5f3",
@@ -1394,7 +1431,7 @@ function Diagram2() {
       }
     }, t)))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 12,
         fontWeight: 600,
         color: COLORS.textLight,
         marginBottom: 4,
@@ -1425,7 +1462,8 @@ function Diagram2() {
       display: "flex",
       alignItems: "center",
       gap: 6,
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -1574,7 +1612,7 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("h2", {
     style: {
-      fontSize: 24,
+      fontSize: 28,
       fontWeight: 600,
       color: COLORS.text,
       margin: 0,
@@ -1582,7 +1620,8 @@ function Diagram3() {
     }
   }, "Follow the question"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       margin: "6px 0 0"
     }
@@ -1640,13 +1679,14 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: step.color
     }
   }, step.label), step.verdict === "refine" && /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       padding: "1px 6px",
       borderRadius: 4,
@@ -1655,7 +1695,7 @@ function Diagram3() {
     }
   }, "REFINE"), step.verdict === "approved" && /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       padding: "1px 6px",
       borderRadius: 4,
@@ -1664,9 +1704,10 @@ function Diagram3() {
     }
   }, "APPROVED")), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
-      lineHeight: 1.45,
+      lineHeight: 1.5,
       fontStyle: step.type === "user" ? "italic" : "normal",
       maxWidth: 500
     }
@@ -1692,24 +1733,25 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 18
+      fontSize: 20
     }
   }, fs.icon), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: sourceColorMap[fs.id].color
     }
   }, fs.name), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textMuted
     }
   }, fs.detail)))), /*#__PURE__*/React.createElement("div", {
     style: {
       gridColumn: "1 / -1",
       textAlign: "center",
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.dataRetrieval,
       fontWeight: 500,
       padding: "2px 0"
@@ -1725,12 +1767,13 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.qualityBorder
     }
   }, "\u21A9"), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.quality,
       fontWeight: 500
     }
@@ -1776,7 +1819,8 @@ function Diagram3() {
     }
   }), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       marginLeft: 8
     }
@@ -1797,7 +1841,8 @@ function Diagram3() {
       padding: "8px 12px",
       borderRadius: 8,
       background: "#f5f5f3",
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       fontStyle: "italic"
     }
@@ -1817,7 +1862,8 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.textMuted,
       marginBottom: 6
@@ -1830,34 +1876,34 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textLight
     }
   }, "Clover sales"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 18,
+      fontSize: 20,
       fontWeight: 600,
       color: COLORS.clover
     }
   }, "$4,827")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textLight
     }
   }, "Bank deposits"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 18,
+      fontSize: 20,
       fontWeight: 600,
       color: COLORS.plaid
     }
   }, "$3,512")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textLight
     }
   }, "Difference"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 18,
+      fontSize: 20,
       fontWeight: 600,
       color: "#D85A30"
     }
@@ -1877,7 +1923,8 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.textMuted,
       marginBottom: 8
@@ -1896,7 +1943,7 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textMuted,
       width: 100,
       textAlign: "right"
@@ -1917,7 +1964,7 @@ function Diagram3() {
       display: "flex",
       alignItems: "center",
       paddingLeft: 6,
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       color: COLORS.reconciliation
     }
@@ -1929,7 +1976,7 @@ function Diagram3() {
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       color: COLORS.textMuted,
       width: 100,
       textAlign: "right"
@@ -1951,7 +1998,7 @@ function Diagram3() {
       display: "flex",
       alignItems: "center",
       paddingLeft: 6,
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 600,
       color: COLORS.chargeback
     }
@@ -1964,8 +2011,8 @@ function Diagram3() {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1,
-      fontSize: 14,
-      lineHeight: 1.55,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.text
     }
   }, "Two deposits from Friday ($847 and $456) are still in transit and will post Monday. Once they do, your bank balance will match within $12 of your Clover sales. That remaining $12 is your processing fee for the period."))))))));
@@ -1998,9 +2045,10 @@ function Diagram4() {
     accent: true
   }];
   const pText = {
-    fontSize: 14.5,
+    fontSize: 16,
+    lineHeight: 1.5,
     color: COLORS.textMuted,
-    lineHeight: 1.6,
+    lineHeight: 1.5,
     marginBottom: 10
   };
   return /*#__PURE__*/React.createElement("div", {
@@ -2015,7 +2063,8 @@ function Diagram4() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       letterSpacing: "0.16em",
       textTransform: "uppercase",
@@ -2024,7 +2073,7 @@ function Diagram4() {
     }
   }, "Conceptual Architecture Brief"), /*#__PURE__*/React.createElement("h2", {
     style: {
-      fontSize: 24,
+      fontSize: 28,
       fontWeight: 600,
       color: COLORS.text,
       margin: 0,
@@ -2032,7 +2081,8 @@ function Diagram4() {
     }
   }, "Ask Nanci: answers you can trust, from data you control"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       margin: "10px 0 0",
       maxWidth: 1200,
@@ -2045,9 +2095,10 @@ function Diagram4() {
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "The idea in one paragraph"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
-      lineHeight: 1.65,
+      lineHeight: 1.5,
       maxWidth: 1200
     }
   }, "Most conversational AI products put a language model directly in front of a database and hope for the best. Ask Nanci is built the opposite way. The AI never touches data directly \u2014 it works through a controlled chain of services. It interprets the question and composes a query through a governed tool layer, and every single request passes through an authorization gate that applies the client\u2019s organizational hierarchy before any data is read. When a user finds an answer they trust, they pin it, and that question becomes deterministic forever after. The AI is the interpreter; the platform is the enforcer.")), /*#__PURE__*/React.createElement("div", {
@@ -2446,9 +2497,10 @@ function Diagram4() {
     fontSize: "12"
   }, "are never queried by the AI."))), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
-      lineHeight: 1.6,
+      lineHeight: 1.5,
       marginTop: 16,
       maxWidth: 1200
     }
@@ -2462,7 +2514,7 @@ function Diagram4() {
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "Design concept \xB7 Query Pinning"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 18,
+      fontSize: 20,
       fontWeight: 600,
       color: COLORS.text,
       marginBottom: 10
@@ -2495,14 +2547,16 @@ function Diagram4() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: p.color,
       marginBottom: 4
     }
   }, p.title), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14.5,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
@@ -2550,7 +2604,8 @@ function Diagram5() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       letterSpacing: "0.16em",
       textTransform: "uppercase",
@@ -2559,7 +2614,7 @@ function Diagram5() {
     }
   }, "AI Token Optimization Program"), /*#__PURE__*/React.createElement("h2", {
     style: {
-      fontSize: 24,
+      fontSize: 28,
       fontWeight: 600,
       color: COLORS.text,
       margin: 0,
@@ -2567,7 +2622,8 @@ function Diagram5() {
     }
   }, "An open model we own, reached by a fast, low-risk path"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       margin: "10px 0 0",
       maxWidth: 1200,
@@ -2580,9 +2636,10 @@ function Diagram5() {
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "The approach"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
-      lineHeight: 1.65,
+      lineHeight: 1.5,
       maxWidth: 1200
     }
   }, "We launch quickly on a rented, managed model to prove the experience, then move the production workload onto an ", /*#__PURE__*/React.createElement("strong", {
@@ -2595,9 +2652,10 @@ function Diagram5() {
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "Why Qwen3 8B is the recommended open model"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
-      lineHeight: 1.65,
+      lineHeight: 1.5,
       maxWidth: 1200
     }
   }, "Across a weighted evaluation of small (\u226415B) open models \u2014 scored on tool-calling, reasoning, efficiency and enterprise fit \u2014 ", /*#__PURE__*/React.createElement("strong", {
@@ -2637,12 +2695,13 @@ function Diagram5() {
       background: COLORS.router,
       color: "#fff",
       fontWeight: 700,
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       marginBottom: 8
     }
   }, s.n), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: 700,
       color: COLORS.router,
       textTransform: "uppercase",
@@ -2651,14 +2710,16 @@ function Diagram5() {
     }
   }, s.model), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.text,
       marginBottom: 4
     }
   }, s.title), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14.5,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
@@ -2666,12 +2727,13 @@ function Diagram5() {
     style: {
       alignSelf: "center",
       color: COLORS.router,
-      fontSize: 18,
+      fontSize: 20,
       fontWeight: 700
     }
   }, "\u2192")))), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       marginTop: 10
     }
@@ -2689,9 +2751,10 @@ function Diagram5() {
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "What \u201Copen model\u201D means \u2014 and how it lets us own the IP"), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14.5,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
-      lineHeight: 1.6,
+      lineHeight: 1.5,
       marginBottom: 8
     }
   }, "A ", /*#__PURE__*/React.createElement("strong", {
@@ -2700,9 +2763,10 @@ function Diagram5() {
     }
   }, "closed model"), " (like a typical hosted AI API) is a black box we can only rent: the provider holds the actual model, we send data in and get answers back, and we pay per call for as long as we use it. We never possess the thing doing the work."), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 14.5,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
-      lineHeight: 1.6,
+      lineHeight: 1.5,
       margin: 0
     }
   }, "An ", /*#__PURE__*/React.createElement("strong", {
@@ -2725,14 +2789,16 @@ function Diagram5() {
     featured: true
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       fontWeight: 600,
       color: COLORS.quality,
       marginBottom: 4
     }
   }, d.title), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 14.5,
+      fontSize: 16,
+      lineHeight: 1.5,
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
@@ -2790,7 +2856,8 @@ function App() {
       background: tab === i ? "#fff" : "transparent",
       color: tab === i ? COLORS.text : COLORS.textMuted,
       fontWeight: tab === i ? 600 : 400,
-      fontSize: 14,
+      fontSize: 16,
+      lineHeight: 1.5,
       cursor: "pointer",
       transition: "all 0.2s",
       boxShadow: tab === i ? "0 1px 3px rgba(0,0,0,0.08)" : "none",
