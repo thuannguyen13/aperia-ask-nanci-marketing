@@ -1,0 +1,11 @@
+#!/bin/bash
+# The bundle is generated from the JSX in ask-nanci-architecture-summary.html.
+# Committing the source without the rebuilt bundle ships a stale site, so if the
+# source is staged, rebuild and stage the bundle alongside it.
+set -euo pipefail
+
+git diff --cached --name-only | grep -qx 'ask-nanci-architecture-summary.html' || exit 0
+
+echo "pre-commit: source staged, rebuilding bundle..."
+SKIP_SHIP=1 ./build.sh >/dev/null
+git add ask-nanci-architecture-summary-app.js ask-nanci-architecture-summary-app.min.js
