@@ -2570,26 +2570,21 @@ function Diagram5() {
     desc: "Use a managed cloud endpoint. Nothing to install, live in days, pay only per use. Perfect for proving the pilot — but the meter grows with usage."
   }, {
     n: 2,
-    model: "Managed compute · Qwen3 8B",
-    title: "Reserve a dedicated engine",
-    desc: "Run our open model on a dedicated cloud GPU that Azure operates for us. Production-grade, still no cluster to manage — the bridge to owning it."
-  }, {
-    n: 3,
-    model: "Self-hosted · Qwen3 8B",
-    title: "Own and run it",
-    desc: "Host the model on our own Kubernetes (AKS) cluster. Fixed, predictable cost, tightest data control, and the model fully in our hands at scale."
+    model: "Managed compute · Llama 3.1 8B",
+    title: "Dedicated engine",
+    desc: "Run our open model on a dedicated cloud GPU that Azure operates for us. Production-grade, still no cluster to manage."
   }];
   const delivers = [{
-    title: "Speed & low risk to start",
-    desc: "A working ISO pilot in days on a managed model, zero infrastructure."
+    title: "Speed and low risk to start",
+    desc: "A working merchant pilot in days on a managed model, zero infrastructure."
   }, {
-    title: "Ownership & independence",
+    title: "Ownership and independence",
     desc: "The production model is ours to run, tune and control; no vendor lock-in."
   }, {
     title: "Predictable economics",
     desc: "Self-hosting replaces a per-token meter with fixed, reserved cost as volume grows."
   }, {
-    title: "Data control & compliance",
+    title: "Data control and compliance",
     desc: "Everything runs inside Aperia’s boundary, fit for a PCI / payments platform."
   }];
   return /*#__PURE__*/React.createElement("div", {
@@ -2630,7 +2625,7 @@ function Diagram5() {
       marginLeft: "auto",
       marginRight: "auto"
     }
-  }, "Model selection & hosting strategy for the merchant / ISO conversational-analytics agents.")), /*#__PURE__*/React.createElement("div", {
+  }, "Model selection and hosting strategy for the merchant / ISO conversational-analytics agents.")), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32
     }
@@ -2642,7 +2637,7 @@ function Diagram5() {
       lineHeight: 1.5,
       maxWidth: 1200
     }
-  }, "We launch quickly on a rented, managed model to prove the experience, then move the production workload onto an ", /*#__PURE__*/React.createElement("strong", {
+  }, "We launch quickly on a rented, managed closed model to prove the experience, then move the production workload onto an ", /*#__PURE__*/React.createElement("strong", {
     style: {
       color: COLORS.text
     }
@@ -2650,7 +2645,7 @@ function Diagram5() {
     style: {
       marginBottom: 32
     }
-  }, /*#__PURE__*/React.createElement(SectionLabel, null, "Why Qwen3 8B is the recommended open model"), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement(SectionLabel, null, "Why Llama 3.1 8B is the recommended open model"), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 16,
       lineHeight: 1.5,
@@ -2662,7 +2657,7 @@ function Diagram5() {
     style: {
       color: COLORS.text
     }
-  }, "Qwen3 8B"), " ranks first on capability. It has strong tool/function calling for our MCP + DAB orchestration, runs efficiently on a single GPU, and ships under a clean, commercial-friendly ", /*#__PURE__*/React.createElement("strong", {
+  }, "Llama 3.1 8B"), " ranks first on capability. It has strong tool/function calling for our MCP + DAB orchestration, runs efficiently on a single GPU, and ships under a clean, commercial-friendly ", /*#__PURE__*/React.createElement("strong", {
     style: {
       color: COLORS.text
     }
@@ -2670,7 +2665,7 @@ function Diagram5() {
     style: {
       marginBottom: 32
     }
-  }, /*#__PURE__*/React.createElement(SectionLabel, null, "How we host it: three simple stages"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement(SectionLabel, null, "How we host it: two simple stages"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 12,
@@ -2737,11 +2732,7 @@ function Diagram5() {
       color: COLORS.textMuted,
       marginTop: 10
     }
-  }, "Think of it as ", /*#__PURE__*/React.createElement("strong", {
-    style: {
-      color: COLORS.text
-    }
-  }, "rent \u2192 lease \u2192 own"), ": rent to start fast and cheap, lease to harden it in production, own it to lock in predictable cost and control.")), /*#__PURE__*/React.createElement("div", {
+  }, "Rent to start fast and cheap, harden it in production, then own it to lock in predictable cost and control.")), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32,
       background: COLORS.profitBg,
@@ -2773,7 +2764,7 @@ function Diagram5() {
     style: {
       color: COLORS.text
     }
-  }, "open model"), " ships its full weights under a license (Apache 2.0) that lets us download, run, modify and deploy it freely. Once we self-host those weights, the working model becomes an asset Aperia owns and controls \u2014 it runs on our infrastructure, inside our security boundary, on our schedule. We can version it, fine-tune it on our own data to build proprietary domain expertise, and keep running it with no per-token bill and no dependence on a vendor\u2019s pricing, availability or terms. That is how an open model turns the LLM itself into intellectual property we own rather than a service we rent.")), /*#__PURE__*/React.createElement("div", {
+  }, "open model"), " ships its full weights under a license (Apache 2.0) that lets us download, run, modify and deploy it freely. The working model becomes an asset Aperia owns and controls \u2014 it runs on our infrastructure, inside our security boundary, on our schedule. We can version it, fine-tune it on our own data to build proprietary domain expertise, and keep running it with no per-token bill and no dependence on a vendor\u2019s pricing, availability or terms. That is how an open model turns the LLM itself into intellectual property we own rather than a service we rent.")), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32
     }
