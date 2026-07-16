@@ -2762,7 +2762,7 @@ function Diagram5() {
     }
   }, "Because we own the pipeline, this compounds. Every improvement to our data and every additional fine-tuning cycle deepens a proprietary capability that only Aperia possesses, and that gets more valuable the longer we run it.")), /*#__PURE__*/React.createElement("div", {
     style: {
-      marginBottom: 24
+      marginBottom: 8
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "What this delivers"), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2793,15 +2793,7 @@ function Diagram5() {
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
-  }, d.desc))))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      textAlign: "center",
-      fontSize: 12,
-      fontStyle: "italic",
-      color: COLORS.textLight,
-      letterSpacing: "0.04em"
-    }
-  }, "Confidential"));
+  }, d.desc))))));
 }
 function App() {
   const [tab, setTab] = useState(0);
