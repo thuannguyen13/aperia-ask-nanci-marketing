@@ -2567,7 +2567,7 @@ function Diagram5() {
     n: 1,
     model: "Serverless · GPT-4.1 mini",
     title: "Rent it",
-    desc: "Use a managed cloud endpoint. Nothing to install, live in days, pay only per use. Perfect for proving the pilot — but the meter grows with usage."
+    desc: "Use a managed cloud endpoint. Nothing to install, live in days, pay only per use. Perfect for proving the pilot, but the meter grows with usage."
   }, {
     n: 2,
     model: "Managed compute · Llama 3.1 8B",
@@ -2641,7 +2641,7 @@ function Diagram5() {
     style: {
       color: COLORS.text
     }
-  }, "open model we host and control ourselves"), ". Start on a managed cloud model to validate the merchant and ISO experience in days, with no infrastructure to build. Once proven, migrate to an open model that runs entirely inside Aperia\u2019s own environment. The customer-facing product stays the same throughout \u2014 only the engine behind it changes, and each change is a redeploy rather than a rebuild.")), /*#__PURE__*/React.createElement("div", {
+  }, "open model we host and control ourselves"), ". Start on a managed cloud model to validate the merchant and ISO experience in days, with no infrastructure to build. Once proven, migrate to an open model that runs entirely inside Aperia\u2019s own environment. The customer-facing product stays the same throughout. Only the engine behind it changes, and each change is a redeploy rather than a rebuild.")), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32
     }
@@ -2653,7 +2653,7 @@ function Diagram5() {
       lineHeight: 1.5,
       maxWidth: 1200
     }
-  }, "Across a weighted evaluation of small (\u226415B) open models \u2014 scored on tool-calling, reasoning, efficiency and enterprise fit \u2014 ", /*#__PURE__*/React.createElement("strong", {
+  }, "Across a weighted evaluation of small (\u226415B) open models, scored on tool-calling, reasoning, efficiency and enterprise fit, ", /*#__PURE__*/React.createElement("strong", {
     style: {
       color: COLORS.text
     }
@@ -2661,7 +2661,7 @@ function Diagram5() {
     style: {
       color: COLORS.text
     }
-  }, "Apache 2.0"), " license. Because we self-host it, the weights run inside our own boundary \u2014 no customer data leaves and there is no callback to the vendor. Adoption remains subject to a provenance governance sign-off.")), /*#__PURE__*/React.createElement("div", {
+  }, "Apache 2.0"), " license. Because we self-host it, the weights run inside our own boundary: no customer data leaves and there is no callback to the vendor. Adoption remains subject to a provenance governance sign-off.")), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32
     }
@@ -2740,7 +2740,7 @@ function Diagram5() {
       borderRadius: 10,
       padding: "18px 20px"
     }
-  }, /*#__PURE__*/React.createElement(SectionLabel, null, "What \u201Copen model\u201D means \u2014 and how it lets us own the IP"), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement(SectionLabel, null, "What \u201Copen model\u201D means, and how it lets us own the IP"), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 16,
       lineHeight: 1.5,
@@ -2764,7 +2764,7 @@ function Diagram5() {
     style: {
       color: COLORS.text
     }
-  }, "open model"), " ships its full weights under a license (Apache 2.0) that lets us download, run, modify and deploy it freely. The working model becomes an asset Aperia owns and controls \u2014 it runs on our infrastructure, inside our security boundary, on our schedule. We can version it, fine-tune it on our own data to build proprietary domain expertise, and keep running it with no per-token bill and no dependence on a vendor\u2019s pricing, availability or terms. That is how an open model turns the LLM itself into intellectual property we own rather than a service we rent.")), /*#__PURE__*/React.createElement("div", {
+  }, "open model"), " ships its full weights under a license (Apache 2.0) that lets us download, run, modify and deploy it freely. The working model becomes an asset Aperia owns and controls. It runs on our infrastructure, inside our security boundary, on our schedule. We can version it, fine-tune it on our own data to build proprietary domain expertise, and keep running it with no per-token bill and no dependence on a vendor\u2019s pricing, availability or terms. That is how an open model turns the LLM itself into intellectual property we own rather than a service we rent.")), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32
     }
