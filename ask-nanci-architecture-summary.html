@@ -753,86 +753,86 @@
     }
 
     function Diagram5() {
-      const stages = [
-        { n: 1, model: "Serverless · GPT-4.1 mini", title: "Rent it", desc: "Use a managed cloud endpoint. Nothing to install, live in days, pay only per use. Perfect for proving the pilot, but the meter grows with usage." },
-        { n: 2, model: "Managed compute · Llama 3.1 8B", title: "Dedicated engine", desc: "Run our open model on a dedicated cloud GPU that Azure operates for us. Production-grade, still no cluster to manage." },
+      const assetPoints = [
+        { n: 1, title: "The model runs inside our boundary", desc: "The weights execute on Aperia-controlled infrastructure. No customer data is sent to a third-party AI provider, and there is no per-call dependency on an outside vendor’s pricing, availability, or terms." },
+        { n: 2, title: "The intelligence is ours", desc: "The fine-tuned model, the version that actually answers our merchants’ and ISOs’ questions, is a derivative we created from our own data. That fine-tune, the training data behind it, and the deployment around it are wholly Aperia’s intellectual property." },
       ];
       const delivers = [
-        { title: "Speed and low risk to start", desc: "A working merchant pilot in days on a managed model, zero infrastructure." },
-        { title: "Ownership and independence", desc: "The production model is ours to run, tune and control; no vendor lock-in." },
-        { title: "Predictable economics", desc: "Self-hosting replaces a per-token meter with fixed, reserved cost as volume grows." },
-        { title: "Data control and compliance", desc: "Everything runs inside Aperia’s boundary, fit for a PCI / payments platform." },
+        { title: "Owned IP", desc: "The production model is a proprietary Aperia asset, fine-tuned on our data, running on our infrastructure, ours to version, improve, and control. Not a service we rent.", accent: true },
+        { title: "A widening moat", desc: "The base model is open to all; the Aperia-knowledge fine-tune is ours alone and compounds with every training cycle." },
+        { title: "Data control and compliance", desc: "Everything runs inside Aperia’s boundary. Customer data never leaves for a third-party model, a fit for a PCI-regulated payments platform, and a differentiator we can stand behind with enterprise clients." },
+        { title: "Predictable economics", desc: "Self-hosting replaces an open-ended per-token meter with fixed, controllable infrastructure cost that scales with our own capacity planning, not a vendor’s price list." },
+        { title: "Independence", desc: "No vendor lock-in, no exposure to a third party’s pricing changes, deprecations, or availability. The capability is ours to run on our own terms." },
       ];
+      const pText = { fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, marginBottom: 10 };
       return (
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.router, marginBottom: 10 }}>AI Token Optimization Program</div>
-            <h2 style={{ fontSize: 28, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>An open model we own, reached by a fast, low-risk path</h2>
+            <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.router, marginBottom: 10 }}>Aperia’s Proprietary AI Model</div>
+            <h2 style={{ fontSize: 28, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>We own the model.</h2>
             <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, margin: "10px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
-              Model selection and hosting strategy for the merchant / ISO conversational-analytics agents.
+              Aperia runs its own large language model, an open-weights model, fine-tuned on Aperia’s proprietary payments knowledge and hosted entirely inside our own infrastructure. It is not a rented API. It is a proprietary asset we have built, trained, and control.
+            </p>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, margin: "10px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
+              The conversational-analytics agents our merchants and ISOs use every day are powered by this model. The customer experience is Aperia’s, the intelligence behind it is Aperia’s, and the data never leaves our boundary.
             </p>
           </div>
 
-          {/* ── The idea in one paragraph ── */}
+          {/* ── The asset ── */}
           <div style={{ marginBottom: 32 }}>
-            <SectionLabel>The approach</SectionLabel>
-            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, maxWidth: 1200 }}>
-              We launch quickly on a rented, managed closed model to prove the experience, then move the production workload onto an <strong style={{ color: COLORS.text }}>open model we host and control ourselves</strong>. Start on a managed cloud model to validate the merchant and ISO experience in days, with no infrastructure to build. Once proven, migrate to an open model that runs entirely inside Aperia’s own environment. The customer-facing product stays the same throughout. Only the engine behind it changes, and each change is a redeploy rather than a rebuild.
+            <SectionLabel>The asset</SectionLabel>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, maxWidth: 1200, marginBottom: 12 }}>
+              Aperia operates a self-hosted large language model built on <strong style={{ color: COLORS.text }}>Llama 3.1</strong>, an open-weights model licensed for commercial use, deployment, and modification. We run it on our own infrastructure and have fine-tuned it on Aperia’s proprietary domain knowledge, the merchant, ISO, risk, and payments expertise accumulated across the platform.
             </p>
-          </div>
-
-          {/* ── Recommended model ── */}
-          <div style={{ marginBottom: 32 }}>
-            <SectionLabel>Why Llama 3.1 8B is the recommended open model</SectionLabel>
-            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, maxWidth: 1200 }}>
-              Across a weighted evaluation of small (≤15B) open models, scored on tool-calling, reasoning, efficiency and enterprise fit, <strong style={{ color: COLORS.text }}>Llama 3.1 8B</strong> ranks first on capability. It has strong tool/function calling for our MCP + DAB orchestration, runs efficiently on a single GPU, and ships under a clean, commercial-friendly <strong style={{ color: COLORS.text }}>Apache 2.0</strong> license. Because we self-host it, the weights run inside our own boundary: no customer data leaves and there is no callback to the vendor. Adoption remains subject to a provenance governance sign-off.
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, maxWidth: 1200, marginBottom: 12 }}>
+              Two things make this an owned asset rather than a vendor relationship:
             </p>
-          </div>
-
-          {/* ── Hosting stages ── */}
-          <div style={{ marginBottom: 32 }}>
-            <SectionLabel>How we host it: two simple stages</SectionLabel>
-            <div style={{ display: "flex", gap: 12, alignItems: "stretch" }}>
-              {stages.map((s, i) => (
-                <React.Fragment key={s.n}>
-                  <NodeBox color={COLORS.router} style={{ flex: 1, background: "#fbfcfe" }}>
-                    <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 24, height: 24, borderRadius: "50%", background: COLORS.router, color: "#fff", fontWeight: 700, fontSize: 16, lineHeight: 1.5, marginBottom: 8 }}>{s.n}</div>
-                    <div style={{ fontSize: 12, fontWeight: 700, color: COLORS.router, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 3 }}>{s.model}</div>
-                    <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.text, marginBottom: 4 }}>{s.title}</div>
-                    <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5 }}>{s.desc}</div>
-                  </NodeBox>
-                  {i < stages.length - 1 && <div style={{ alignSelf: "center", color: COLORS.router, fontSize: 20, fontWeight: 700 }}>→</div>}
-                </React.Fragment>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+              {assetPoints.map((a, i) => (
+                <NodeBox key={a.n} color={COLORS.router} style={{ background: "#fbfcfe" }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 24, height: 24, borderRadius: "50%", background: COLORS.router, color: "#fff", fontWeight: 700, fontSize: 16, lineHeight: 1.5, marginBottom: 8 }}>{a.n}</div>
+                  <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.router, marginBottom: 4 }}>{a.title}</div>
+                  <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5 }}>{a.desc}</div>
+                </NodeBox>
               ))}
             </div>
-            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, marginTop: 10 }}>
-              Rent to start fast and cheap, harden it in production, then own it to lock in predictable cost and control.
-            </p>
           </div>
 
-          {/* ── What "open model" means ── */}
-          <div style={{ marginBottom: 32, background: COLORS.profitBg, border: `1px solid ${COLORS.profitLight}`, borderRadius: 10, padding: "18px 20px" }}>
-            <SectionLabel>What “open model” means, and how it lets us own the IP</SectionLabel>
-            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, marginBottom: 8 }}>
-              A <strong style={{ color: COLORS.text }}>closed model</strong> (like a typical hosted AI API) is a black box we can only rent: the provider holds the actual model, we send data in and get answers back, and we pay per call for as long as we use it. We never possess the thing doing the work.
-            </p>
-            <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, margin: 0 }}>
-              An <strong style={{ color: COLORS.text }}>open model</strong> ships its full weights under a license (Apache 2.0) that lets us download, run, modify and deploy it freely. The working model becomes an asset Aperia owns and controls. It runs on our infrastructure, inside our security boundary, on our schedule. We can version it, fine-tune it on our own data to build proprietary domain expertise, and keep running it with no per-token bill and no dependence on a vendor’s pricing, availability or terms. That is how an open model turns the LLM itself into intellectual property we own rather than a service we rent.
-            </p>
+          {/* ── Open vs closed ── */}
+          <div style={{ marginBottom: 32 }}>
+            <SectionLabel>Why an open model we own, not a closed API we rent</SectionLabel>
+            <div style={{ padding: "20px 24px", borderRadius: 14, background: "#f8f8f6", border: `1px solid ${COLORS.border}` }}>
+              <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, margin: "0 0 8px" }}>
+                A <strong style={{ color: COLORS.text }}>closed model</strong> (a typical hosted AI API) is a black box we could only ever rent. The provider holds the model; we send data out and get answers back; we pay per call for as long as we use it; and we never possess the thing doing the work. The capability, the economics, and the roadmap all sit with the vendor.
+              </p>
+              <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, margin: 0 }}>
+                An <strong style={{ color: COLORS.text }}>open-weights model</strong> is different. We hold the weights. We run, modify, fine-tune, and deploy on our own schedule, inside our own security boundary. That distinction is what lets an LLM become an asset on Aperia’s books rather than a line item on a vendor’s invoice, and it is the foundation of everything below.
+              </p>
+            </div>
+          </div>
+
+          {/* ── The moat ── */}
+          <div style={{ marginBottom: 32 }}>
+            <SectionLabel>Aperia Knowledge, embedded</SectionLabel>
+            <p style={pText}>The base model is a commodity available to anyone. Our advantage is what we have put inside it.</p>
+            <p style={pText}>We have embedded Aperia’s proprietary knowledge, payments domain expertise, merchant and ISO context, risk and compliance logic, directly into the model through fine-tuning. This is the moat. A competitor can license the same open base model tomorrow; what they cannot replicate is a model trained on Aperia’s data and tuned to Aperia’s business.</p>
+            <p style={{ ...pText, marginBottom: 0 }}>Because we own the pipeline, this compounds. Every improvement to our data and every additional fine-tuning cycle deepens a proprietary capability that only Aperia possesses, and that gets more valuable the longer we run it.</p>
           </div>
 
           {/* ── What this delivers ── */}
-          <div style={{ marginBottom: 32 }}>
+          <div style={{ marginBottom: 24 }}>
             <SectionLabel>What this delivers</SectionLabel>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
               {delivers.map((d, i) => (
-                <NodeBox key={i} color={COLORS.quality} featured>
+                <NodeBox key={i} color={COLORS.quality} featured bg={d.accent ? COLORS.qualityBg : "#fff"} style={d.accent ? { gridColumn: "1 / -1" } : undefined}>
                   <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: COLORS.quality, marginBottom: 4 }}>{d.title}</div>
                   <div style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5 }}>{d.desc}</div>
                 </NodeBox>
               ))}
             </div>
           </div>
+
+          <div style={{ textAlign: "center", fontSize: 12, fontStyle: "italic", color: COLORS.textLight, letterSpacing: "0.04em" }}>Confidential</div>
 
         </div>
       );

@@ -2563,30 +2563,39 @@ function Diagram4() {
   }, p.desc))))));
 }
 function Diagram5() {
-  const stages = [{
+  const assetPoints = [{
     n: 1,
-    model: "Serverless · GPT-4.1 mini",
-    title: "Rent it",
-    desc: "Use a managed cloud endpoint. Nothing to install, live in days, pay only per use. Perfect for proving the pilot, but the meter grows with usage."
+    title: "The model runs inside our boundary",
+    desc: "The weights execute on Aperia-controlled infrastructure. No customer data is sent to a third-party AI provider, and there is no per-call dependency on an outside vendor’s pricing, availability, or terms."
   }, {
     n: 2,
-    model: "Managed compute · Llama 3.1 8B",
-    title: "Dedicated engine",
-    desc: "Run our open model on a dedicated cloud GPU that Azure operates for us. Production-grade, still no cluster to manage."
+    title: "The intelligence is ours",
+    desc: "The fine-tuned model, the version that actually answers our merchants’ and ISOs’ questions, is a derivative we created from our own data. That fine-tune, the training data behind it, and the deployment around it are wholly Aperia’s intellectual property."
   }];
   const delivers = [{
-    title: "Speed and low risk to start",
-    desc: "A working merchant pilot in days on a managed model, zero infrastructure."
+    title: "Owned IP",
+    desc: "The production model is a proprietary Aperia asset, fine-tuned on our data, running on our infrastructure, ours to version, improve, and control. Not a service we rent.",
+    accent: true
   }, {
-    title: "Ownership and independence",
-    desc: "The production model is ours to run, tune and control; no vendor lock-in."
-  }, {
-    title: "Predictable economics",
-    desc: "Self-hosting replaces a per-token meter with fixed, reserved cost as volume grows."
+    title: "A widening moat",
+    desc: "The base model is open to all; the Aperia-knowledge fine-tune is ours alone and compounds with every training cycle."
   }, {
     title: "Data control and compliance",
-    desc: "Everything runs inside Aperia’s boundary, fit for a PCI / payments platform."
+    desc: "Everything runs inside Aperia’s boundary. Customer data never leaves for a third-party model, a fit for a PCI-regulated payments platform, and a differentiator we can stand behind with enterprise clients."
+  }, {
+    title: "Predictable economics",
+    desc: "Self-hosting replaces an open-ended per-token meter with fixed, controllable infrastructure cost that scales with our own capacity planning, not a vendor’s price list."
+  }, {
+    title: "Independence",
+    desc: "No vendor lock-in, no exposure to a third party’s pricing changes, deprecations, or availability. The capability is ours to run on our own terms."
   }];
+  const pText = {
+    fontSize: 16,
+    lineHeight: 1.5,
+    color: COLORS.textMuted,
+    lineHeight: 1.5,
+    marginBottom: 10
+  };
   return /*#__PURE__*/React.createElement("div", {
     style: {
       maxWidth: 1200,
@@ -2607,7 +2616,7 @@ function Diagram5() {
       color: COLORS.router,
       marginBottom: 10
     }
-  }, "AI Token Optimization Program"), /*#__PURE__*/React.createElement("h2", {
+  }, "Aperia\u2019s Proprietary AI Model"), /*#__PURE__*/React.createElement("h2", {
     style: {
       fontSize: 28,
       fontWeight: 600,
@@ -2615,7 +2624,7 @@ function Diagram5() {
       margin: 0,
       letterSpacing: "-0.02em"
     }
-  }, "An open model we own, reached by a fast, low-risk path"), /*#__PURE__*/React.createElement("p", {
+  }, "We own the model."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 16,
       lineHeight: 1.5,
@@ -2625,58 +2634,52 @@ function Diagram5() {
       marginLeft: "auto",
       marginRight: "auto"
     }
-  }, "Model selection and hosting strategy for the merchant / ISO conversational-analytics agents.")), /*#__PURE__*/React.createElement("div", {
+  }, "Aperia runs its own large language model, an open-weights model, fine-tuned on Aperia\u2019s proprietary payments knowledge and hosted entirely inside our own infrastructure. It is not a rented API. It is a proprietary asset we have built, trained, and control."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 16,
+      lineHeight: 1.5,
+      color: COLORS.textMuted,
+      margin: "10px 0 0",
+      maxWidth: 1200,
+      marginLeft: "auto",
+      marginRight: "auto"
+    }
+  }, "The conversational-analytics agents our merchants and ISOs use every day are powered by this model. The customer experience is Aperia\u2019s, the intelligence behind it is Aperia\u2019s, and the data never leaves our boundary.")), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32
     }
-  }, /*#__PURE__*/React.createElement(SectionLabel, null, "The approach"), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement(SectionLabel, null, "The asset"), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 16,
       lineHeight: 1.5,
       color: COLORS.textMuted,
       lineHeight: 1.5,
-      maxWidth: 1200
+      maxWidth: 1200,
+      marginBottom: 12
     }
-  }, "We launch quickly on a rented, managed closed model to prove the experience, then move the production workload onto an ", /*#__PURE__*/React.createElement("strong", {
+  }, "Aperia operates a self-hosted large language model built on ", /*#__PURE__*/React.createElement("strong", {
     style: {
       color: COLORS.text
     }
-  }, "open model we host and control ourselves"), ". Start on a managed cloud model to validate the merchant and ISO experience in days, with no infrastructure to build. Once proven, migrate to an open model that runs entirely inside Aperia\u2019s own environment. The customer-facing product stays the same throughout. Only the engine behind it changes, and each change is a redeploy rather than a rebuild.")), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginBottom: 32
-    }
-  }, /*#__PURE__*/React.createElement(SectionLabel, null, "Why Llama 3.1 8B is the recommended open model"), /*#__PURE__*/React.createElement("p", {
+  }, "Llama 3.1"), ", an open-weights model licensed for commercial use, deployment, and modification. We run it on our own infrastructure and have fine-tuned it on Aperia\u2019s proprietary domain knowledge, the merchant, ISO, risk, and payments expertise accumulated across the platform."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 16,
       lineHeight: 1.5,
       color: COLORS.textMuted,
       lineHeight: 1.5,
-      maxWidth: 1200
+      maxWidth: 1200,
+      marginBottom: 12
     }
-  }, "Across a weighted evaluation of small (\u226415B) open models, scored on tool-calling, reasoning, efficiency and enterprise fit, ", /*#__PURE__*/React.createElement("strong", {
+  }, "Two things make this an owned asset rather than a vendor relationship:"), /*#__PURE__*/React.createElement("div", {
     style: {
-      color: COLORS.text
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 10
     }
-  }, "Llama 3.1 8B"), " ranks first on capability. It has strong tool/function calling for our MCP + DAB orchestration, runs efficiently on a single GPU, and ships under a clean, commercial-friendly ", /*#__PURE__*/React.createElement("strong", {
-    style: {
-      color: COLORS.text
-    }
-  }, "Apache 2.0"), " license. Because we self-host it, the weights run inside our own boundary: no customer data leaves and there is no callback to the vendor. Adoption remains subject to a provenance governance sign-off.")), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginBottom: 32
-    }
-  }, /*#__PURE__*/React.createElement(SectionLabel, null, "How we host it: two simple stages"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      gap: 12,
-      alignItems: "stretch"
-    }
-  }, stages.map((s, i) => /*#__PURE__*/React.createElement(React.Fragment, {
-    key: s.n
-  }, /*#__PURE__*/React.createElement(NodeBox, {
+  }, assetPoints.map((a, i) => /*#__PURE__*/React.createElement(NodeBox, {
+    key: a.n,
     color: COLORS.router,
     style: {
-      flex: 1,
       background: "#fbfcfe"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -2694,65 +2697,45 @@ function Diagram5() {
       lineHeight: 1.5,
       marginBottom: 8
     }
-  }, s.n), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 12,
-      fontWeight: 700,
-      color: COLORS.router,
-      textTransform: "uppercase",
-      letterSpacing: "0.04em",
-      marginBottom: 3
-    }
-  }, s.model), /*#__PURE__*/React.createElement("div", {
+  }, a.n), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 16,
       lineHeight: 1.5,
       fontWeight: 600,
-      color: COLORS.text,
+      color: COLORS.router,
       marginBottom: 4
     }
-  }, s.title), /*#__PURE__*/React.createElement("div", {
+  }, a.title), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 16,
       lineHeight: 1.5,
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
-  }, s.desc)), i < stages.length - 1 && /*#__PURE__*/React.createElement("div", {
+  }, a.desc))))), /*#__PURE__*/React.createElement("div", {
     style: {
-      alignSelf: "center",
-      color: COLORS.router,
-      fontSize: 20,
-      fontWeight: 700
+      marginBottom: 32
     }
-  }, "\u2192")))), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement(SectionLabel, null, "Why an open model we own, not a closed API we rent"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 16,
-      lineHeight: 1.5,
-      color: COLORS.textMuted,
-      marginTop: 10
+      padding: "20px 24px",
+      borderRadius: 14,
+      background: "#f8f8f6",
+      border: `1px solid ${COLORS.border}`
     }
-  }, "Rent to start fast and cheap, harden it in production, then own it to lock in predictable cost and control.")), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginBottom: 32,
-      background: COLORS.profitBg,
-      border: `1px solid ${COLORS.profitLight}`,
-      borderRadius: 10,
-      padding: "18px 20px"
-    }
-  }, /*#__PURE__*/React.createElement(SectionLabel, null, "What \u201Copen model\u201D means, and how it lets us own the IP"), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 16,
       lineHeight: 1.5,
       color: COLORS.textMuted,
       lineHeight: 1.5,
-      marginBottom: 8
+      margin: "0 0 8px"
     }
   }, "A ", /*#__PURE__*/React.createElement("strong", {
     style: {
       color: COLORS.text
     }
-  }, "closed model"), " (like a typical hosted AI API) is a black box we can only rent: the provider holds the actual model, we send data in and get answers back, and we pay per call for as long as we use it. We never possess the thing doing the work."), /*#__PURE__*/React.createElement("p", {
+  }, "closed model"), " (a typical hosted AI API) is a black box we could only ever rent. The provider holds the model; we send data out and get answers back; we pay per call for as long as we use it; and we never possess the thing doing the work. The capability, the economics, and the roadmap all sit with the vendor."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 16,
       lineHeight: 1.5,
@@ -2764,9 +2747,22 @@ function Diagram5() {
     style: {
       color: COLORS.text
     }
-  }, "open model"), " ships its full weights under a license (Apache 2.0) that lets us download, run, modify and deploy it freely. The working model becomes an asset Aperia owns and controls. It runs on our infrastructure, inside our security boundary, on our schedule. We can version it, fine-tune it on our own data to build proprietary domain expertise, and keep running it with no per-token bill and no dependence on a vendor\u2019s pricing, availability or terms. That is how an open model turns the LLM itself into intellectual property we own rather than a service we rent.")), /*#__PURE__*/React.createElement("div", {
+  }, "open-weights model"), " is different. We hold the weights. We run, modify, fine-tune, and deploy on our own schedule, inside our own security boundary. That distinction is what lets an LLM become an asset on Aperia\u2019s books rather than a line item on a vendor\u2019s invoice, and it is the foundation of everything below."))), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32
+    }
+  }, /*#__PURE__*/React.createElement(SectionLabel, null, "Aperia Knowledge, embedded"), /*#__PURE__*/React.createElement("p", {
+    style: pText
+  }, "The base model is a commodity available to anyone. Our advantage is what we have put inside it."), /*#__PURE__*/React.createElement("p", {
+    style: pText
+  }, "We have embedded Aperia\u2019s proprietary knowledge, payments domain expertise, merchant and ISO context, risk and compliance logic, directly into the model through fine-tuning. This is the moat. A competitor can license the same open base model tomorrow; what they cannot replicate is a model trained on Aperia\u2019s data and tuned to Aperia\u2019s business."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      ...pText,
+      marginBottom: 0
+    }
+  }, "Because we own the pipeline, this compounds. Every improvement to our data and every additional fine-tuning cycle deepens a proprietary capability that only Aperia possesses, and that gets more valuable the longer we run it.")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 24
     }
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "What this delivers"), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2777,7 +2773,11 @@ function Diagram5() {
   }, delivers.map((d, i) => /*#__PURE__*/React.createElement(NodeBox, {
     key: i,
     color: COLORS.quality,
-    featured: true
+    featured: true,
+    bg: d.accent ? COLORS.qualityBg : "#fff",
+    style: d.accent ? {
+      gridColumn: "1 / -1"
+    } : undefined
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 16,
@@ -2793,7 +2793,15 @@ function Diagram5() {
       color: COLORS.textMuted,
       lineHeight: 1.5
     }
-  }, d.desc))))));
+  }, d.desc))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      fontSize: 12,
+      fontStyle: "italic",
+      color: COLORS.textLight,
+      letterSpacing: "0.04em"
+    }
+  }, "Confidential"));
 }
 function App() {
   const [tab, setTab] = useState(0);
