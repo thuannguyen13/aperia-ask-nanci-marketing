@@ -607,10 +607,10 @@
 
     function Diagram4() {
       const pillars = [
-        { title: "Hierarchy applied to every answer", desc: "Your organizational structure — portfolios, sales channels, regions — is enforced on every single request. A portfolio manager sees their book; a regional lead sees their region. Two people can ask the identical question and each receives an answer built only from the rows they are entitled to see.", color: COLORS.router },
-        { title: "Deterministic where it counts", desc: "Any answer a user trusts can be pinned — freezing the exact query so it replays identically every time. Recurring business questions run certified, repeatable logic; the numbers are consistent, reconcilable against reports, and defensible in front of your own leadership.", color: COLORS.router },
-        { title: "Security domains don’t leak", desc: "Authorization isn’t a login-time check — it is enforced at the moment each query executes, inside the platform, below the AI. There is no conversation, prompt, or phrasing that can pull data across an entitlement boundary, because the boundary is applied to the data itself.", color: COLORS.router },
-        { title: "Sensitive data never meets the AI", desc: "Cardholder account numbers are tokenized before data ever reaches the analytics platform. The AI operates entirely on protected, de-identified data — supporting our PCI DSS obligations by design rather than by policy.", color: COLORS.router },
+        { title: "Hierarchy applied to every answer", desc: "Your organizational structure, portfolios, sales channels, regions, is enforced on every single request. A portfolio manager sees their book; a regional lead sees their region. Two people can ask the identical question and each receives an answer built only from the rows they are entitled to see.", color: COLORS.router },
+        { title: "Deterministic where it counts", desc: "Any answer a user trusts can be pinned, freezing the exact query so it replays identically every time. Recurring business questions run certified, repeatable logic; the numbers are consistent, reconcilable against reports, and defensible in front of your own leadership.", color: COLORS.router },
+        { title: "Security domains don’t leak", desc: "Authorization isn’t a login-time check. It is enforced at the moment each query executes, inside the platform, below the AI. There is no conversation, prompt, or phrasing that can pull data across an entitlement boundary, because the boundary is applied to the data itself.", color: COLORS.router },
+        { title: "Sensitive data never meets the AI", desc: "Cardholder account numbers are tokenized before data ever reaches the analytics platform. The AI operates entirely on protected, de-identified data, supporting our PCI DSS obligations by design rather than by policy.", color: COLORS.router },
         { title: "Production stays untouched", desc: "Ask Nanci reads from a dedicated, governed analytics platform. Live payment processing systems are never queried, so conversational analytics can scale without ever competing with the systems that move your money.", color: COLORS.router },
         { title: "Governed AI, not experimental AI", desc: "The language model is one component in a controlled pipeline. It can only reach data through the tool gateway, every request is authorized at execution time, and trusted answers graduate into a pinned, auditable library. That is the difference between an AI feature and an AI platform you can put in front of clients.", color: COLORS.quality, accent: true },
       ];
@@ -621,7 +621,7 @@
             <div style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.router, marginBottom: 10 }}>Conceptual Architecture Brief</div>
             <h2 style={{ fontSize: 28, fontWeight: 600, color: COLORS.text, margin: 0, letterSpacing: "-0.02em" }}>Ask Nanci: answers you can trust, from data you control</h2>
             <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, margin: "10px 0 0", maxWidth: 1200, marginLeft: "auto", marginRight: "auto" }}>
-              Ask Nanci lets merchants and partners ask questions of their payments data in plain English — and get answers that are governed, repeatable, and scoped to exactly what they are entitled to see. This brief describes how the platform achieves that, at a conceptual level.
+              Ask Nanci lets merchants and partners ask questions of their payments data in plain English, and get answers that are governed, repeatable, and scoped to exactly what they are entitled to see. This brief describes how the platform achieves that, at a conceptual level.
             </p>
           </div>
 
@@ -629,7 +629,7 @@
           <div style={{ marginBottom: 32 }}>
             <SectionLabel>The idea in one paragraph</SectionLabel>
             <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, maxWidth: 1200 }}>
-              Most conversational AI products put a language model directly in front of a database and hope for the best. Ask Nanci is built the opposite way. The AI never touches data directly — it works through a controlled chain of services. It interprets the question and composes a query through a governed tool layer, and every single request passes through an authorization gate that applies the client’s organizational hierarchy before any data is read. When a user finds an answer they trust, they pin it, and that question becomes deterministic forever after. The AI is the interpreter; the platform is the enforcer.
+              Most conversational AI products put a language model directly in front of a database and hope for the best. Ask Nanci is built the opposite way. The AI never touches data directly. It works through a controlled chain of services. It interprets the question and composes a query through a governed tool layer, and every single request passes through an authorization gate that applies the client’s organizational hierarchy before any data is read. When a user finds an answer they trust, they pin it, and that question becomes deterministic forever after. The AI is the interpreter; the platform is the enforcer.
             </p>
           </div>
 
@@ -657,7 +657,7 @@
                 {/* LLM */}
                 <rect x="360" y="114" width="360" height="86" rx="9" fill="#FFFFFF" stroke="#065A82" strokeWidth="1.6" />
                 <text x="540" y="140" textAnchor="middle" fill="#21295C" fontSize="17" fontWeight="700">Conversational AI (LLM)</text>
-                <text x="540" y="160" textAnchor="middle" fill="#3D4A5C" fontSize="12.5">Understands the question and the intent —</text>
+                <text x="540" y="160" textAnchor="middle" fill="#3D4A5C" fontSize="12.5">Understands the question and the intent,</text>
                 <text x="540" y="176" textAnchor="middle" fill="#3D4A5C" fontSize="12.5">never the raw data store</text>
 
                 <line x1="540" y1="200" x2="540" y2="232" stroke="#1C7293" strokeWidth="1.8" markerEnd="url(#arr)" />
@@ -665,14 +665,14 @@
                 {/* MCP */}
                 <rect x="360" y="234" width="360" height="86" rx="9" fill="#FFFFFF" stroke="#065A82" strokeWidth="1.6" />
                 <text x="540" y="260" textAnchor="middle" fill="#21295C" fontSize="17" fontWeight="700">AI Tool Gateway (MCP)</text>
-                <text x="540" y="280" textAnchor="middle" fill="#3D4A5C" fontSize="12.5">The only path to data — every query,</text>
+                <text x="540" y="280" textAnchor="middle" fill="#3D4A5C" fontSize="12.5">The only path to data. Every query,</text>
                 <text x="540" y="296" textAnchor="middle" fill="#3D4A5C" fontSize="12.5">exploratory or pinned, goes through here</text>
 
                 {/* Pinned query library (side) */}
                 <rect x="790" y="229" width="240" height="96" rx="9" fill="#F3F7FD" stroke="#F39237" strokeWidth="1.6" />
                 <text x="910" y="256" textAnchor="middle" fill="#21295C" fontSize="15" fontWeight="700">Pinned Query Library</text>
                 <text x="910" y="276" textAnchor="middle" fill="#3D4A5C" fontSize="12">Answers the user approves are</text>
-                <text x="910" y="292" textAnchor="middle" fill="#3D4A5C" fontSize="12">pinned — frozen queries that</text>
+                <text x="910" y="292" textAnchor="middle" fill="#3D4A5C" fontSize="12">pinned: frozen queries that</text>
                 <text x="910" y="308" textAnchor="middle" fill="#3D4A5C" fontSize="12">replay identically every time</text>
                 <line x1="722" y1="253" x2="788" y2="253" stroke="#F39237" strokeWidth="1.8" markerEnd="url(#arrO)" />
                 <text x="755" y="243" textAnchor="middle" fill="#F39237" fontSize="10.5" fontWeight="700">pin</text>
@@ -685,7 +685,7 @@
                 <rect x="300" y="354" width="480" height="92" rx="9" fill="#1C7293" />
                 <text x="540" y="380" textAnchor="middle" fill="#FFFFFF" fontSize="17" fontWeight="700">Fine-Grained Authorization</text>
                 <text x="540" y="400" textAnchor="middle" fill="#CADCFC" fontSize="12.5">Every request checked against the client’s</text>
-                <text x="540" y="416" textAnchor="middle" fill="#CADCFC" fontSize="12.5">organizational hierarchy — row by row</text>
+                <text x="540" y="416" textAnchor="middle" fill="#CADCFC" fontSize="12.5">organizational hierarchy, row by row</text>
 
                 {/* Hierarchy side note */}
                 <rect x="50" y="352" width="220" height="96" rx="9" fill="#F3F7FD" stroke="#1C7293" strokeWidth="1.4" />
@@ -701,28 +701,28 @@
                 <rect x="360" y="480" width="360" height="86" rx="9" fill="#FFFFFF" stroke="#065A82" strokeWidth="1.6" />
                 <text x="540" y="506" textAnchor="middle" fill="#21295C" fontSize="17" fontWeight="700">Governed Data Access Layer (DAB)</text>
                 <text x="540" y="526" textAnchor="middle" fill="#3D4A5C" fontSize="12.5">Executes only the approved, scoped</text>
-                <text x="540" y="542" textAnchor="middle" fill="#3D4A5C" fontSize="12.5">query — read-only by construction</text>
+                <text x="540" y="542" textAnchor="middle" fill="#3D4A5C" fontSize="12.5">query. Read-only by construction</text>
 
                 <line x1="540" y1="566" x2="540" y2="598" stroke="#1C7293" strokeWidth="1.8" markerEnd="url(#arr)" />
 
                 {/* Data platform */}
                 <rect x="330" y="600" width="420" height="82" rx="9" fill="#065A82" />
                 <text x="540" y="626" textAnchor="middle" fill="#FFFFFF" fontSize="17" fontWeight="700">Governed Analytics Data Platform</text>
-                <text x="540" y="646" textAnchor="middle" fill="#CADCFC" fontSize="12.5">Isolated from live payment processing —</text>
-                <text x="540" y="662" textAnchor="middle" fill="#CADCFC" fontSize="12.5">analytics never touches production</text>
+                <text x="540" y="646" textAnchor="middle" fill="#CADCFC" fontSize="12.5">Isolated from live payment processing.</text>
+                <text x="540" y="662" textAnchor="middle" fill="#CADCFC" fontSize="12.5">Analytics never touches production</text>
 
                 {/* Exclusion zone */}
                 <rect x="790" y="480" width="240" height="202" rx="9" fill="none" stroke="#B24A3B" strokeWidth="1.6" strokeDasharray="6 5" />
                 <text x="910" y="518" textAnchor="middle" fill="#B24A3B" fontSize="14.5" fontWeight="700">Outside the AI boundary</text>
                 <text x="910" y="551" textAnchor="middle" fill="#3D4A5C" fontSize="12">Cardholder account numbers</text>
-                <text x="910" y="573" textAnchor="middle" fill="#3D4A5C" fontSize="12">are tokenized before analytics —</text>
-                <text x="910" y="596" textAnchor="middle" fill="#3D4A5C" fontSize="12">the AI can never see them.</text>
+                <text x="910" y="573" textAnchor="middle" fill="#3D4A5C" fontSize="12">are tokenized before analytics.</text>
+                <text x="910" y="596" textAnchor="middle" fill="#3D4A5C" fontSize="12">The AI can never see them.</text>
                 <text x="910" y="629" textAnchor="middle" fill="#3D4A5C" fontSize="12">Live payment processing systems</text>
                 <text x="910" y="652" textAnchor="middle" fill="#3D4A5C" fontSize="12">are never queried by the AI.</text>
               </svg>
             </div>
             <p style={{ fontSize: 16, lineHeight: 1.5, color: COLORS.textMuted, lineHeight: 1.5, marginTop: 16, maxWidth: 1200 }}>
-              Every hop is a narrowing of what is possible. The AI translates the question into a query through the tool gateway; the authorization gate applies the client hierarchy to every request — exploratory or pinned; the data access layer executes a read-only, scoped query against an analytics platform that is physically separate from payment processing. Answers the user approves can be pinned, and pinned questions replay the exact same query every time.
+              Every hop is a narrowing of what is possible. The AI translates the question into a query through the tool gateway; the authorization gate applies the client hierarchy to every request, exploratory or pinned; the data access layer executes a read-only, scoped query against an analytics platform that is physically separate from payment processing. Answers the user approves can be pinned, and pinned questions replay the exact same query every time.
             </p>
           </div>
 
@@ -730,9 +730,9 @@
           <div style={{ padding: "20px 24px", borderRadius: 14, background: "#f8f8f6", border: `1px solid ${COLORS.border}`, marginBottom: 32 }}>
             <SectionLabel>Design concept · Query Pinning</SectionLabel>
             <div style={{ fontSize: 20, fontWeight: 600, color: COLORS.text, marginBottom: 10 }}>Explore freely, then pin what matters</div>
-            <p style={pText}>Query pinning is the platform’s answer to the central tension in conversational analytics: users want the freedom to ask anything, but the business needs numbers that are consistent, repeatable, and defensible. Ask Nanci delivers both by separating exploration from certification. When a user asks a new question, the AI composes the query itself through the platform’s tool layer — full conversational flexibility, with every request still passing through the authorization gate and the governed data access layer.</p>
-            <p style={pText}>When the user gets an answer they trust, they pin it. Pinning freezes the exact query behind that answer — the logic, the joins, the definitions — into the pinned query library. From that moment on, asking that question replays the identical query every time: same math, same result shape, same certified logic. The only thing that varies is the authorization scope of whoever is asking. Yesterday’s exploratory answer becomes tomorrow’s guaranteed metric.</p>
-            <p style={{ ...pText, marginBottom: 0 }}>This gives the platform a property conversational AI usually lacks: determinism where it counts. The questions that run a business — the ones asked every Monday, quoted in board decks, reconciled against reports — become pinned, auditable, and immune to the natural variability of AI-generated queries. Every pinned query has a known cost, a known result shape, and a complete execution record. Accuracy stops being a hope and becomes a property of the library — a library your users build themselves, one trusted answer at a time.</p>
+            <p style={pText}>Query pinning is the platform’s answer to the central tension in conversational analytics: users want the freedom to ask anything, but the business needs numbers that are consistent, repeatable, and defensible. Ask Nanci delivers both by separating exploration from certification. When a user asks a new question, the AI composes the query itself through the platform’s tool layer, full conversational flexibility, with every request still passing through the authorization gate and the governed data access layer.</p>
+            <p style={pText}>When the user gets an answer they trust, they pin it. Pinning freezes the exact query behind that answer, the logic, the joins, the definitions, into the pinned query library. From that moment on, asking that question replays the identical query every time: same math, same result shape, same certified logic. The only thing that varies is the authorization scope of whoever is asking. Yesterday’s exploratory answer becomes tomorrow’s guaranteed metric.</p>
+            <p style={{ ...pText, marginBottom: 0 }}>This gives the platform a property conversational AI usually lacks: determinism where it counts. The questions that run a business, the ones asked every Monday, quoted in board decks, reconciled against reports, become pinned, auditable, and immune to the natural variability of AI-generated queries. Every pinned query has a known cost, a known result shape, and a complete execution record. Accuracy stops being a hope and becomes a property of the library, a library your users build themselves, one trusted answer at a time.</p>
           </div>
 
           {/* ── Pillars ── */}

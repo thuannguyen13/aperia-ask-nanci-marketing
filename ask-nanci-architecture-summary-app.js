@@ -2020,19 +2020,19 @@ function Diagram3() {
 function Diagram4() {
   const pillars = [{
     title: "Hierarchy applied to every answer",
-    desc: "Your organizational structure — portfolios, sales channels, regions — is enforced on every single request. A portfolio manager sees their book; a regional lead sees their region. Two people can ask the identical question and each receives an answer built only from the rows they are entitled to see.",
+    desc: "Your organizational structure, portfolios, sales channels, regions, is enforced on every single request. A portfolio manager sees their book; a regional lead sees their region. Two people can ask the identical question and each receives an answer built only from the rows they are entitled to see.",
     color: COLORS.router
   }, {
     title: "Deterministic where it counts",
-    desc: "Any answer a user trusts can be pinned — freezing the exact query so it replays identically every time. Recurring business questions run certified, repeatable logic; the numbers are consistent, reconcilable against reports, and defensible in front of your own leadership.",
+    desc: "Any answer a user trusts can be pinned, freezing the exact query so it replays identically every time. Recurring business questions run certified, repeatable logic; the numbers are consistent, reconcilable against reports, and defensible in front of your own leadership.",
     color: COLORS.router
   }, {
     title: "Security domains don’t leak",
-    desc: "Authorization isn’t a login-time check — it is enforced at the moment each query executes, inside the platform, below the AI. There is no conversation, prompt, or phrasing that can pull data across an entitlement boundary, because the boundary is applied to the data itself.",
+    desc: "Authorization isn’t a login-time check. It is enforced at the moment each query executes, inside the platform, below the AI. There is no conversation, prompt, or phrasing that can pull data across an entitlement boundary, because the boundary is applied to the data itself.",
     color: COLORS.router
   }, {
     title: "Sensitive data never meets the AI",
-    desc: "Cardholder account numbers are tokenized before data ever reaches the analytics platform. The AI operates entirely on protected, de-identified data — supporting our PCI DSS obligations by design rather than by policy.",
+    desc: "Cardholder account numbers are tokenized before data ever reaches the analytics platform. The AI operates entirely on protected, de-identified data, supporting our PCI DSS obligations by design rather than by policy.",
     color: COLORS.router
   }, {
     title: "Production stays untouched",
@@ -2089,7 +2089,7 @@ function Diagram4() {
       marginLeft: "auto",
       marginRight: "auto"
     }
-  }, "Ask Nanci lets merchants and partners ask questions of their payments data in plain English \u2014 and get answers that are governed, repeatable, and scoped to exactly what they are entitled to see. This brief describes how the platform achieves that, at a conceptual level.")), /*#__PURE__*/React.createElement("div", {
+  }, "Ask Nanci lets merchants and partners ask questions of their payments data in plain English, and get answers that are governed, repeatable, and scoped to exactly what they are entitled to see. This brief describes how the platform achieves that, at a conceptual level.")), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32
     }
@@ -2101,7 +2101,7 @@ function Diagram4() {
       lineHeight: 1.5,
       maxWidth: 1200
     }
-  }, "Most conversational AI products put a language model directly in front of a database and hope for the best. Ask Nanci is built the opposite way. The AI never touches data directly \u2014 it works through a controlled chain of services. It interprets the question and composes a query through a governed tool layer, and every single request passes through an authorization gate that applies the client\u2019s organizational hierarchy before any data is read. When a user finds an answer they trust, they pin it, and that question becomes deterministic forever after. The AI is the interpreter; the platform is the enforcer.")), /*#__PURE__*/React.createElement("div", {
+  }, "Most conversational AI products put a language model directly in front of a database and hope for the best. Ask Nanci is built the opposite way. The AI never touches data directly. It works through a controlled chain of services. It interprets the question and composes a query through a governed tool layer, and every single request passes through an authorization gate that applies the client\u2019s organizational hierarchy before any data is read. When a user finds an answer they trust, they pin it, and that question becomes deterministic forever after. The AI is the interpreter; the platform is the enforcer.")), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32
     }
@@ -2196,7 +2196,7 @@ function Diagram4() {
     textAnchor: "middle",
     fill: "#3D4A5C",
     fontSize: "12.5"
-  }, "Understands the question and the intent \u2014"), /*#__PURE__*/React.createElement("text", {
+  }, "Understands the question and the intent,"), /*#__PURE__*/React.createElement("text", {
     x: "540",
     y: "176",
     textAnchor: "middle",
@@ -2232,7 +2232,7 @@ function Diagram4() {
     textAnchor: "middle",
     fill: "#3D4A5C",
     fontSize: "12.5"
-  }, "The only path to data \u2014 every query,"), /*#__PURE__*/React.createElement("text", {
+  }, "The only path to data. Every query,"), /*#__PURE__*/React.createElement("text", {
     x: "540",
     y: "296",
     textAnchor: "middle",
@@ -2266,7 +2266,7 @@ function Diagram4() {
     textAnchor: "middle",
     fill: "#3D4A5C",
     fontSize: "12"
-  }, "pinned \u2014 frozen queries that"), /*#__PURE__*/React.createElement("text", {
+  }, "pinned: frozen queries that"), /*#__PURE__*/React.createElement("text", {
     x: "910",
     y: "308",
     textAnchor: "middle",
@@ -2336,7 +2336,7 @@ function Diagram4() {
     textAnchor: "middle",
     fill: "#CADCFC",
     fontSize: "12.5"
-  }, "organizational hierarchy \u2014 row by row"), /*#__PURE__*/React.createElement("rect", {
+  }, "organizational hierarchy, row by row"), /*#__PURE__*/React.createElement("rect", {
     x: "50",
     y: "352",
     width: "220",
@@ -2414,7 +2414,7 @@ function Diagram4() {
     textAnchor: "middle",
     fill: "#3D4A5C",
     fontSize: "12.5"
-  }, "query \u2014 read-only by construction"), /*#__PURE__*/React.createElement("line", {
+  }, "query. Read-only by construction"), /*#__PURE__*/React.createElement("line", {
     x1: "540",
     y1: "566",
     x2: "540",
@@ -2442,13 +2442,13 @@ function Diagram4() {
     textAnchor: "middle",
     fill: "#CADCFC",
     fontSize: "12.5"
-  }, "Isolated from live payment processing \u2014"), /*#__PURE__*/React.createElement("text", {
+  }, "Isolated from live payment processing."), /*#__PURE__*/React.createElement("text", {
     x: "540",
     y: "662",
     textAnchor: "middle",
     fill: "#CADCFC",
     fontSize: "12.5"
-  }, "analytics never touches production"), /*#__PURE__*/React.createElement("rect", {
+  }, "Analytics never touches production"), /*#__PURE__*/React.createElement("rect", {
     x: "790",
     y: "480",
     width: "240",
@@ -2477,13 +2477,13 @@ function Diagram4() {
     textAnchor: "middle",
     fill: "#3D4A5C",
     fontSize: "12"
-  }, "are tokenized before analytics \u2014"), /*#__PURE__*/React.createElement("text", {
+  }, "are tokenized before analytics."), /*#__PURE__*/React.createElement("text", {
     x: "910",
     y: "596",
     textAnchor: "middle",
     fill: "#3D4A5C",
     fontSize: "12"
-  }, "the AI can never see them."), /*#__PURE__*/React.createElement("text", {
+  }, "The AI can never see them."), /*#__PURE__*/React.createElement("text", {
     x: "910",
     y: "629",
     textAnchor: "middle",
@@ -2504,7 +2504,7 @@ function Diagram4() {
       marginTop: 16,
       maxWidth: 1200
     }
-  }, "Every hop is a narrowing of what is possible. The AI translates the question into a query through the tool gateway; the authorization gate applies the client hierarchy to every request \u2014 exploratory or pinned; the data access layer executes a read-only, scoped query against an analytics platform that is physically separate from payment processing. Answers the user approves can be pinned, and pinned questions replay the exact same query every time.")), /*#__PURE__*/React.createElement("div", {
+  }, "Every hop is a narrowing of what is possible. The AI translates the question into a query through the tool gateway; the authorization gate applies the client hierarchy to every request, exploratory or pinned; the data access layer executes a read-only, scoped query against an analytics platform that is physically separate from payment processing. Answers the user approves can be pinned, and pinned questions replay the exact same query every time.")), /*#__PURE__*/React.createElement("div", {
     style: {
       padding: "20px 24px",
       borderRadius: 14,
@@ -2521,14 +2521,14 @@ function Diagram4() {
     }
   }, "Explore freely, then pin what matters"), /*#__PURE__*/React.createElement("p", {
     style: pText
-  }, "Query pinning is the platform\u2019s answer to the central tension in conversational analytics: users want the freedom to ask anything, but the business needs numbers that are consistent, repeatable, and defensible. Ask Nanci delivers both by separating exploration from certification. When a user asks a new question, the AI composes the query itself through the platform\u2019s tool layer \u2014 full conversational flexibility, with every request still passing through the authorization gate and the governed data access layer."), /*#__PURE__*/React.createElement("p", {
+  }, "Query pinning is the platform\u2019s answer to the central tension in conversational analytics: users want the freedom to ask anything, but the business needs numbers that are consistent, repeatable, and defensible. Ask Nanci delivers both by separating exploration from certification. When a user asks a new question, the AI composes the query itself through the platform\u2019s tool layer, full conversational flexibility, with every request still passing through the authorization gate and the governed data access layer."), /*#__PURE__*/React.createElement("p", {
     style: pText
-  }, "When the user gets an answer they trust, they pin it. Pinning freezes the exact query behind that answer \u2014 the logic, the joins, the definitions \u2014 into the pinned query library. From that moment on, asking that question replays the identical query every time: same math, same result shape, same certified logic. The only thing that varies is the authorization scope of whoever is asking. Yesterday\u2019s exploratory answer becomes tomorrow\u2019s guaranteed metric."), /*#__PURE__*/React.createElement("p", {
+  }, "When the user gets an answer they trust, they pin it. Pinning freezes the exact query behind that answer, the logic, the joins, the definitions, into the pinned query library. From that moment on, asking that question replays the identical query every time: same math, same result shape, same certified logic. The only thing that varies is the authorization scope of whoever is asking. Yesterday\u2019s exploratory answer becomes tomorrow\u2019s guaranteed metric."), /*#__PURE__*/React.createElement("p", {
     style: {
       ...pText,
       marginBottom: 0
     }
-  }, "This gives the platform a property conversational AI usually lacks: determinism where it counts. The questions that run a business \u2014 the ones asked every Monday, quoted in board decks, reconciled against reports \u2014 become pinned, auditable, and immune to the natural variability of AI-generated queries. Every pinned query has a known cost, a known result shape, and a complete execution record. Accuracy stops being a hope and becomes a property of the library \u2014 a library your users build themselves, one trusted answer at a time.")), /*#__PURE__*/React.createElement("div", {
+  }, "This gives the platform a property conversational AI usually lacks: determinism where it counts. The questions that run a business, the ones asked every Monday, quoted in board decks, reconciled against reports, become pinned, auditable, and immune to the natural variability of AI-generated queries. Every pinned query has a known cost, a known result shape, and a complete execution record. Accuracy stops being a hope and becomes a property of the library, a library your users build themselves, one trusted answer at a time.")), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 8
     }
