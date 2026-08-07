@@ -1,55 +1,68 @@
 #!/bin/bash
-# Rebuilds ask-nanci-architecture-summary-app.js and .min.js from the JSX source
-# of truth (the <script type="text/babel"> block in ask-nanci-architecture-summary.html).
+# Rebuilds each deck's -app.js and -app.min.js from that deck's JSX source of
+# truth (the <script type="text/babel"> block in its .html).
 set -euo pipefail
 cd "$(dirname "$0")"
 
-SRC=ask-nanci-architecture-summary.html
-OUT=ask-nanci-architecture-summary-app.js
-MIN=ask-nanci-architecture-summary-app.min.js
+# One entry per deck, named after its .html minus the extension:
+#   <base>.html -> <base>-app.js -> <base>-app.min.js
+DECKS=(
+  ask-nanci-architecture-summary
+  ask-nanci-architecture-summary-generic
+)
 
-sed -n '/<script type="text\/babel">/,/<\/script>/p' "$SRC" | sed '1d;$d' > .build.jsx
+PAGES=https://thuannguyen13.github.io/aperia-ask-nanci-marketing
 
-{
-  echo "(function() {"
-  npx babel --presets=@babel/preset-react .build.jsx
-  echo "})();"
-} > "$OUT"
+build_deck() {
+  local base=$1
+  local src="$base.html" out="$base-app.js" min="$base-app.min.js"
 
-npx terser "$OUT" --compress --mangle -o "$MIN"
+  sed -n '/<script type="text\/babel">/,/<\/script>/p' "$src" | sed '1d;$d' > .build.jsx
 
-rm .build.jsx
-node -e "new Function(require('fs').readFileSync('$OUT','utf8')); new Function(require('fs').readFileSync('$MIN','utf8')); console.log('OK: $OUT and $MIN rebuilt and syntax-checked')"
+  {
+    echo "(function() {"
+    npx babel --presets=@babel/preset-react .build.jsx
+    echo "})();"
+  } > "$out"
 
-REPO=thuannguyen13/aperia-ask-nanci-marketing
+  npx terser "$out" --compress --mangle -o "$min"
 
-# A single purge reports success while the CDN still serves the old file, so purge
-# until what jsDelivr hands back actually matches the bundle we just built.
-verify_cdn() {
-  local want got
-  want=$(shasum -a 256 < "$MIN" | cut -d' ' -f1)
+  rm .build.jsx
+  node -e "new Function(require('fs').readFileSync('$out','utf8')); new Function(require('fs').readFileSync('$min','utf8')); console.log('OK: $out and $min rebuilt and syntax-checked')"
+}
+
+for deck in "${DECKS[@]}"; do
+  build_deck "$deck"
+done
+
+# Pages serves whatever is on main, so a deploy is confirmed by hashing the live
+# file against the one we just built. (This replaced a jsDelivr purge loop;
+# jsDelivr no longer serves these decks.)
+verify_pages() {
+  local min=$1 want got
+  want=$(shasum -a 256 < "$min" | cut -d' ' -f1)
   for i in 1 2 3 4 5; do
-    curl -fsS "https://purge.jsdelivr.net/gh/$REPO@main/$MIN" -o /dev/null || true
-    sleep 3
-    got=$(curl -fsS "https://cdn.jsdelivr.net/gh/$REPO@main/$MIN" 2>/dev/null | shasum -a 256 | cut -d' ' -f1)
-    if [ "$want" = "$got" ]; then echo "CDN serving current bundle (purge $i)"; return 0; fi
+    got=$(curl -fsS "$PAGES/$min" 2>/dev/null | shasum -a 256 | cut -d' ' -f1) || got=""
+    if [ "$want" = "$got" ]; then echo "Pages serving current $min (check $i)"; return 0; fi
+    sleep 10
   done
-  echo "WARNING: CDN still stale after 5 purges. Live site is NOT current."
-  echo "  check: https://cdn.jsdelivr.net/gh/$REPO@main/$MIN"
+  echo "WARNING: Pages still stale for $min after 5 checks."
+  echo "  check: $PAGES/$min"
   return 1
 }
 
-# Ship: commit, push, purge jsDelivr and confirm the CDN really updated.
+# Ship: commit, push, and confirm Pages really updated.
 # ponytail: skip with SKIP_SHIP=1 ./build.sh when you just want a local build.
 if [ "${SKIP_SHIP:-}" != "1" ] && git rev-parse --git-dir >/dev/null 2>&1; then
   if ! git diff --quiet || ! git diff --cached --quiet; then
-    git add "$SRC" "$OUT" "$MIN"
+    for deck in "${DECKS[@]}"; do
+      git add "$deck.html" "$deck-app.js" "$deck-app.min.js"
+    done
     git commit -q -m "Rebuild app bundle"
     git push -q origin main
     echo "Pushed $(git rev-parse --short HEAD)"
-    verify_cdn || true
+    for deck in "${DECKS[@]}"; do verify_pages "$deck-app.min.js" || true; done
   else
     echo "Nothing to ship (no changes)"
-    verify_cdn || true
   fi
 fi

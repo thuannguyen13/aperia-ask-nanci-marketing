@@ -5,13 +5,27 @@ remote is `aperia-ask-nanci-marketing`.)
 
 ## The HTML is the source, the bundle is generated
 
-The React/JSX for `ask-nanci-architecture-summary.html` lives in its `<script type="text/babel">`
-block. `build.sh` extracts it, runs babel to `-app.js`, then terser to `-app.min.js`.
+Each deck's React/JSX lives in its `<script type="text/babel">` block. `build.sh` extracts it, runs
+babel to `-app.js`, then terser to `-app.min.js`.
 
 **Webflow loads the `.min.js`.** Editing the HTML alone ships nothing, and a stale bundle is
 invisible until someone looks at prod. `.githooks/pre-commit` rebuilds and stages the bundle
-whenever the HTML is committed, so the two can't drift. It needs
+whenever a deck's HTML is committed, so the two can't drift. It needs
 `git config core.hooksPath .githooks` once per clone, since hooks aren't cloned.
+
+## Two decks, one pipeline
+
+`DECKS` in `build.sh` lists them; `.githooks/pre-commit` has a copy that must stay in sync. Naming
+is positional: `<base>.html` builds `<base>-app.js` and `<base>-app.min.js`. Adding a deck is one
+line in each array.
+
+- `ask-nanci-architecture-summary` — the original, mentions Clover.
+- `ask-nanci-architecture-summary-generic` — a full fork with the Clover wording removed
+  (`"Point of sale"`, matching the category labels already in `sourceNameMap`). It deliberately
+  keeps the shamrock icon and `COLORS.clover`.
+
+**The fork means copy edits do not propagate.** Any shared wording change has to be applied to both
+files by hand. Nothing checks for drift.
 
 ## `./build.sh` is a push
 
@@ -23,10 +37,11 @@ swallowed, so a bare run can print `WARNING: CDN still stale` while the Pages de
 
 ## Shipping is GitHub Pages
 
-Every push to `main` republishes. Permanent embed URL, never needs swapping:
+Every push to `main` republishes. Permanent embed URLs, never need swapping, one per deck:
 
 ```
 https://thuannguyen13.github.io/aperia-ask-nanci-marketing/ask-nanci-architecture-summary-app.min.js
+https://thuannguyen13.github.io/aperia-ask-nanci-marketing/ask-nanci-architecture-summary-generic-app.min.js
 ```
 
 `cache-control: max-age=600`, correct `application/javascript`, CORS open. **The Pages root 404s**

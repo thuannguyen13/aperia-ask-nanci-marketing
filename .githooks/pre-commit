@@ -1,11 +1,24 @@
 #!/bin/bash
-# The bundle is generated from the JSX in ask-nanci-architecture-summary.html.
-# Committing the source without the rebuilt bundle ships a stale site, so if the
-# source is staged, rebuild and stage the bundle alongside it.
+# Each deck's bundle is generated from the JSX in its .html. Committing a source
+# without the rebuilt bundle ships a stale site, so if any deck's source is
+# staged, rebuild and stage that deck's bundles alongside it.
 set -euo pipefail
 
-git diff --cached --name-only | grep -qx 'ask-nanci-architecture-summary.html' || exit 0
+# Keep in sync with DECKS in build.sh.
+DECKS=(
+  ask-nanci-architecture-summary
+  ask-nanci-architecture-summary-generic
+)
 
-echo "pre-commit: source staged, rebuilding bundle..."
+staged=$(git diff --cached --name-only)
+touched=()
+for deck in "${DECKS[@]}"; do
+  if printf '%s\n' "$staged" | grep -qxF "$deck.html"; then touched+=("$deck"); fi
+done
+[ ${#touched[@]} -gt 0 ] || exit 0
+
+echo "pre-commit: source staged, rebuilding bundles..."
 SKIP_SHIP=1 ./build.sh >/dev/null
-git add ask-nanci-architecture-summary-app.js ask-nanci-architecture-summary-app.min.js
+for deck in "${touched[@]}"; do
+  git add "$deck-app.js" "$deck-app.min.js"
+done
