@@ -73,7 +73,7 @@ const specialists = [{
   light: COLORS.fundingLight,
   desc: "Where\u2019s my money, when will I get paid",
   tools: ["Funding summary", "Deposit queries", "Batch queries", "Bank account check"],
-  sources: ["database", "clover", "plaid"],
+  sources: ["database", "plaid"],
   questions: ["Where\u2019s my money?", "Is anything off with my deposits?", "Why was Tuesday\u2019s deposit smaller than expected?"]
 }, {
   id: "reconciliation",
@@ -84,7 +84,7 @@ const specialists = [{
   light: COLORS.reconciliationLight,
   desc: "Why don\u2019t my numbers match",
   tools: ["Bank-vs-sales reconciliation", "Deposit-to-batch matching", "Accounting comparison"],
-  sources: ["database", "clover", "plaid", "quickbooks"],
+  sources: ["database", "plaid", "quickbooks"],
   questions: ["Why doesn\u2019t my bank match my sales report?", "My accountant says I\u2019m missing a deposit \u2014 can you find it?"]
 }, {
   id: "chargeback",
@@ -95,7 +95,7 @@ const specialists = [{
   light: COLORS.chargebackLight,
   desc: "What\u2019s this dispute, should I fight it",
   tools: ["Chargeback explanation", "Chargeback listing", "Risk assessment", "Representment drafting"],
-  sources: ["database", "clover"],
+  sources: ["database"],
   questions: ["Did I get a chargeback this month?", "Should I fight this dispute?", "What\u2019s my chargeback rate \u2014 am I at risk?"]
 }, {
   id: "sales",
@@ -106,7 +106,7 @@ const specialists = [{
   light: COLORS.salesLight,
   desc: "What\u2019s selling, busiest times, trends",
   tools: ["Sales summary", "Item performance", "Period comparison", "Chart generation"],
-  sources: ["database", "clover"],
+  sources: ["database"],
   questions: ["What\u2019s my best selling item this week?", "My sales this weekend were lower than usual. Is something wrong?", "How are my online orders trending vs in-store?"]
 }, {
   id: "payments",
@@ -117,7 +117,7 @@ const specialists = [{
   light: COLORS.paymentsLight,
   desc: "Payment status, declines, terminal health",
   tools: ["Payment lookup", "Decline analysis", "Terminal status", "Processing history"],
-  sources: ["database", "clover"],
+  sources: ["database"],
   questions: ["Why did that payment fail?", "Show me declined transactions this week", "Are all my terminals online?"]
 }, {
   id: "inventory",
@@ -128,7 +128,7 @@ const specialists = [{
   light: COLORS.inventoryLight,
   desc: "What do I need to order, vendor tracking",
   tools: ["Stock levels", "Reorder forecast", "Vendor price history"],
-  sources: ["clover", "quickbooks"],
+  sources: ["quickbooks"],
   questions: ["What do I need to order?", "What vendors increased prices?", "Based on my sales trends, when will I run out of X?"]
 }, {
   id: "profit",
@@ -139,7 +139,7 @@ const specialists = [{
   light: COLORS.profitLight,
   desc: "Am I making money, real cost per transaction",
   tools: ["P&L summary", "Fee analysis", "Expense breakdown", "Margin by item"],
-  sources: ["database", "clover", "quickbooks"],
+  sources: ["database", "quickbooks"],
   questions: ["Show profit trends by location", "How much do refunds cost me monthly?", "Am I actually profitable after processing fees?"]
 }, {
   id: "cashflow",
@@ -161,7 +161,7 @@ const specialists = [{
   light: COLORS.reportingLight,
   desc: "Weekly summaries, anomaly detection",
   tools: ["Sales summary", "Funding summary", "Chargeback summary", "Chart & report generation"],
-  sources: ["database", "clover", "plaid", "quickbooks"],
+  sources: ["database", "plaid", "quickbooks"],
   questions: ["Write a weekly owner\u2019s update", "Give me a month-end summary for my accountant", "What should I focus on this week?"]
 }];
 const dataSources = [{
@@ -171,15 +171,6 @@ const dataSources = [{
   color: COLORS.database,
   bg: COLORS.databaseBg,
   desc: "Transactions, batches, deposits, chargebacks, fees, reserves"
-}, {
-  id: "clover",
-  name: "Point of sale",
-  icon: "\u2618\uFE0F",
-  color: COLORS.clover,
-  bg: COLORS.cloverBg,
-  desc: "Sales, orders, inventory, employees, tips, refunds, devices",
-  via: "7+ specialists",
-  featured: true
 }, {
   id: "plaid",
   name: "Financial institutions",
@@ -202,10 +193,6 @@ const sourceColorMap = {
     color: COLORS.database,
     bg: COLORS.databaseBg
   },
-  clover: {
-    color: COLORS.clover,
-    bg: COLORS.cloverBg
-  },
   plaid: {
     color: COLORS.plaid,
     bg: COLORS.plaidBg
@@ -217,7 +204,6 @@ const sourceColorMap = {
 };
 const sourceNameMap = {
   database: "Database",
-  clover: "Point of sale",
   plaid: "Financial institutions",
   quickbooks: "Accounting"
 };
@@ -1145,7 +1131,7 @@ function Diagram1() {
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "Connected data sources"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: "repeat(4, 1fr)",
+      gridTemplateColumns: "repeat(3, 1fr)",
       gap: 10
     }
   }, dataSources.map(ds => /*#__PURE__*/React.createElement(NodeBox, {
@@ -1585,11 +1571,6 @@ function Diagram3() {
     detail: "Deposits & batches for the period",
     icon: "\u{1F5C4}\uFE0F"
   }, {
-    id: "clover",
-    name: "Point of sale",
-    detail: "Sales totals & refunds",
-    icon: "\u2618\uFE0F"
-  }, {
     id: "plaid",
     name: "Financial institutions",
     detail: "Bank transactions & posted deposits",
@@ -1717,7 +1698,7 @@ function Diagram3() {
       marginTop: 8,
       marginBottom: 12,
       display: "grid",
-      gridTemplateColumns: "repeat(2, 1fr)",
+      gridTemplateColumns: "repeat(3, 1fr)",
       gap: 8
     }
   }, fanoutSources.map(fs => /*#__PURE__*/React.createElement("div", {

@@ -74,7 +74,7 @@
         color: COLORS.funding, bg: COLORS.fundingBg, light: COLORS.fundingLight,
         desc: "Where\u2019s my money, when will I get paid",
         tools: ["Funding summary", "Deposit queries", "Batch queries", "Bank account check"],
-        sources: ["database", "clover", "plaid"],
+        sources: ["database", "plaid"],
         questions: ["Where\u2019s my money?", "Is anything off with my deposits?", "Why was Tuesday\u2019s deposit smaller than expected?"],
       },
       {
@@ -82,7 +82,7 @@
         color: COLORS.reconciliation, bg: COLORS.reconciliationBg, light: COLORS.reconciliationLight,
         desc: "Why don\u2019t my numbers match",
         tools: ["Bank-vs-sales reconciliation", "Deposit-to-batch matching", "Accounting comparison"],
-        sources: ["database", "clover", "plaid", "quickbooks"],
+        sources: ["database", "plaid", "quickbooks"],
         questions: ["Why doesn\u2019t my bank match my sales report?", "My accountant says I\u2019m missing a deposit \u2014 can you find it?"],
       },
       {
@@ -90,7 +90,7 @@
         color: COLORS.chargeback, bg: COLORS.chargebackBg, light: COLORS.chargebackLight,
         desc: "What\u2019s this dispute, should I fight it",
         tools: ["Chargeback explanation", "Chargeback listing", "Risk assessment", "Representment drafting"],
-        sources: ["database", "clover"],
+        sources: ["database"],
         questions: ["Did I get a chargeback this month?", "Should I fight this dispute?", "What\u2019s my chargeback rate \u2014 am I at risk?"],
       },
       {
@@ -98,7 +98,7 @@
         color: COLORS.sales, bg: COLORS.salesBg, light: COLORS.salesLight,
         desc: "What\u2019s selling, busiest times, trends",
         tools: ["Sales summary", "Item performance", "Period comparison", "Chart generation"],
-        sources: ["database", "clover"],
+        sources: ["database"],
         questions: ["What\u2019s my best selling item this week?", "My sales this weekend were lower than usual. Is something wrong?", "How are my online orders trending vs in-store?"],
       },
       {
@@ -106,7 +106,7 @@
         color: COLORS.payments, bg: COLORS.paymentsBg, light: COLORS.paymentsLight,
         desc: "Payment status, declines, terminal health",
         tools: ["Payment lookup", "Decline analysis", "Terminal status", "Processing history"],
-        sources: ["database", "clover"],
+        sources: ["database"],
         questions: ["Why did that payment fail?", "Show me declined transactions this week", "Are all my terminals online?"],
       },
       {
@@ -114,7 +114,7 @@
         color: COLORS.inventory, bg: COLORS.inventoryBg, light: COLORS.inventoryLight,
         desc: "What do I need to order, vendor tracking",
         tools: ["Stock levels", "Reorder forecast", "Vendor price history"],
-        sources: ["clover", "quickbooks"],
+        sources: ["quickbooks"],
         questions: ["What do I need to order?", "What vendors increased prices?", "Based on my sales trends, when will I run out of X?"],
       },
       {
@@ -122,7 +122,7 @@
         color: COLORS.profit, bg: COLORS.profitBg, light: COLORS.profitLight,
         desc: "Am I making money, real cost per transaction",
         tools: ["P&L summary", "Fee analysis", "Expense breakdown", "Margin by item"],
-        sources: ["database", "clover", "quickbooks"],
+        sources: ["database", "quickbooks"],
         questions: ["Show profit trends by location", "How much do refunds cost me monthly?", "Am I actually profitable after processing fees?"],
       },
       {
@@ -138,26 +138,24 @@
         color: COLORS.reporting, bg: COLORS.reportingBg, light: COLORS.reportingLight,
         desc: "Weekly summaries, anomaly detection",
         tools: ["Sales summary", "Funding summary", "Chargeback summary", "Chart & report generation"],
-        sources: ["database", "clover", "plaid", "quickbooks"],
+        sources: ["database", "plaid", "quickbooks"],
         questions: ["Write a weekly owner\u2019s update", "Give me a month-end summary for my accountant", "What should I focus on this week?"],
       },
     ];
 
     const dataSources = [
       { id: "database", name: "Your database", icon: "\u{1F5C4}\uFE0F", color: COLORS.database, bg: COLORS.databaseBg, desc: "Transactions, batches, deposits, chargebacks, fees, reserves" },
-      { id: "clover", name: "Point of sale", icon: "\u2618\uFE0F", color: COLORS.clover, bg: COLORS.cloverBg, desc: "Sales, orders, inventory, employees, tips, refunds, devices", via: "7+ specialists", featured: true },
       { id: "plaid", name: "Financial institutions", icon: "\u{1F3E6}", color: COLORS.plaid, bg: COLORS.plaidBg, desc: "Bank account status, balances, posted transactions", via: "3+ specialists" },
       { id: "quickbooks", name: "Accounting", icon: "\u{1F4D2}", color: COLORS.quickbooks, bg: COLORS.quickbooksBg, desc: "QuickBooks, Sage, Gusto, FreshBooks, and more", via: "5+ specialists" },
     ];
 
     const sourceColorMap = {
       database: { color: COLORS.database, bg: COLORS.databaseBg },
-      clover: { color: COLORS.clover, bg: COLORS.cloverBg },
       plaid: { color: COLORS.plaid, bg: COLORS.plaidBg },
       quickbooks: { color: COLORS.quickbooks, bg: COLORS.quickbooksBg },
     };
 
-    const sourceNameMap = { database: "Database", clover: "Point of sale", plaid: "Financial institutions", quickbooks: "Accounting" };
+    const sourceNameMap = { database: "Database", plaid: "Financial institutions", quickbooks: "Accounting" };
 
     function SourcePill({ sourceId }) {
       const s = sourceColorMap[sourceId];
@@ -383,7 +381,7 @@
           {/* ── Data Sources ── */}
           <div style={{ marginTop: 24, paddingTop: 20, borderTop: `1px dashed ${COLORS.border}` }}>
             <SectionLabel>Connected data sources</SectionLabel>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
               {dataSources.map(ds => (
                 <NodeBox key={ds.id} color={ds.color} bg={ds.bg} featured={ds.featured} style={{ padding: "10px 12px", borderWidth: ds.featured ? 2 : 1 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
@@ -504,7 +502,6 @@
       ];
       const fanoutSources = [
         { id: "database", name: "Your database", detail: "Deposits & batches for the period", icon: "\u{1F5C4}\uFE0F" },
-        { id: "clover", name: "Point of sale", detail: "Sales totals & refunds", icon: "\u2618\uFE0F" },
         { id: "plaid", name: "Financial institutions", detail: "Bank transactions & posted deposits", icon: "\u{1F3E6}" },
         { id: "quickbooks", name: "Accounting", detail: "Recorded revenue entries", icon: "\u{1F4D2}" },
       ];
@@ -530,7 +527,7 @@
                   </div>
                 </div>
                 {step.type === "fanout" && (
-                  <div style={{ marginLeft: 48, marginTop: 8, marginBottom: 12, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 8 }}>
+                  <div style={{ marginLeft: 48, marginTop: 8, marginBottom: 12, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
                     {fanoutSources.map(fs => (
                       <div key={fs.id} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 12px", borderRadius: 10, background: sourceColorMap[fs.id].bg, border: `1px solid ${sourceColorMap[fs.id].color}20` }}>
                         <span style={{ fontSize: 20 }}>{fs.icon}</span>
