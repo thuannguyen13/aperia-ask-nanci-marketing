@@ -1,7 +1,6 @@
 # aperia-ask-nanci-marketing
 
-Static HTML decks about Ask Nanci, embedded into Webflow. (Working directory is `webflow`; the git
-remote is `aperia-ask-nanci-marketing`.)
+Static HTML decks about Ask Nanci, embedded into Webflow.
 
 ## The HTML is the source, the bundle is generated
 
