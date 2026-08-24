@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How Ask Nanci protects payment analytics with governed access, data isolation, and layered AI security controls.">
+  <title>Ask Nanci | Secure Architecture</title>
+  <style>
+    :root {
+      --ink: #152237;
+      --muted: #5c6b7d;
+      --line: #dbe3ea;
+      --paper: #ffffff;
+      --wash: #f4f7f9;
+      --navy: #17395f;
+      --teal: #087f83;
+      --teal-soft: #e6f5f4;
+      --blue-soft: #eaf1f8;
+      --amber-soft: #fff6dc;
+      --amber: #9a6900;
+      --shadow: 0 14px 34px rgba(21, 34, 55, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; }
+    .shell { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(219, 227, 234, .9);
+      background: rgba(255, 255, 255, .94);
+      backdrop-filter: blur(14px);
+    }
+    .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 760; letter-spacing: -.02em; }
+    .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; color: white; background: var(--teal); font-size: 18px; }
+    .nav-links { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: 14px; }
+    .nav-links a { text-decoration: none; }
+    .confidential { padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--navy); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+
+    .hero { padding: 88px 0 64px; background: linear-gradient(180deg, #f4f8fa 0%, #fff 100%); }
+    .eyebrow { margin: 0 0 14px; color: var(--teal); font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { max-width: 900px; margin: 0; font-size: clamp(42px, 6vw, 70px); line-height: 1.05; letter-spacing: -.045em; }
+    .hero-copy { max-width: 770px; margin: 24px 0 0; color: var(--muted); font-size: clamp(18px, 2vw, 21px); line-height: 1.65; }
+    .trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .trust-pill { padding: 8px 13px; border: 1px solid #cddce3; border-radius: 999px; color: var(--navy); background: white; font-size: 13px; font-weight: 700; }
+
+    section { padding: 76px 0; }
+    .section-head { max-width: 760px; margin-bottom: 34px; }
+    h2 { margin: 0 0 12px; font-size: clamp(30px, 4vw, 44px); line-height: 1.15; letter-spacing: -.035em; }
+    .lede { margin: 0; color: var(--muted); font-size: 18px; }
+
+    .diagram-wrap { padding: 34px 28px; border: 1px solid var(--line); border-radius: 22px; background: #fff; box-shadow: var(--shadow); overflow-x: auto; }
+    .architecture-grid { min-width: 1060px; display: grid; grid-template-columns: 230px 50px minmax(390px, 470px) 50px 230px; grid-template-rows: auto 26px auto 26px auto 26px auto 26px auto 26px auto; justify-content: center; align-items: center; }
+    .stage { grid-column: 3; padding: 16px 22px; border: 2px solid #19719a; border-radius: 12px; background: white; text-align: center; }
+    .stage h3 { margin: 0 0 4px; color: #111f54; font-size: 18px; line-height: 1.25; }
+    .stage p { margin: 0; color: #243653; font-size: 13px; line-height: 1.45; }
+    .stage.user { grid-row: 1; border-color: #222d67; color: white; background: #222d67; }
+    .stage.user h3, .stage.user p { color: white; }
+    .stage.llm { grid-row: 3; }
+    .stage.gateway { grid-row: 5; }
+    .stage.authorization { grid-row: 7; border-color: #237d99; color: white; background: #237d99; }
+    .stage.authorization h3, .stage.authorization p { color: white; }
+    .stage.dab { grid-row: 9; }
+    .stage.data { grid-row: 11; border-color: #08658a; color: white; background: #08658a; }
+    .stage.data h3, .stage.data p { color: white; }
+    .down { grid-column: 3; display: grid; place-items: center; color: #19719a; font-size: 22px; line-height: 1; }
+    .down.r2 { grid-row: 2; } .down.r4 { grid-row: 4; } .down.r6 { grid-row: 6; } .down.r8 { grid-row: 8; } .down.r10 { grid-row: 10; }
+    .side-box { position: relative; padding: 13px 14px; border: 1.5px solid #73a8c2; border-radius: 11px; background: #f6f9fc; text-align: center; }
+    .side-box strong { display: block; margin-bottom: 3px; color: #14255b; font-size: 14px; line-height: 1.25; }
+    .side-box span { display: block; color: #41546c; font-size: 11.5px; line-height: 1.4; }
+    .side-box.left { grid-column: 1; }
+    .side-box.right { grid-column: 5; }
+    .side-box.left::after { content: ""; position: absolute; top: 50%; right: -51px; width: 50px; border-top: 1.5px solid #73a8c2; }
+    .side-box.right::before { content: ""; position: absolute; top: 50%; left: -51px; width: 50px; border-top: 1.5px solid #73a8c2; }
+    .identity { grid-row: 1 / span 3; }
+    .content-safety { grid-row: 3; }
+    .key-vault { grid-row: 5; }
+    .pinned { grid-row: 5; border-color: #f29a4a; background: #fff9f2; }
+    .pinned::before { border-color: #f29a4a !important; }
+    .hierarchy { grid-row: 7; }
+    .purview { grid-row: 7; }
+    .monitoring { grid-row: 9 / span 3; }
+    .boundary { min-width: 1060px; width: 230px; margin: 18px 0 0 auto; padding: 14px 16px; border: 1.5px dashed #c64b36; border-radius: 12px; background: #fff; color: #415164; text-align: center; font-size: 12px; }
+    .boundary strong { display: block; margin-bottom: 5px; color: #bc402d; }
+    .status { display: inline-block; margin-top: 9px; padding: 3px 7px; border-radius: 999px; background: var(--teal-soft); color: #05696c; font-size: 10px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+    .status.progress { background: var(--amber-soft); color: var(--amber); }
+
+    .plain-summary { margin-top: 24px; padding: 24px 26px; border-left: 4px solid var(--teal); background: #f6fbfb; font-size: 18px; }
+
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .card { padding: 27px; border: 1px solid var(--line); border-radius: 18px; background: white; }
+    .card-number { width: 34px; height: 34px; display: grid; place-items: center; margin-bottom: 18px; border-radius: 10px; color: white; background: var(--navy); font-size: 13px; font-weight: 800; }
+    .card h3 { margin: 0 0 8px; font-size: 20px; }
+    .card p { margin: 0; color: var(--muted); }
+    .soft { background: var(--wash); }
+
+    .tool-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .tool { padding: 20px; border-top: 3px solid var(--teal); background: white; box-shadow: 0 6px 22px rgba(21, 34, 55, .06); }
+    .tool h3 { margin: 0 0 6px; font-size: 17px; }
+    .tool p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .standards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .standard { padding: 24px; border: 1px solid var(--line); border-radius: 16px; }
+    .standard strong { display: block; margin-bottom: 7px; color: var(--teal); font-size: 18px; }
+    .standard p { margin: 0; color: var(--muted); }
+    .note { margin-top: 22px; color: var(--muted); font-size: 14px; }
+
+    footer { padding: 30px 0 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; }
+
+    @media (max-width: 820px) {
+      .nav-links a { display: none; }
+      .hero { padding-top: 64px; }
+      .cards, .tool-list, .standards { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell nav">
+      <div class="brand"><span class="brand-mark">N</span><span>Ask Nanci</span></div>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#architecture">Architecture</a>
+        <a href="#protection">Data protection</a>
+        <a href="#standards">Security approach</a>
+        <span class="confidential">Confidential</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell">
+        <p class="eyebrow">Conceptual architecture brief</p>
+        <h1>Answers you can trust, from data you control.</h1>
+        <p class="hero-copy">Ask Nanci gives merchants and partners a simple way to explore payments data without giving the AI direct access to that data. Identity, access rules, data protection, and monitoring work together at every step.</p>
+        <div class="trust-row" aria-label="Security references">
+          <span class="trust-pill">PCI DSS Compliant</span>
+          <span class="trust-pill">OWASP aligned</span>
+          <span class="trust-pill">MITRE ATLAS guided</span>
+          <span class="trust-pill">NIST AI RMF informed</span>
+          <span class="trust-pill">ISO/IEC framed</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>The AI interprets. The platform protects.</h2>
+          <p class="lede">Every step narrows what the system is allowed to do. The AI never connects directly to production systems or a raw data store.</p>
+        </div>
+
+        <div class="diagram-wrap" role="img" aria-label="Ask Nanci secure architecture. The central flow runs from merchant and partner users through conversational AI, the AI tool gateway, fine-grained authorization, the governed data access layer, and the governed analytics platform. Security controls align beside the stage they protect.">
+          <div class="architecture-grid">
+            <div class="side-box left identity">
+              <strong>Identity &amp; API Protection</strong>
+              <span>Entra ID and PIM enforce identity and least privilege. Azure Front Door and APIM protect traffic and control usage.</span>
+            </div>
+
+            <div class="stage user">
+              <h3>Merchant &amp; Partner Users</h3>
+              <p>“How did my chargebacks trend last quarter?”</p>
+            </div>
+            <div class="down r2" aria-hidden="true">↓</div>
+            <div class="stage llm">
+              <h3>Conversational AI (LLM)</h3>
+              <p>Understands the question and the intent, never the raw data store</p>
+            </div>
+            <div class="side-box right content-safety">
+              <strong>Content Protection</strong>
+              <span>Azure AI Content Safety inspects prompts and responses for unsafe content.</span>
+            </div>
+
+            <div class="down r4" aria-hidden="true">↓</div>
+            <div class="side-box left key-vault">
+              <strong>Secrets Protection</strong>
+              <span>Azure Key Vault keeps keys, credentials, and protected settings out of prompts and code.</span>
+            </div>
+            <div class="stage gateway">
+              <h3>AI Tool Gateway (MCP)</h3>
+              <p>The only path to data. Every exploratory or pinned query goes through here</p>
+            </div>
+            <div class="side-box right pinned">
+              <strong>Pinned Query Library</strong>
+              <span>Approved answers replay the same query logic every time</span>
+            </div>
+
+            <div class="down r6" aria-hidden="true">↓</div>
+            <div class="side-box left hierarchy">
+              <strong>Client Hierarchy</strong>
+              <span>Portfolios · channels · regions define which rows each user may see</span>
+            </div>
+            <div class="stage authorization">
+              <h3>Fine-Grained Authorization</h3>
+              <p>OpenFGA checks every request against the client hierarchy, row by row</p>
+            </div>
+            <div class="side-box right purview">
+              <strong>Sensitive Data Protection</strong>
+              <span>Microsoft Purview DLP protects sensitive data across prompts, answers, and logs.</span>
+            </div>
+
+            <div class="down r8" aria-hidden="true">↓</div>
+            <div class="stage dab">
+              <h3>Governed Data Access Layer (DAB)</h3>
+              <p>Executes only the approved, scoped query. Read-only by construction</p>
+            </div>
+            <div class="side-box right monitoring">
+              <strong>Monitoring &amp; Response</strong>
+              <span>Defender, Azure Monitor, and Microsoft Sentinel monitor activity, generate alerts, and support investigation and response.</span>
+            </div>
+
+            <div class="down r10" aria-hidden="true">↓</div>
+            <div class="stage data">
+              <h3>Governed Analytics Data Platform</h3>
+              <p>Microsoft Fabric is isolated from live payment processing</p>
+            </div>
+          </div>
+
+          <div class="boundary">
+            <strong>Outside the AI boundary</strong>
+            Cardholder account numbers are tokenized before analytics. Live payment processing is never queried by the AI.
+          </div>
+        </div>
+
+        <p class="plain-summary">In plain English: the model can help form the question, but it cannot decide who may see the answer. Access is checked below the AI each time data is requested.</p>
+      </div>
+    </section>
+
+    <section id="protection" class="soft">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">What clients can expect</p>
+          <h2>Security built into the path to every answer.</h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-number">01</div>
+            <h3>Access is checked every time</h3>
+            <p>Entra ID confirms who is asking. OpenFGA applies the client's hierarchy - such as portfolio, channel, region, and tenant - before the query runs.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">02</div>
+            <h3>Sensitive payment data stays protected</h3>
+            <p>Cardholder account numbers are tokenized before analytics. Ask Nanci works with protected data and does not query live payment-processing systems.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">03</div>
+            <h3>The AI has one approved route to data</h3>
+            <p>The model can use only approved tools. The governed data layer runs only authorized, read-only queries against Microsoft Fabric.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">04</div>
+            <h3>Trusted answers stay consistent</h3>
+            <p>When a user pins an answer, Ask Nanci saves the exact query. The same business logic runs again while each user's access rules are still applied.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">05</div>
+            <h3>Prompts and responses are inspected</h3>
+            <p>Content-safety and data-loss controls inspect unsafe instructions and prevent protected information from appearing in an answer.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">06</div>
+            <h3>Activity is monitored</h3>
+            <p>Security monitoring supports alerting, investigation, and response across the application, API, AI, and analytics layers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Security toolsets</p>
+          <h2>Purposeful controls, clearly placed.</h2>
+          <p class="lede">Each product has a defined job. No single tool - or the AI model itself - is expected to provide all security.</p>
+        </div>
+        <div class="tool-list">
+          <article class="tool"><h3>Entra ID and PIM</h3><p>User identity, least privilege, and protected administrative access.</p></article>
+          <article class="tool"><h3>Azure Front Door and APIM</h3><p>Traffic protection, rate limits, quotas, timeouts, and usage controls.</p></article>
+          <article class="tool"><h3>OpenFGA</h3><p>Fine-grained access rules based on the user and client hierarchy.</p></article>
+          <article class="tool"><h3>Azure AI Content Safety</h3><p>Checks for unsafe prompts and responses.</p></article>
+          <article class="tool"><h3>Purview DLP and Key Vault</h3><p>Protection for sensitive data, secrets, and protected settings.</p></article>
+          <article class="tool"><h3>Defender, Monitor, and Sentinel</h3><p>Security signals, alerts, investigation, and incident response.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="standards" class="soft">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Security approach</p>
+          <h2>Guided by payment and AI security practices.</h2>
+        </div>
+        <div class="standards">
+          <article class="standard">
+            <strong>PCI DSS</strong>
+            <p>Guides how cardholder data is protected, separated, monitored, and kept outside the AI experience.</p>
+          </article>
+          <article class="standard">
+            <strong>OWASP</strong>
+            <p>Helps us address common AI application risks such as prompt attacks, sensitive-data exposure, unsafe output, and excessive access.</p>
+          </article>
+          <article class="standard">
+            <strong>MITRE ATLAS</strong>
+            <p>Helps us test how an attacker may target AI systems, tools, models, or data - and prepare defenses and response steps.</p>
+          </article>
+          <article class="standard">
+            <strong>NIST AI RMF</strong>
+            <p>Guides how we identify, measure, manage, and monitor AI risks throughout the service lifecycle.</p>
+          </article>
+          <article class="standard">
+            <strong>ISO/IEC 42001 and 23894</strong>
+            <p>Guides clear ownership, documented controls, supplier oversight, regular review, and continued improvement.</p>
+          </article>
+        </div>
+        <p class="note">These sources guide the security program. Controls are considered complete only after the configuration and test evidence have been reviewed by Security.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <span>© 2026 Aperia. All rights reserved.</span>
+      <span>Confidential · For authorized clients and partners</span>
+    </div>
+  </footer>
+</body>
+</html>
