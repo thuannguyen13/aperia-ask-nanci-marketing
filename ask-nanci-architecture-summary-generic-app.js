@@ -1,7 +1,8 @@
 (function() {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 const {
-  useState
+  useState,
+  useEffect
 } = React;
 const COLORS = {
   bg: "#FAFAF8",
@@ -207,6 +208,193 @@ const sourceNameMap = {
   plaid: "Financial institutions",
   quickbooks: "Accounting"
 };
+
+// Card grids drop to one column below this.
+const MOBILE_BP = 720;
+// Six labels need ~985px of intrinsic width, so the single-row pill bar
+// overflows well before the deck's 1200px max. Below this the nav becomes
+// the section sheet rather than a second row of pills.
+const NAV_BP = 1040;
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(() => typeof window !== "undefined" && window.matchMedia ? window.matchMedia(query).matches : false);
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mq = window.matchMedia(query);
+    const onChange = e => setMatches(e.matches);
+    setMatches(mq.matches);
+    if (mq.addEventListener) {
+      mq.addEventListener("change", onChange);
+      return () => mq.removeEventListener("change", onChange);
+    }
+    mq.addListener(onChange);
+    return () => mq.removeListener(onChange);
+  }, [query]);
+  return matches;
+}
+function useIsMobile() {
+  return useMediaQuery(`(max-width: ${MOBILE_BP}px)`);
+}
+function SectionNav({
+  tabs,
+  tab,
+  setTab
+}) {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = e => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 24,
+      borderRadius: 12,
+      background: "#f5f5f3",
+      border: `1px solid ${COLORS.border}`,
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: () => setOpen(o => !o),
+    "aria-expanded": open,
+    "aria-controls": "deck-section-list",
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 12,
+      width: "100%",
+      minHeight: 56,
+      padding: "10px 14px",
+      border: "none",
+      background: "transparent",
+      cursor: "pointer",
+      fontFamily: "inherit",
+      textAlign: "left"
+    }
+  }, open ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      fontSize: 17,
+      fontWeight: 600,
+      color: COLORS.text
+    }
+  }, "Jump to section") : /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      fontSize: 11,
+      fontWeight: 600,
+      letterSpacing: "0.12em",
+      textTransform: "uppercase",
+      color: COLORS.textLight,
+      marginBottom: 2
+    }
+  }, "Section ", tab + 1, " / ", tabs.length), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      fontSize: 17,
+      fontWeight: 600,
+      color: COLORS.text,
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, tabs[tab].label)), /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    "aria-hidden": "true",
+    style: {
+      flexShrink: 0,
+      color: COLORS.textMuted,
+      transition: "transform 0.24s ease"
+    }
+  }, open ? /*#__PURE__*/React.createElement("path", {
+    d: "M6 6l12 12M18 6L6 18",
+    stroke: "currentColor",
+    strokeWidth: "2.2",
+    strokeLinecap: "round"
+  }) : /*#__PURE__*/React.createElement("path", {
+    d: "M6 9l6 6 6-6",
+    stroke: "currentColor",
+    strokeWidth: "2.2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }))), /*#__PURE__*/React.createElement("div", {
+    id: "deck-section-list",
+    style: {
+      maxHeight: open ? tabs.length * 48 + 20 : 0,
+      opacity: open ? 1 : 0,
+      overflow: "hidden",
+      pointerEvents: open ? "auto" : "none",
+      transition: "max-height 0.28s ease, opacity 0.2s ease"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: `1px solid ${COLORS.border}`,
+      padding: "6px 0 8px"
+    }
+  }, tabs.map((t, i) => {
+    const active = i === tab;
+    return /*#__PURE__*/React.createElement("button", {
+      key: i,
+      type: "button",
+      onClick: () => {
+        setTab(i);
+        setOpen(false);
+      },
+      "aria-current": active ? "true" : undefined,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 12,
+        width: "100%",
+        minHeight: 44,
+        padding: "10px 14px",
+        border: "none",
+        background: active ? "#fff" : "transparent",
+        textAlign: "left",
+        fontFamily: "inherit",
+        fontSize: 16,
+        lineHeight: 1.4,
+        fontWeight: active ? 600 : 400,
+        color: COLORS.text,
+        cursor: "pointer"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        flexShrink: 0,
+        width: 20,
+        fontSize: 13,
+        fontWeight: 600,
+        color: active ? COLORS.router : COLORS.textLight
+      }
+    }, i + 1), /*#__PURE__*/React.createElement("span", {
+      style: {
+        flex: 1,
+        minWidth: 0
+      }
+    }, t.label), active && /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        flexShrink: 0,
+        width: 8,
+        height: 8,
+        borderRadius: "50%",
+        background: COLORS.router
+      }
+    }));
+  }))));
+}
 function SourcePill({
   sourceId
 }) {
@@ -300,6 +488,7 @@ function Arrow({
   }, isDown ? "\u2193" : isRight ? "\u2192" : "\u2193"));
 }
 function LoopsSection() {
+  const isMobile = useIsMobile();
   return /*#__PURE__*/React.createElement("div", {
     style: {
       border: `2px dashed ${COLORS.border}`,
@@ -378,7 +567,7 @@ function LoopsSection() {
   }, "DATA")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: "1fr 1fr",
+      gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
       gap: 14
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -609,6 +798,7 @@ function LoopsSection() {
   }, "REFINE"))));
 }
 function Diagram1() {
+  const isMobile = useIsMobile();
   const [hoverSpecialist, setHoverSpecialist] = useState(null);
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -969,7 +1159,7 @@ function Diagram1() {
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "N specialized AI agents"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: "repeat(3, 1fr)",
+      gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
       gap: 10
     }
   }, specialists.map(s => /*#__PURE__*/React.createElement(NodeBox, {
@@ -1131,7 +1321,7 @@ function Diagram1() {
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "Connected data sources"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: "repeat(3, 1fr)",
+      gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(3, 1fr)",
       gap: 10
     }
   }, dataSources.map(ds => /*#__PURE__*/React.createElement(NodeBox, {
@@ -1214,6 +1404,7 @@ function Diagram1() {
   }, "Every step is traced \u2014 latency, token usage, tool calls, and quality scores. Full observability from day one means we continuously refine routing accuracy, response quality, and cost efficiency as the system runs."))));
 }
 function Diagram2() {
+  const isMobile = useIsMobile();
   const [activeSpecialist, setActiveSpecialist] = useState(null);
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1274,7 +1465,7 @@ function Diagram2() {
   }, "Every answer is reviewed before delivery"))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: "repeat(2, 1fr)",
+      gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
       gap: 14
     }
   }, specialists.map(s => {
@@ -1470,6 +1661,7 @@ function Diagram2() {
   }, ds.name)))));
 }
 function Diagram3() {
+  const isMobile = useIsMobile();
   const [activeStep, setActiveStep] = useState(null);
   const steps = [{
     id: "question",
@@ -1694,11 +1886,11 @@ function Diagram3() {
     }
   }, step.detail))), step.type === "fanout" && /*#__PURE__*/React.createElement("div", {
     style: {
-      marginLeft: 48,
+      marginLeft: isMobile ? 0 : 48,
       marginTop: 8,
       marginBottom: 12,
       display: "grid",
-      gridTemplateColumns: "repeat(3, 1fr)",
+      gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
       gap: 8
     }
   }, fanoutSources.map(fs => /*#__PURE__*/React.createElement("div", {
@@ -1999,6 +2191,7 @@ function Diagram3() {
   }, "Two deposits from Friday ($847 and $456) are still in transit and will post Monday. Once they do, your bank balance will match within $12 of your sales. That remaining $12 is your processing fee for the period."))))))));
 }
 function Diagram4() {
+  const isMobile = useIsMobile();
   const pillars = [{
     title: "Hierarchy applied to every answer",
     desc: "Your organizational structure, portfolios, sales channels, regions, is enforced on every single request. A portfolio manager sees their book; a regional lead sees their region. Two people can ask the identical question and each receives an answer built only from the rows they are entitled to see.",
@@ -2516,7 +2709,7 @@ function Diagram4() {
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "What this architecture means for our clients"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: "repeat(2, 1fr)",
+      gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
       gap: 12
     }
   }, pillars.map(p => /*#__PURE__*/React.createElement(NodeBox, {
@@ -2544,6 +2737,7 @@ function Diagram4() {
   }, p.desc))))));
 }
 function Diagram5() {
+  const isMobile = useIsMobile();
   const assetPoints = [{
     n: 1,
     title: "The model runs inside our boundary",
@@ -2654,7 +2848,7 @@ function Diagram5() {
   }, "Two things make this an owned asset rather than a vendor relationship:"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: "1fr 1fr",
+      gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
       gap: 10
     }
   }, assetPoints.map((a, i) => /*#__PURE__*/React.createElement(NodeBox, {
@@ -2748,7 +2942,7 @@ function Diagram5() {
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "What this delivers"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: "1fr 1fr",
+      gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
       gap: 10
     }
   }, delivers.map((d, i) => /*#__PURE__*/React.createElement(NodeBox, {
@@ -2777,6 +2971,7 @@ function Diagram5() {
   }, d.desc))))));
 }
 function Diagram6() {
+  const isMobile = useIsMobile();
   const expectations = [{
     title: "Access is checked every time",
     desc: "Entra ID confirms who is asking. OpenFGA then applies the client’s hierarchy, portfolio, channel, region, and tenant, before the query runs. Authorization is evaluated at execution time, not once at login."
@@ -3468,7 +3663,7 @@ function Diagram6() {
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "Security built into the path to every answer"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: "repeat(2, 1fr)",
+      gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
       gap: 12
     }
   }, expectations.map(e => /*#__PURE__*/React.createElement(NodeBox, {
@@ -3502,7 +3697,7 @@ function Diagram6() {
   }, "Each product has a defined job. No single tool, and not the AI model itself, is expected to provide all of the security."), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: "repeat(3, 1fr)",
+      gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
       gap: 12
     }
   }, tools.map(t => /*#__PURE__*/React.createElement(NodeBox, {
@@ -3532,7 +3727,7 @@ function Diagram6() {
   }, /*#__PURE__*/React.createElement(SectionLabel, null, "Guided by payment and AI security practices"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: "repeat(3, 1fr)",
+      gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
       gap: 12
     }
   }, standards.map(s => /*#__PURE__*/React.createElement(NodeBox, {
@@ -3567,6 +3762,8 @@ function Diagram6() {
 }
 function App() {
   const [tab, setTab] = useState(0);
+  const isMobile = useIsMobile();
+  const isNarrow = useMediaQuery(`(max-width: ${NAV_BP}px)`);
   const tabs = [{
     label: "Architecture summary",
     component: Diagram4
@@ -3593,11 +3790,15 @@ function App() {
       color: COLORS.text,
       maxWidth: 1200,
       margin: "0 auto",
-      padding: "24px 16px 40px",
+      padding: isMobile ? "16px 12px 32px" : "24px 16px 40px",
       minHeight: "100vh",
       background: "#fff"
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, isNarrow ? /*#__PURE__*/React.createElement(SectionNav, {
+    tabs: tabs,
+    tab: tab,
+    setTab: setTab
+  }) : /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 4,
