@@ -2989,8 +2989,7 @@ function Diagram6() {
     desc: "Content safety and data-loss controls screen for unsafe instructions and stop protected information from surfacing in an answer."
   }, {
     title: "Activity is monitored",
-    desc: "Security monitoring supports alerting, investigation, and response across the application, API, AI, and analytics layers.",
-    accent: true
+    desc: "Security monitoring supports alerting, investigation, and response across the application, API, AI, and analytics layers."
   }];
   const tools = [{
     name: "Entra ID and PIM",
@@ -3668,9 +3667,7 @@ function Diagram6() {
     }
   }, expectations.map(e => /*#__PURE__*/React.createElement(NodeBox, {
     key: e.title,
-    color: e.accent ? COLORS.quality : COLORS.router,
-    featured: e.accent,
-    bg: e.accent ? COLORS.qualityBg : "#fff",
+    color: COLORS.router,
     style: {
       padding: "14px 16px"
     }
@@ -3679,7 +3676,7 @@ function Diagram6() {
       fontSize: 16,
       lineHeight: 1.5,
       fontWeight: 600,
-      color: e.accent ? COLORS.quality : COLORS.router,
+      color: COLORS.router,
       marginBottom: 4
     }
   }, e.title), /*#__PURE__*/React.createElement("div", {
