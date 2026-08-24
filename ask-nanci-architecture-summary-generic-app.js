@@ -2776,6 +2776,795 @@ function Diagram5() {
     }
   }, d.desc))))));
 }
+function Diagram6() {
+  const expectations = [{
+    title: "Access is checked every time",
+    desc: "Entra ID confirms who is asking. OpenFGA then applies the client’s hierarchy, portfolio, channel, region, and tenant, before the query runs. Authorization is evaluated at execution time, not once at login."
+  }, {
+    title: "Sensitive payment data stays protected",
+    desc: "Cardholder account numbers are tokenized before data reaches analytics. Ask Nanci works only with protected data and never queries live payment-processing systems."
+  }, {
+    title: "The AI has one approved route to data",
+    desc: "The model can call only approved tools. The governed data access layer runs authorized, read-only queries against Microsoft Fabric, and there is no second path around it."
+  }, {
+    title: "Trusted answers stay consistent",
+    desc: "When a user pins an answer, Ask Nanci freezes the exact query. The same business logic replays every time, while each user’s own access rules are still applied to the result."
+  }, {
+    title: "Prompts and responses are inspected",
+    desc: "Content safety and data-loss controls screen for unsafe instructions and stop protected information from surfacing in an answer."
+  }, {
+    title: "Activity is monitored",
+    desc: "Security monitoring supports alerting, investigation, and response across the application, API, AI, and analytics layers.",
+    accent: true
+  }];
+  const tools = [{
+    name: "Entra ID and PIM",
+    job: "User identity, least privilege, and protected administrative access."
+  }, {
+    name: "Azure Front Door and APIM",
+    job: "Traffic protection, rate limits, quotas, timeouts, and usage controls."
+  }, {
+    name: "OpenFGA",
+    job: "Fine-grained access rules based on the user and the client hierarchy."
+  }, {
+    name: "Azure AI Content Safety",
+    job: "Checks prompts and responses for unsafe content."
+  }, {
+    name: "Purview DLP and Key Vault",
+    job: "Protection for sensitive data, secrets, and protected settings."
+  }, {
+    name: "Defender, Monitor, and Sentinel",
+    job: "Security signals, alerts, investigation, and incident response."
+  }];
+  const standards = [{
+    name: "PCI DSS",
+    desc: "Guides how cardholder data is protected, separated, monitored, and kept outside the AI experience."
+  }, {
+    name: "OWASP",
+    desc: "Helps us address common AI application risks: prompt attacks, sensitive-data exposure, unsafe output, and excessive access."
+  }, {
+    name: "MITRE ATLAS",
+    desc: "Helps us test how an attacker may target AI systems, tools, models, or data, and prepare defenses and response steps."
+  }, {
+    name: "NIST AI RMF",
+    desc: "Guides how we identify, measure, manage, and monitor AI risks across the service lifecycle."
+  }, {
+    name: "ISO/IEC 42001 and 23894",
+    desc: "Guides clear ownership, documented controls, supplier oversight, regular review, and continued improvement."
+  }];
+  const references = ["PCI DSS Compliant", "OWASP aligned", "MITRE ATLAS guided", "NIST AI RMF informed", "ISO/IEC framed"];
+  const pText = {
+    fontSize: 16,
+    lineHeight: 1.5,
+    color: COLORS.textMuted,
+    marginBottom: 10
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 1200,
+      margin: "0 auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      marginBottom: 32
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      lineHeight: 1.5,
+      fontWeight: 600,
+      letterSpacing: "0.16em",
+      textTransform: "uppercase",
+      color: COLORS.router,
+      marginBottom: 10
+    }
+  }, "Secure Architecture"), /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontSize: 28,
+      fontWeight: 600,
+      color: COLORS.text,
+      margin: 0,
+      letterSpacing: "-0.02em"
+    }
+  }, "The AI interprets. The platform protects."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 16,
+      lineHeight: 1.5,
+      color: COLORS.textMuted,
+      margin: "10px 0 0",
+      maxWidth: 1200,
+      marginLeft: "auto",
+      marginRight: "auto"
+    }
+  }, "Ask Nanci gives merchants and partners a simple way to explore payments data without giving the AI direct access to that data. Identity, access rules, data protection, and monitoring work together at every step."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 16,
+      lineHeight: 1.5,
+      color: COLORS.textMuted,
+      margin: "10px 0 0",
+      maxWidth: 1200,
+      marginLeft: "auto",
+      marginRight: "auto"
+    }
+  }, "Every hop narrows what the system is allowed to do, and no single tool, including the model itself, is expected to provide all of the security."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 8,
+      justifyContent: "center",
+      marginTop: 20
+    }
+  }, references.map(r => /*#__PURE__*/React.createElement("span", {
+    key: r,
+    style: {
+      padding: "6px 12px",
+      borderRadius: 999,
+      border: `1px solid ${COLORS.border}`,
+      background: "#fff",
+      color: COLORS.text,
+      fontSize: 13,
+      fontWeight: 600,
+      whiteSpace: "nowrap"
+    }
+  }, r)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 32
+    }
+  }, /*#__PURE__*/React.createElement(SectionLabel, null, "Controls, placed against the stage they protect"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#fff",
+      border: `1px solid ${COLORS.border}`,
+      borderRadius: 10,
+      padding: "24px 20px",
+      boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+      overflowX: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 1080 720",
+    width: "100%",
+    style: {
+      minWidth: 880
+    },
+    role: "img",
+    "aria-label": "Ask Nanci secure architecture. The central flow runs from merchant and partner users through the conversational AI, the AI tool gateway, fine-grained authorization, the governed data access layer, and the governed analytics platform. Security controls sit beside the stage they protect: identity and API protection, content protection, secrets protection, the pinned query library, the client hierarchy, sensitive data protection, and monitoring and response. Cardholder data and live payment processing sit outside the AI boundary."
+  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("marker", {
+    id: "secArr",
+    viewBox: "0 0 10 10",
+    refX: "8",
+    refY: "5",
+    markerWidth: "7",
+    markerHeight: "7",
+    orient: "auto-start-reverse"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M1 1L9 5L1 9",
+    fill: "none",
+    stroke: "#1C7293",
+    strokeWidth: "1.6",
+    strokeLinecap: "round"
+  }))), /*#__PURE__*/React.createElement("rect", {
+    x: "350",
+    y: "18",
+    width: "380",
+    height: "62",
+    rx: "9",
+    fill: "#21295C"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "44",
+    textAnchor: "middle",
+    fill: "#FFFFFF",
+    fontSize: "17",
+    fontWeight: "700"
+  }, "Merchant & Partner Users"), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "64",
+    textAnchor: "middle",
+    fill: "#CADCFC",
+    fontSize: "12.5"
+  }, "“How did my chargebacks trend last quarter?”"), /*#__PURE__*/React.createElement("line", {
+    x1: "540",
+    y1: "80",
+    x2: "540",
+    y2: "112",
+    stroke: "#1C7293",
+    strokeWidth: "1.8",
+    markerEnd: "url(#secArr)"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "360",
+    y: "114",
+    width: "360",
+    height: "86",
+    rx: "9",
+    fill: "#FFFFFF",
+    stroke: "#065A82",
+    strokeWidth: "1.6"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "140",
+    textAnchor: "middle",
+    fill: "#21295C",
+    fontSize: "17",
+    fontWeight: "700"
+  }, "Conversational AI (LLM)"), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "160",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "12.5"
+  }, "Understands the question and the intent,"), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "176",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "12.5"
+  }, "never the raw data store"), /*#__PURE__*/React.createElement("line", {
+    x1: "540",
+    y1: "200",
+    x2: "540",
+    y2: "232",
+    stroke: "#1C7293",
+    strokeWidth: "1.8",
+    markerEnd: "url(#secArr)"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "360",
+    y: "234",
+    width: "360",
+    height: "86",
+    rx: "9",
+    fill: "#FFFFFF",
+    stroke: "#065A82",
+    strokeWidth: "1.6"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "260",
+    textAnchor: "middle",
+    fill: "#21295C",
+    fontSize: "17",
+    fontWeight: "700"
+  }, "AI Tool Gateway (MCP)"), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "280",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "12.5"
+  }, "The only path to data. Every query,"), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "296",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "12.5"
+  }, "exploratory or pinned, goes through here"), /*#__PURE__*/React.createElement("line", {
+    x1: "540",
+    y1: "320",
+    x2: "540",
+    y2: "352",
+    stroke: "#1C7293",
+    strokeWidth: "1.8",
+    markerEnd: "url(#secArr)"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "300",
+    y: "354",
+    width: "480",
+    height: "92",
+    rx: "9",
+    fill: "#1C7293"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "380",
+    textAnchor: "middle",
+    fill: "#FFFFFF",
+    fontSize: "17",
+    fontWeight: "700"
+  }, "Fine-Grained Authorization"), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "400",
+    textAnchor: "middle",
+    fill: "#CADCFC",
+    fontSize: "12.5"
+  }, "OpenFGA checks every request against the"), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "416",
+    textAnchor: "middle",
+    fill: "#CADCFC",
+    fontSize: "12.5"
+  }, "client hierarchy, row by row"), /*#__PURE__*/React.createElement("line", {
+    x1: "540",
+    y1: "446",
+    x2: "540",
+    y2: "478",
+    stroke: "#1C7293",
+    strokeWidth: "1.8",
+    markerEnd: "url(#secArr)"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "360",
+    y: "480",
+    width: "360",
+    height: "86",
+    rx: "9",
+    fill: "#FFFFFF",
+    stroke: "#065A82",
+    strokeWidth: "1.6"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "506",
+    textAnchor: "middle",
+    fill: "#21295C",
+    fontSize: "17",
+    fontWeight: "700"
+  }, "Governed Data Access Layer (DAB)"), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "526",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "12.5"
+  }, "Executes only the approved, scoped"), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "542",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "12.5"
+  }, "query. Read-only by construction"), /*#__PURE__*/React.createElement("line", {
+    x1: "540",
+    y1: "566",
+    x2: "540",
+    y2: "598",
+    stroke: "#1C7293",
+    strokeWidth: "1.8",
+    markerEnd: "url(#secArr)"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "330",
+    y: "600",
+    width: "420",
+    height: "82",
+    rx: "9",
+    fill: "#065A82"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "626",
+    textAnchor: "middle",
+    fill: "#FFFFFF",
+    fontSize: "17",
+    fontWeight: "700"
+  }, "Governed Analytics Data Platform"), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "646",
+    textAnchor: "middle",
+    fill: "#CADCFC",
+    fontSize: "12.5"
+  }, "Microsoft Fabric, isolated from live"), /*#__PURE__*/React.createElement("text", {
+    x: "540",
+    y: "662",
+    textAnchor: "middle",
+    fill: "#CADCFC",
+    fontSize: "12.5"
+  }, "payment processing"), /*#__PURE__*/React.createElement("line", {
+    x1: "272",
+    y1: "157",
+    x2: "358",
+    y2: "157",
+    stroke: "#A8C6D8",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "40",
+    y: "40",
+    width: "232",
+    height: "150",
+    rx: "9",
+    fill: "#F3F7FD",
+    stroke: "#1C7293",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "72",
+    textAnchor: "middle",
+    fill: "#21295C",
+    fontSize: "14.5",
+    fontWeight: "700"
+  }, "Identity & API Protection"), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "98",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "Entra ID and PIM enforce identity"), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "118",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "and least privilege. Azure Front"), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "138",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "Door and APIM protect traffic"), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "158",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "and control usage."), /*#__PURE__*/React.createElement("line", {
+    x1: "722",
+    y1: "157",
+    x2: "808",
+    y2: "157",
+    stroke: "#A8C6D8",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "808",
+    y: "114",
+    width: "232",
+    height: "86",
+    rx: "9",
+    fill: "#F3F7FD",
+    stroke: "#1C7293",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "140",
+    textAnchor: "middle",
+    fill: "#21295C",
+    fontSize: "14.5",
+    fontWeight: "700"
+  }, "Content Protection"), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "162",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "Azure AI Content Safety inspects"), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "180",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "prompts and responses."), /*#__PURE__*/React.createElement("line", {
+    x1: "272",
+    y1: "277",
+    x2: "358",
+    y2: "277",
+    stroke: "#A8C6D8",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "40",
+    y: "234",
+    width: "232",
+    height: "86",
+    rx: "9",
+    fill: "#F3F7FD",
+    stroke: "#1C7293",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "260",
+    textAnchor: "middle",
+    fill: "#21295C",
+    fontSize: "14.5",
+    fontWeight: "700"
+  }, "Secrets Protection"), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "282",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "Azure Key Vault keeps keys and"), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "300",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "credentials out of prompts and code."), /*#__PURE__*/React.createElement("line", {
+    x1: "722",
+    y1: "277",
+    x2: "808",
+    y2: "277",
+    stroke: "#F39237",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "808",
+    y: "234",
+    width: "232",
+    height: "86",
+    rx: "9",
+    fill: "#FFF9F2",
+    stroke: "#F39237",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "260",
+    textAnchor: "middle",
+    fill: "#21295C",
+    fontSize: "14.5",
+    fontWeight: "700"
+  }, "Pinned Query Library"), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "282",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "Approved answers replay the"), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "300",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "same query logic every time."), /*#__PURE__*/React.createElement("line", {
+    x1: "272",
+    y1: "400",
+    x2: "298",
+    y2: "400",
+    stroke: "#A8C6D8",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "40",
+    y: "354",
+    width: "232",
+    height: "92",
+    rx: "9",
+    fill: "#F3F7FD",
+    stroke: "#1C7293",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "382",
+    textAnchor: "middle",
+    fill: "#21295C",
+    fontSize: "14.5",
+    fontWeight: "700"
+  }, "Client Hierarchy"), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "404",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "Portfolios \xB7 channels \xB7 regions"), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "424",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "define which rows each user may see."), /*#__PURE__*/React.createElement("line", {
+    x1: "782",
+    y1: "400",
+    x2: "808",
+    y2: "400",
+    stroke: "#A8C6D8",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "808",
+    y: "354",
+    width: "232",
+    height: "92",
+    rx: "9",
+    fill: "#F3F7FD",
+    stroke: "#1C7293",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "382",
+    textAnchor: "middle",
+    fill: "#21295C",
+    fontSize: "14.5",
+    fontWeight: "700"
+  }, "Sensitive Data Protection"), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "404",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "Microsoft Purview DLP protects data"), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "424",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "across prompts, answers, and logs."), /*#__PURE__*/React.createElement("line", {
+    x1: "722",
+    y1: "523",
+    x2: "808",
+    y2: "523",
+    stroke: "#A8C6D8",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "808",
+    y: "480",
+    width: "232",
+    height: "202",
+    rx: "9",
+    fill: "#F3F7FD",
+    stroke: "#1C7293",
+    strokeWidth: "1.4"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "518",
+    textAnchor: "middle",
+    fill: "#21295C",
+    fontSize: "14.5",
+    fontWeight: "700"
+  }, "Monitoring & Response"), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "551",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "Defender, Azure Monitor, and"), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "573",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "Microsoft Sentinel monitor activity,"), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "595",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "generate alerts, and support"), /*#__PURE__*/React.createElement("text", {
+    x: "924",
+    y: "617",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "investigation and response."), /*#__PURE__*/React.createElement("rect", {
+    x: "40",
+    y: "480",
+    width: "232",
+    height: "202",
+    rx: "9",
+    fill: "none",
+    stroke: "#B24A3B",
+    strokeWidth: "1.6",
+    strokeDasharray: "6 5"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "518",
+    textAnchor: "middle",
+    fill: "#B24A3B",
+    fontSize: "14.5",
+    fontWeight: "700"
+  }, "Outside the AI boundary"), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "551",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "Cardholder account numbers are"), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "573",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "tokenized before analytics."), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "595",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "Live payment processing is"), /*#__PURE__*/React.createElement("text", {
+    x: "156",
+    y: "617",
+    textAnchor: "middle",
+    fill: "#3D4A5C",
+    fontSize: "11.5"
+  }, "never queried by the AI."))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "20px 24px",
+      borderRadius: 14,
+      background: "#f8f8f6",
+      border: `1px solid ${COLORS.border}`,
+      marginTop: 16
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      ...pText,
+      marginBottom: 0
+    }
+  }, "In plain English: the model can help form the question, but it cannot decide who may see the answer. Access is checked below the AI, every time data is requested."))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 32
+    }
+  }, /*#__PURE__*/React.createElement(SectionLabel, null, "Security built into the path to every answer"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(2, 1fr)",
+      gap: 12
+    }
+  }, expectations.map(e => /*#__PURE__*/React.createElement(NodeBox, {
+    key: e.title,
+    color: e.accent ? COLORS.quality : COLORS.router,
+    featured: e.accent,
+    bg: e.accent ? COLORS.qualityBg : "#fff",
+    style: {
+      padding: "14px 16px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      lineHeight: 1.5,
+      fontWeight: 600,
+      color: e.accent ? COLORS.quality : COLORS.router,
+      marginBottom: 4
+    }
+  }, e.title), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      lineHeight: 1.5,
+      color: COLORS.textMuted
+    }
+  }, e.desc))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 32
+    }
+  }, /*#__PURE__*/React.createElement(SectionLabel, null, "Security toolsets"), /*#__PURE__*/React.createElement("p", {
+    style: pText
+  }, "Each product has a defined job. No single tool, and not the AI model itself, is expected to provide all of the security."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(3, 1fr)",
+      gap: 12
+    }
+  }, tools.map(t => /*#__PURE__*/React.createElement(NodeBox, {
+    key: t.name,
+    color: COLORS.router,
+    style: {
+      padding: "14px 16px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      lineHeight: 1.5,
+      fontWeight: 600,
+      color: COLORS.router,
+      marginBottom: 4
+    }
+  }, t.name), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      lineHeight: 1.5,
+      color: COLORS.textMuted
+    }
+  }, t.job))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement(SectionLabel, null, "Guided by payment and AI security practices"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(3, 1fr)",
+      gap: 12
+    }
+  }, standards.map(s => /*#__PURE__*/React.createElement(NodeBox, {
+    key: s.name,
+    color: COLORS.border,
+    style: {
+      padding: "14px 16px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 18,
+      lineHeight: 1.4,
+      fontWeight: 600,
+      color: COLORS.funding,
+      marginBottom: 4
+    }
+  }, s.name), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      lineHeight: 1.5,
+      color: COLORS.textMuted
+    }
+  }, s.desc)))), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 14,
+      lineHeight: 1.5,
+      color: COLORS.textLight,
+      marginTop: 16,
+      marginBottom: 0
+    }
+  }, "These sources guide the security program. Controls are considered complete only after the configuration and test evidence have been reviewed by Security.")));
+}
 function App() {
   const [tab, setTab] = useState(0);
   const tabs = [{
@@ -2784,6 +3573,9 @@ function App() {
   }, {
     label: "Model summary",
     component: Diagram5
+  }, {
+    label: "Security",
+    component: Diagram6
   }, {
     label: "AI agent workflow",
     component: Diagram1
