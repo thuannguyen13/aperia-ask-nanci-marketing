@@ -9,6 +9,7 @@ cd "$(dirname "$0")"
 DECKS=(
   ask-nanci-architecture-summary
   ask-nanci-architecture-summary-generic
+  ask-nanci-architecture-summary-generic-short
 )
 
 PAGES=https://thuannguyen13.github.io/aperia-ask-nanci-marketing
